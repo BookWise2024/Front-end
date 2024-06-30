@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Pretendard;
+    src: url(../../assets/font/PretendardVariable.ttf);
+}
+
+.text {
+    color: #000;
+
+    /* subtitle/subtitle1 SB20 */
+    font-family: Pretendard;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 1.75rem */
+}

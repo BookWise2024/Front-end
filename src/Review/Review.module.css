@@ -1,0 +1,150 @@
+@font-face {
+    font-family : 'Pretendard';
+    src: url(../assets/font/PretendardVariable.ttf);
+}
+
+:root{
+    --white : #FFF;
+    --black : #000;
+    --positive : #2A6897;
+    --nagative : #CB0006;
+}
+
+.reviewLayout {
+    width: 23.4375rem;
+    height: 38.1875rem;
+    flex-shrink: 0;
+
+    background: var(--white);
+    margin: 1rem 0rem;
+}
+/* ======================================================= */
+.statement {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin: 1.25rem 15.44rem 0rem 1rem;
+}
+
+.hand {
+    width: 3rem;
+    height: 3rem;
+}
+
+.text {
+    color: var(--text_deep, #363636);
+    /* subtitle/subtitle1 SB20 */
+    font-family: 'Pretendard';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 1.75rem */
+}
+/* ======================================================= */
+.goodLayout {
+    width: 21.4375rem;
+    height: 12.6875rem;
+    flex-shrink: 0;
+
+    border-radius: 0.375rem;
+    background: #F3FAFF;
+
+    margin: 0.5rem 1rem 0rem 1rem;
+}
+.badLayout {
+    width: 21.4375rem;
+    height: 12.6875rem;
+    flex-shrink: 0;
+
+    border-radius: 0.375rem;
+    background: #FFF3F4;
+
+    margin: 0.5rem 1rem 0rem 1rem;
+}
+/* ======================================================= */
+.good {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    margin: 1rem 1.5rem 1rem 0.75rem;
+}
+.imgfst {
+    width: 4.625rem;
+    height: 1.75rem;
+}
+.imgsec {
+    width: 3.1875rem;
+    height: 3.1875rem;
+}
+.imgthd {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+/* ======================================================= */
+/* 긍정 리뷰 */
+/* ======================================================= */
+.reviewfstg {
+    color: var(--positive);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 13.8125rem;
+}
+.reviewsecg {
+    color: var(--positive);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 15.5rem;
+}
+.reviewthdg {
+    color: var(--positive);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 16rem;
+}
+/* ======================================================= */
+/* 부정 리뷰 */
+/* ======================================================= */
+.reviewfstb {
+    color: var(--nagative);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 13.8125rem;
+}
+.reviewsecb {
+    color: var(--nagative);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 15.5rem;
+}
+.reviewthdb {
+    color: var(--nagative);
+    font-family: 'Pretendard';
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 0.975rem */
+
+    width: 16rem;
+}

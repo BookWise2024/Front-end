@@ -1,0 +1,18 @@
+.CardContainer {
+  /* display: column;
+  padding: 0.75rem 1rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin: 1rem;
+  background: #F4F4F4; */
+
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  align-items: flex-start;
+  gap: 0.625rem;
+  margin: 1rem;
+  background: #F4F4F4;
+
+
+}

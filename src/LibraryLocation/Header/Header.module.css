@@ -1,0 +1,39 @@
+@font-face {
+    font-family : 'Pretendard';
+    src: url("../../assets/font/PretendardVariable.ttf");
+}
+
+.layout {
+    display: inline-flex;
+    height: 1.5rem;
+    padding: 1rem 1rem 1rem 8.125rem;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 5.6875rem;
+    flex-shrink: 0;
+
+    background: #FFF;
+}
+.title {
+    color: #000;
+
+    /* subtitle/subtitle2 SB18 */
+    font-family: 'Pretendard';
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 1.575rem */
+}
+
+.exit {
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.exit:hover {
+    cursor: pointer;
+}

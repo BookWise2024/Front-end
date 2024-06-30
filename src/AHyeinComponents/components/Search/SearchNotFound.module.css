@@ -1,0 +1,42 @@
+.searchResult {
+  display: flex;
+  justify-content: flex-start;
+  /* 헤더와 가까운 위치에 정렬 */
+ padding-top: 0.75rem;
+ padding-bottom: 0.75rem;
+
+  
+  /* border: 1px solid #ccc; */
+}
+
+.resultMessage {
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  /* 수직 정렬 */
+  /* 가로 방향 정렬 */
+  margin-right: 2.5rem;
+  
+}
+
+.searchTerm {
+  font-weight: bold;
+  /*bold하는게 눈에 더 잘들어와서 bold 사용, 색상을 입히는 키워드도 좋을것 같은데 우선 --text_normal 색으로 작업함.*/
+  color: var(--text_normal, #848484);
+  /* margin-right: 0.5rem;  */
+}
+
+.searchMessage {
+  color: var(--text-deep, #363636);
+  /* 일반 텍스트 색상 */
+  margin-right: 2rem;
+   font-weight: 500;
+}
+
+.DropdownMenu {
+
+
+  margin-left: 1rem;
+  /* DropdownMenu와 resultMessage 간의 간격 조정 제거 */
+  margin-left: 0;
+}
