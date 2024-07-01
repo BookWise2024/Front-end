@@ -1,6 +1,6 @@
 import style from './Header.module.css';
 // ==========================================
-import exitimg from '../../assets/img/menu/icon_close.svg';
+import exitimg from '../../../assets/img/menu/icon_close.svg';
 
 export default function Header() {
 

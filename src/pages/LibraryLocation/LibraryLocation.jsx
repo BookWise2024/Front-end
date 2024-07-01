@@ -5,7 +5,7 @@ import Search from './Search/SearchBar.jsx';
 import Map from './Map/KakaoMap.jsx';
 import Library from './Library/Library.jsx';
 // ==========================================
-import layout from '../Common/TestLayout.module.css'
+import layout from '../../Common/TestLayout.module.css'
 
 export default function LibraryLocation() {
 
