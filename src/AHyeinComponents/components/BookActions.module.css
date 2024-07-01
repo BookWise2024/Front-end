@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23.4375rem;
+  height: 8.5rem;
+  border: solid 2px #ccc;
+
+
+
+  /* 피그마 */
+  padding: 1.25rem 1.0625rem 1.25rem 1rem;
+  background: var(--bg-color);
+}
+
+.bookActionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 10.4375rem;
+  height: 6rem;
+  border-radius: 0.375rem;
+  background: var(--bg-normal, #EBF7FF);
+  margin-right: 0.5rem;
+  text-align: center;
+
+ 
+}
+
+.actionTitle {
+  align-items:center;
+  margin-bottom: 10px;
+
+
+  /* 아마도 AppStyle 적용할거 */
+  font-size: 1rem;
+  color: #333;
+}
+
+
+/* action button */
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background-color: var(--main-color,#38ACFF);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./InputField.module.css";
-import SearchIcon from "../../assets/img/icon_search.svg";
+import SearchIcon from "../../assets/img/search/icon_search.svg";
 
 const InputField = ({ q = "" }) => {
   const [search, setSearch] = useState("");
