@@ -19,23 +19,23 @@
     height: 41.6875rem;
     flex-shrink: 0;
 
-    
+
     background-color: rgba(0, 0, 0, 0.5);
     background: #000;
     overflow: hidden;
 }
 
-body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+/*body {*/
+/*    margin: 0;*/
+/*    display: flex;*/
+/*    place-items: center;*/
+/*    min-width: 320px;*/
+/*    min-height: 100vh;*/
 
-    background-color: var(#242424);
-}
+/*    background-color: var(#242424);*/
+/*}*/
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
+/*h1 {*/
+/*    font-size: 3.2em;*/
+/*    line-height: 1.1;*/
+/*}*/

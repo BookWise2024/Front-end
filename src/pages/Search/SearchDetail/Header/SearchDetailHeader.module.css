@@ -1,0 +1,26 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 21.4375rem;
+  justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  background: var(--main-color, #38ACFF);
+  flex-shrink: 0;
+  padding: 1rem;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
