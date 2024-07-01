@@ -1,0 +1,75 @@
+.bookListContainer {
+    
+    display: flex;
+  flex-direction: column;
+
+
+
+
+}
+.title {
+ 
+  width: 6.125rem;
+  height: 1.5rem;
+ 
+  flex-shrink: 0;
+  color: #000;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  align-items: center;
+  
+
+}
+
+.totalCount {
+  display: flex;
+  width: 2.875rem;
+  height: 1.1875rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #000;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+}
+
+/* 쥐핏 */
+.bookList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 23.4375rem;
+  height: 0.125rem;
+  flex-shrink: 0;
+}
+
+.bookItem {
+
+  width: 8.0625rem;
+  height: 12.1875rem;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.bookImage {
+
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.bookListHeader {
+  display: flex;
+
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bookListHeader .title {
+  margin: 0;
+
+}

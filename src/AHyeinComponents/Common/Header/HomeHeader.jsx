@@ -3,9 +3,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./HomeHeader.module.css";
 
-import MenuIcon from "../../assets/img/icon_menu.svg";
-import BookIcon from "../../assets/img/icon_book.svg";
-import TextLogo from "../../assets/img/text_logo.svg";
+import MenuIcon from "../../assets/img/menu/icon_menu.svg";
+import BookIcon from "../../assets/img/menu/book_icon_white.svg";
+import TextLogo from "../../assets/img/menu/bookwise_text_logo.svg";
 const HomeHeader = () => {
   // eslint-disable-next-line no-unused-vars
   const local = "http://localhost:5173/";
