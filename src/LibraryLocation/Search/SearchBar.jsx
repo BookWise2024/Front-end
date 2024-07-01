@@ -1,6 +1,6 @@
 import style from './Search.module.css';
 // ==========================================
-import searchimg from '../../assets/img/search/icon_search.svg';
+import searchimg from '../../assets/img/menu/icon_search.svg';
 
 export default function SearchBar() {
 

@@ -2,8 +2,8 @@ import { useState } from 'react'
 import kakao from './Kakao.module.css'
 import layout from '../Common/TestLayout.module.css'
 import exit from '../assets/img/menu/icon_close.svg'
-import logo from '../assets/img/logo/bookwise_logo.svg'
-import kakaologo from '../assets/img/login/kakao-svgrepo.svg'
+import logo from '../assets/img/menu/logo/bookwise_logo.svg'
+import kakaologo from '../assets/img/menu/logo/kakaoLogo.svg'
 
 export default function Login() {
 

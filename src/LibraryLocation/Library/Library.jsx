@@ -1,6 +1,6 @@
 import style from './Library.module.css';
 // ==========================================
-import loc from '../../assets/img/map/location.svg';
+import loc from '../../assets/img/map/icon_location.svg';
 
 export default function Library() {
 
