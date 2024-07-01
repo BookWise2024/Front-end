@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import style from "../SearchCard/SearchCard.module.css";
+import style from "./SearchCard.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
-import SearchHeader from "../../../../Common/SearchHeader/SearchHeader.jsx";
+import SearchHeader from "../../../Common/SearchHeader/SearchHeader.jsx";
 // import DropdownMenu from "../../components/DropdownMenu.jsx";
 // import AppStyle from "../../App.module.css";
 import SearchResult from "../SearchResult/SearchResult.jsx";

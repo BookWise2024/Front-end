@@ -6,20 +6,17 @@ import Callback from './Login/Callback.jsx';
 import SubMenu from './HambergerMenu/SubMenu.jsx';
 import LibrarySearch from './LibraryLocation/LibraryLocation.jsx';
 import Review from './Review/Review.jsx';
-import HomeHeader from "./Common/SearchHeader/Header/HomeHeader.jsx";
-import BookList from "./AHyeinComponent/Common/Book/BookList.jsx";
-import SearchDetailHeader from "./AHyeinComponent/pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
-import BookSearchList from "./AHyeinComponent/Common/Book/BookSearchList.jsx";
-import SearchNotFound from "./AHyeinComponent/pages/Search/SearchNotFound/SearchNotFound.jsx";
-import DropdownMenu from "./AHyeinComponent/Common/Dropdown/DropdownMenu.jsx";
-import SearchResult from "./AHyeinComponent/pages/Search/SearchResult/SearchResult.jsx";
-import SearchDetail from "./AHyeinComponent/pages/Search/SearchDetail/SearchDetail.jsx";
-import SearchHeader from "./Common/SearchHeader/SearchHeader.jsx";
-import InputField from "./Common/SearchHeader/Input/InputField.jsx";
-import SearchCard from "./AHyeinComponent/pages/Search/SearchCard/SearchCard.jsx";
-import AladinSearch from "./AHyeinComponent/components/Aladin/AladinSearch.jsx";
-import BookLike from "./AHyeinComponent/pages/BookLike/BookLike.jsx";
-import NotFound from "./AHyeinComponent/pages/NotFound/NotFound.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
+import BookLike from "./pages/BookLike/BookLike.jsx";
+import AladinSearch from "./components/Aladin/AladinSearch.jsx";
+import SearchCard from "./pages/Search/SearchCard/SearchCard.jsx";
+import SearchDetail from "./pages/Search/SearchDetail/SearchDetail.jsx";
+import SearchResult from "./pages/Search/SearchResult/SearchResult.jsx";
+import DropdownMenu from "./Common/Dropdown/DropdownMenu.jsx";
+import SearchNotFound from "./pages/Search/SearchNotFound/SearchNotFound.jsx";
+import BookSearchList from "./Common/Book/BookSearchList.jsx";
+import SearchDetailHeader from "./pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
+import BookList from "./Common/Book/BookList.jsx";
 
 function App() {
 
@@ -44,7 +41,6 @@ function App() {
         {/*</>*/}
         <>
             <Routes>
-                <Route path="/HomeHeader" element={<HomeHeader />} />
 
                 <Route path="/BookList" element={<BookList />} />
                 <Route path="/SearchDetailHeader" element={<SearchDetailHeader />} />
@@ -52,13 +48,11 @@ function App() {
                 <Route path="/SearchNotFound" element={<SearchNotFound />} />
                 <Route path="/DropdownMenu" element={<DropdownMenu />} />
                 <Route path="/SearchResult" element={<SearchResult />} />
-                <Route path="/SearchDetail" element={<SearchDetail />} />
-                <Route path="/SearchHeader" element={<SearchHeader />} />
-                <Route path="/InputField" element={<InputField />}  />
+                {/*<Route path="/SearchDetail" element={<SearchDetail />} /> */}
+
                 <Route path="/SearchCard" element={<SearchCard />}  />
                 <Route path="/AladinSearch" element={<AladinSearch />}  />
                 <Route path="/BookLike" element={<BookLike />}  />
-                <Route path="/HomeHeader" element={<HomeHeader />}  />
                 <Route path="*" element={<NotFound />} />
 
 

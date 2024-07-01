@@ -5,7 +5,7 @@ import Layout from "../../../Common/Layout/Layout.jsx"; // 주석 해제
 // import Header from "../HomeHeader.jsx";
 import BookList from "../../../Common/Book/BookList.jsx";
 import BookActions from "../../../Common/Book/BookActions.jsx";
-import DetailHeader from "../../../pages/Search/SearchDetail/SearchDetail.jsx";
+import DetailHeader from "./SearchDetail.jsx";
 
 
 const SearchDetail = () => {

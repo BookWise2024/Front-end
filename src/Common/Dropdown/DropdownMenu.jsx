@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import AppStyle from "../../App.module.css";
 import styles from "./DropdownMenu.module.css";
-import DownArrow from "../../assets/img/arrow/arrow_down.svg";
+import DownArrow from "../../assets/img/menu/arrow/arrow_down.svg";
 
 const DropdownMenu = ({ className }) => {
   const [selectedOption, setSelectedOption] = useState("인기순");

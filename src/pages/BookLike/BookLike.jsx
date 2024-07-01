@@ -1,4 +1,4 @@
-import SearchHeader from '../../../Common/SearchHeader/SearchHeader.jsx';
+import SearchHeader from '../../Common/SearchHeader/SearchHeader.jsx';
 import styles from './BookLike.module.css';
 // import Layout from '../Common/Layout/Layout.jsx';
 

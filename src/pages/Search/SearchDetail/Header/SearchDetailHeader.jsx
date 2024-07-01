@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./SearchDetailHeader.module.css";
 
 // 아이콘 임포트
-import LeftArrow from "../../../../assets/img/arrow/arrow_left.svg";
+import LeftArrow from "../../../../assets/img/menu/arrow/arrow_left.svg";
 import BookIcon from "../../../../assets/img/menu/book_icon_white.svg"; // 실제 아이콘 경로로 변경 필요
 
 const SearchDetailHeader = () => {
