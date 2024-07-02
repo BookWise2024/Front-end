@@ -14,7 +14,7 @@ export default function LibraryLocation() {
             <Header/>
             <Search/>
             <Map/>
-            {/*<Library/>*/}
+            <Library/>
         </div>
     )
 }
