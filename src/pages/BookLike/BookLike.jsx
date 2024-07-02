@@ -18,7 +18,7 @@ const BookLikeList = () => {
          <div className={styles.bookList}>
                 {books.map((book, index) => (
                     <div className={styles.bookItem} key={index}>
-                        <img src={book.img} alt={book.title} className={styles.bookImage} />
+                        <img src={book.img} alt={book.title} className={styles.bookImage} /> 
                         
                     </div>
                 ))}
