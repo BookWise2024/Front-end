@@ -3,13 +3,14 @@ import styles from "./SearchNotFound.module.css";
 import AppStyle from "../../../App.module.css";
 import SearchHeader from "../../../Common/SearchHeader/SearchHeader.jsx";
 import Layout from "../../../Common/Layout/Layout.jsx";
-import DropdownMenu from "../../../Common/Dropdown/DropdownMenu.jsx";
+import SearchResult from "../SearchResult/SearchResult.jsx";
 
 const SearchNotFound = () => {
   return (
     <Layout>
       <SearchHeader />
       {/* SearchResult 컴포넌트 필요 */}
+      <SearchResult />
       <div className={styles.searchResult}>
         <div className={styles.resultMessage}>
           <span className={`${AppStyle.Body4} ${styles.searchTerm}`}>
@@ -19,8 +20,6 @@ const SearchNotFound = () => {
             검색 결과를 찾을 수 없어요
           </span>
         </div>
-        <DropdownMenu className={styles.DropdownMenu} />
-        {/* 탭필터 구현 */}
       </div>
     </Layout>
   );

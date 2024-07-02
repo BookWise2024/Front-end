@@ -17,8 +17,7 @@ const SearchResult = ({searchTerm}) => {
             검색결과
           </span>
         </span>
-        <DropdownMenu className={style.DropdownMenu} />
-        {/* 탭필터 구현 */}
+     
       </div>
    
   );

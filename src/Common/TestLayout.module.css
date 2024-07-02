@@ -11,8 +11,6 @@
     background: var(--white);
     overflow: hidden;
     display: block;
-
-    border: solid 1px #cccc;
 }
 
 /* hamberger menu 오픈 시 배경 */

@@ -5,7 +5,7 @@ import styles from "./DropdownMenu.module.css";
 import DownArrow from "../../assets/img/menu/arrow/arrow_down.svg";
 
 const DropdownMenu = ({ className }) => {
-  const [selectedOption, setSelectedOption] = useState("거리순");
+  const [selectedOption, setSelectedOption] = useState("인기순");
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -19,7 +19,7 @@ const DropdownMenu = ({ className }) => {
     console.log(`Selected option: ${option}`);
   };
 
-  const options = ["거리순", "보유순"];
+  const options = ["인기순", "최신순"];
 
   return (
     <div className={`${AppStyle.Caption2} ${styles.dropdown} ${className}`}>
