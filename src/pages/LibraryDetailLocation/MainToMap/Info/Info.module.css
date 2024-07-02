@@ -1,0 +1,41 @@
+.base {
+    display: flex;
+    padding: 1rem 7.25rem 0.875rem 1rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.875rem;
+
+    background: #F4F4F4;
+
+    margin-top: 0.125rem;
+}
+
+.title {
+    color: var(--text_deep, #363636);
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.img {
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail {
+    color: var(--text_deep, #363636);
+}

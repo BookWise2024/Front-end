@@ -71,7 +71,7 @@
 /* dongbeom's style */
 
 .Wrapper {
-  position: fixed;
+  position: absolute;
 
   display: flex;
   width: 100%; /* 너비를 100%로 설정 */

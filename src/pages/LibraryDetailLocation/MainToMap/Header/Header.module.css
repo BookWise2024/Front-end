@@ -1,7 +1,7 @@
 .layout {
     display: inline-flex;
     height: 1.5rem;
-    padding: 1rem 1rem 1rem 8.125rem;
+    padding: 1rem 0.75rem 1rem 0.75rem;
     justify-content: flex-end;
     align-items: flex-start;
     gap: 5.6875rem;
@@ -22,6 +22,11 @@
     flex-shrink: 0;
 }
 
-.exit:hover {
+.back {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.exit, .back:hover {
     cursor: pointer;
 }

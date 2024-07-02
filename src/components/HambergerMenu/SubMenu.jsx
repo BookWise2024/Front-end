@@ -89,7 +89,8 @@ export default function SubMenu() {
             <div className={ styles.sublayout }>
                 <div className={ styles.identity } onClick={ (e) => {
                     if(!user){
-                        window.location.href = "http://localhost:5173/login";
+                        // window.location.href = "http://localhost:5173/login";
+                        navigate("/login");
                     }
                 } }>{ email }</div>
                 <div className={ styles.divide }></div>
