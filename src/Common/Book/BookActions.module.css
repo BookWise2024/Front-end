@@ -7,10 +7,12 @@
   align-items: center;
   flex-shrink: 0;
   background: #FFF;
-
 }
 
 .bookActionBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 21.4375rem;
   height: 8.4375rem;
   flex-shrink: 0;
@@ -20,7 +22,7 @@
 
 .actionTitle {
   color: #000;
-  font-family: "Jalnan 2 TTF";
+  font-family: "Jalnan2TTF";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -28,26 +30,26 @@
   /* 1.225rem */
   align-items: center;
   margin-bottom: 10px;
-
-
-
+  flex-direction: row;
   /* 아마도 AppStyle 적용할거 */
   font-size: 1rem;
   color: #333;
 }
 
-
-/* action button */
-.button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  color: #FFFFFF;
-  background-color: var(--main-color, #38ACFF);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
+.LibrarySearchIcon {
+  width: 7.5625rem;
+  height: 6.4375rem;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.button:hover {
-  background-color: #f0f0f0;
+.Search_txt_box {
+  margin: 1.25rem;
+  margin-right: -0.5rem;
+}
+
+.message {
+
 }

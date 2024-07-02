@@ -1,32 +1,71 @@
+// import style from "./BookSearchList.module.css";
+// import Book2 from "../../assets/img/book/book2.png";
+// import AppStyle from "../../App.module.css";
+
+// const BookSearchList = () => {
+//   return (
+//     <div className={style.container}>
+//       <div className={style.list_container}>
+//         <img className={style.BookImg} src={Book2} alt="책1" />
+//         <div className="caption">
+//           <div
+//             style={{ color: "var(--text-deep)" }}
+//             className={AppStyle.subtitle2}
+//           >
+//             해리포터: 죽음의 성물
+//           </div>
+//           <div
+//             style={{ color: "var(--text-normal)" }}
+//             className={AppStyle.Boby4}
+//           >
+//             Rowling J. K.
+//           </div>
+//           <div
+//             style={{ color: "var(--text-normal)" }}
+//             className={AppStyle.Caption1}
+//           >
+//             덤블도어 교장의 죽음 이후, 마법부는 죽음을 <br />
+//             먹는 자들에게 점령당하고 호그와트는 위기에 <br />
+//             빠진다.
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BookSearchList;
+
+
+// 수정본
+import React from 'react';
 import style from "./BookSearchList.module.css";
-import Book2 from "../../assets/img/book/book2.png";
 import AppStyle from "../../App.module.css";
 
-const BookSearchList = () => {
+const BookSearchList = ({ book }) => {
+  console.log('Book data:', book); // 디버깅용
   return (
     <div className={style.container}>
       <div className={style.list_container}>
-        <img className={style.BookImg} src={Book2} alt="책1" />
-        <div className="caption">
+        <img className={style.BookImg} src={book.cover} alt={book.title} />
+        <div className={style.caption}>
           <div
             style={{ color: "var(--text-deep)" }}
             className={AppStyle.subtitle2}
           >
-            해리포터: 죽음의 성물
+            {book.title}
           </div>
           <div
             style={{ color: "var(--text-normal)" }}
             className={AppStyle.Boby4}
           >
-            Rowling J. K.
+            {book.author}
           </div>
           <div
             style={{ color: "var(--text-normal)" }}
             className={AppStyle.Caption1}
           >
-            덤블도어 교장의 죽음 이후, 마법부는 죽음을 <br />
-            먹는 자들에게 점령당하고 호그와트는 위기에 <br />
-            빠진다.
+            {book.description || "설명이 없습니다."}
           </div>
         </div>
       </div>

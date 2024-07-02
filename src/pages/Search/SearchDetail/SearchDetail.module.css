@@ -1,6 +1,108 @@
+.container {
+  display: flex;
+  width: 21.4375rem;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background: #FFF;
+  margin: 0 auto;
+  margin-bottom: 0.75rem;
+}
+
+.Bookimg {
+  width: 10.9375rem;
+  height: 16.375rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+}
+
+.author_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.63rem;
+  text-align: center;
+}
+
+.detail_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info_title {
+
+
+  display: inline-flex;
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.txt_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.detail_component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.main_title {
+  margin-top: 1.25rem;
+}
+
+.book_container {
+  margin-bottom: 1.75rem;
+}
+
 .BookList {
   display: flex;
   flex-direction: column;
 }
 
+.text_normal {
+  color: var(--text-color, #848484);
+}
 
+.bookmark {
+  position: absolute;
+  top: 65%;
+  right: -5rem;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bookmarked img {
+  filter: invert(31%) sepia(83%) saturate(4865%) hue-rotate(202deg) brightness(93%) contrast(96%);
+
+  
+}
+
+.title_container {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.25rem;
+}
+
+.main_title {
+  display: inline-block;
+}
+
+ 
