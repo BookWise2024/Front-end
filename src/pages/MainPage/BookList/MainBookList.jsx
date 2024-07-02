@@ -33,9 +33,9 @@ export default function MainBookList() {
 
                 // 유저 정보가 null이 아니면 정보를 이메일로 세팅
                 if(user) {
-                    setEmail(user.email);
+                    setUser(user.userEmail);
                 } else {
-                    setEmail("로그인이 필요합니다.");
+                    setUser("로그인이 필요합니다.");
                 }
 
             } catch (err) {
