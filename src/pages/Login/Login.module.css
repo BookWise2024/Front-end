@@ -3,8 +3,10 @@
     src: url(../../assets/font/Jalnan2TTF.ttf);
 }
 @font-face {
-    font-family : 'Pretendard';
-    src: url(../../assets/font/PretendardVariable.ttf);
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
 }
 
 :root{
@@ -65,7 +67,7 @@
     align-items: center;
     gap: 2.5rem;
 
-    margin: 8.25rem 1rem 0rem 1rem;
+    margin: 7.25rem 1rem 0rem 1rem;
 }
 
 .desc {
@@ -73,7 +75,7 @@
 
     text-align: center;
     /* subtitle/subtitle3 M18 */
-    font-family: 'Pretendard';
+    font-family: 'Pretendard-Regular';
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 500;
@@ -84,14 +86,12 @@
 }
 .kakaoButton {
     display: flex;
-    padding: 1rem 4.4375rem;
+    padding: 1rem 3.4rem;
     justify-content: center;
     align-items: center;
 
     border-radius: 0.5rem;
     background: #FAE100;
-
-    padding: 1rem 4.34rem;
 }
 .buttonContent {
     display: flex;
@@ -105,9 +105,13 @@
 .buttonText {
     color: #1E1E1E;
 
-    font-family:'Pretendard';
+    font-family:'Pretendard-Regular';
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 1.5rem */
+}
+
+.kakaoButton:hover {
+    cursor: pointer;
 }

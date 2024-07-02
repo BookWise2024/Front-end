@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import kakao from './Kakao.module.css'
+import { useNavigate } from 'react-router-dom'
+import kakao from './Login.module.css'
 import layout from '../../Common/TestLayout.module.css'
 import exit from '../../assets/img/menu/icon_close.svg'
 import logo from '../../assets/img/menu/logo/bookwise_logo.svg'
 import kakaologo from '../../assets/img/menu/logo/kakaoLogo.svg'
 
-export default function Login() {
+export default function KakaoLogin() {
 
     const Rest_api_key='451aea6cf5b0142c652610b32748b4e9' //REST API KEY
     const redirect_uri = 'http://localhost:5173/auth/kakao/callback' //Redirect URI
@@ -15,8 +16,10 @@ export default function Login() {
         window.location.href = kakaoURL
     }
 
+    const navigate = useNavigate();
     const goBack = () => {
-        location.href = 'http://localhost:5173/';
+        // location.href = 'http://localhost:5173/';
+        navigate('/');
     }
 
     return (

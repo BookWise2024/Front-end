@@ -7,14 +7,11 @@ import MenuIcon from "../../../assets/img/menu/icon_menu.svg";
 import BookIcon from "../../../assets/img/menu/book_icon_white.svg";
 import TextLogo from "../../../assets/img/menu/logo/bookwise_text_logo.svg";
 const HomeHeader = () => {
-  // eslint-disable-next-line no-unused-vars
-  const local = "http://localhost:5173/";
-
   const navigate = useNavigate();
 
   const hamberger = async () => {
     // 삼단바를 click하면 비동기적으로 hambergermenu로 이동
-    navigate("sub");
+    navigate("/sub");
   };
 
   return (
