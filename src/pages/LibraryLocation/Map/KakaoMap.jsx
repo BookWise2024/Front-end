@@ -72,3 +72,5 @@ export default function KakaoMap() {
         </>
     )
 }
+
+// commit 필수
