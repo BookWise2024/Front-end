@@ -5,7 +5,8 @@ import MainPage from './pages/MainPage/MainPage.jsx';
 import Callback from './pages/Login/Callback.jsx';
 import SubMenu from './components/HambergerMenu/SubMenu.jsx';
 import LibrarySearch from './pages/LibraryLocation/LibraryLocation.jsx';
-import LibraryDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
+import MainLibraryDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
+import BookInfoLibraryDetailLocation from "./pages/LibraryDetailLocation/BookInfoToMap/LibraryDetailLocation.jsx";
 import Review from './Review/Review.jsx';
 
 // =============================================================================================
@@ -31,16 +32,18 @@ function App() {
                 <li><Link to="/">Main Page</Link></li>
                 <li><Link to="/sub">Hamberger Menu</Link></li>
                 <li><Link to="/library">Library Map</Link></li>
-                <li><Link to="/libraryInfo">Library Detail</Link></li>
+                <li><Link to="/MainlibraryInfo">Library Detail(Main to detail)</Link></li>
+                <li><Link to="/BookInfoLibraryInfo">Library Detail(BookInfo to detail)</Link></li>
                 <li><Link to="/review">Review Page</Link></li>
             </ul>
             <Routes>
-                <Route path="/login" element={<KakaoLogin />}/>
+                <Route path="/login" element={<KakaoLogin/>}/>
                 <Route path = "/auth/kakao/callback" element={<Callback />}/>
                 <Route path = "/" element={<MainPage />}/>
                 <Route path = "/sub" element={<SubMenu />}/>
                 <Route path = "/library" element={<LibrarySearch />}/>
-                <Route path = "/libraryInfo" element={<LibraryDetailLocation />}/>
+                <Route path = "/MainLibraryInfo" element={<MainLibraryDetailLocation />}/>
+                <Route path = "/BookInfoLibraryInfo" element={<BookInfoLibraryDetailLocation />}/>
                 <Route path = "/review" element={<Review />}/>
             </Routes>
         </>

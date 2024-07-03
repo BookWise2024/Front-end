@@ -9,6 +9,7 @@ import AppStyle from "../../App.module.css";
 import SearchHeader from "../../Common/SearchHeader/SearchHeader.jsx";
 import MainBookList from './BookList/MainBookList.jsx';
 import SubBookList from './BookList/SubBookList.jsx';
+import AgeBookList from './BookList/AgeBookList.jsx';
 
 
 export default function MainPage() {
@@ -19,6 +20,7 @@ export default function MainPage() {
             <div className={mainStyle.container}>
                 <MainBookList/>
                 {/* <SubBookList/> */}
+                <AgeBookList/>
             </div>
         </div>
     );
