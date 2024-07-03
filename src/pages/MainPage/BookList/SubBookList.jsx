@@ -9,11 +9,13 @@ import scroll from "./WithScroll.jsx"
 
 export default function MainBookList() {
     // 정보나루 api_key(정보나루 api 문서 page7~8 참고)
-    const jungbonaru_api = "3bf8f995a4d8a78bcc0dd4c2e503b06287b7f0f6dd3185e0d91c0ad715c63ad5";
-    const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey=" + jungbonaru_api;
-    const age = [{name : '청소년' ,from_age : '0', to_age : '10'},
-        {name : '청년', from_age : '20', to_age : '30'},
-        {name : '장년', from_age : '40', to_age : '100'}];
+    const jungbonaru_api = "ff319884fdb9bb83c452d9c202b01c1a5c1e9e9e04030d785bbdec6aaa16e638";
+    const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey=" + jungbonaru_api + '&format=json';
+    const age = [
+        {name : '청소년' ,from_age : '0', to_age : '19'},
+        {name : '청년', from_age : '20', to_age : '39'},
+        {name : '장년', from_age : '40', to_age : '100'}
+    ];
 
     // const navigate = useNavigate();
     const baseUrl = "http://localhost:8080";
@@ -36,9 +38,9 @@ export default function MainBookList() {
 
                 // 유저 정보가 null이 아니면 정보를 이메일로 세팅
                 if(user) {
-                    setEmail(user.email);
+                    setUser(user.userEmail);
                 } else {
-                    setEmail("로그인이 필요합니다.");
+                    setUser("로그인이 필요합니다.");
                 }
 
             } catch (err) {
@@ -58,9 +60,18 @@ export default function MainBookList() {
         };
         
         // 연령대별 추천 책 리스트 요청(반복문 필요)
-        const ageRecomend = async() => {
+        const ageRecomend = async(num) => {
             try{
-                const res = await axios.get(best_take_out_url + '&from_age=' + age.from_age + '&to_age=' + age.to_age);
+                const res = await axios.get(best_take_out_url +
+                    '&from_age=' + age[num].from_age + '&to_age=' + age[num].to_age);
+
+                const jsonData = res.data;
+                console.log(jsonData);
+                console.log(jsonData.response.docs);
+                // data 순서 -> response/docs[i]/doc/...
+                const bookList = jsonData.response.docs;
+
+                setList(bookList);
             } catch(e) {
                 console.log(e);
             }
@@ -70,6 +81,7 @@ export default function MainBookList() {
         // if(user) {
         //     recomend();
         // }
+        ageRecomend(0);
     },[]);
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경
@@ -90,24 +102,25 @@ export default function MainBookList() {
     //                 <>
     //                 <img
     //                 style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
-    //                 src={ list[i].image }/>
+    //                 src={ list[i].doc.bookImageURL }/>
     //                 </>
     //         )
     //     }
     // }
 
     // 추천 책 top 10
-    // for(let i = 0; i < 10; i++){
-    //     bookElements.push(
-    //         <>
-    //             <img
-    //                 key={i}
-    //                 style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-    //                 src={list[i].bookImageURL}
-    //             />
-    //         </>
-    //     )
-    // }
+    for(let i = 0; i < 10; i++){
+        bookElements.push(
+            <>
+                <img
+                    key={i}
+                    style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
+                    // src={secList[i].doc.bookImageURL}
+                    src={list[i]}
+                />
+            </>
+        )
+    }
 
     bookList.push(
         <>

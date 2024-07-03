@@ -5,7 +5,7 @@ import DropDown from '../../../Common/Dropdown/DropdownMenu.jsx';
 // ==========================================
 import loc from '../../../assets/img/map/icon_location_gray.svg';
 
-export default function Library() {
+export default function Library({ result, libraryList }) {
 
     return (
         <>
@@ -18,21 +18,21 @@ export default function Library() {
                     <div className={ style.icon }>
                         <img src={ loc }/>
                     </div>
-                    <div className={ AppStyle.Body4 }>노원구 월계동</div>
+                    <div className={ AppStyle.Body4 }>Location</div>
                 </div>
                 <DropDown/>
             </div>
             <div className={ style.librarys }>
                 <div className={ style.libraryInfo }>
                     <div className={ `${ AppStyle.Body1 } ${ style.libraryName }` }>
-                        도서관 명
+                        { libraryList[parseInt(0)].lib.libName }
                     </div>
                     <div className={ style.libraryLoc }>
                         <div className={ `${ AppStyle.Body4 } ${ style.address }` }>
-                            주소
+                            { libraryList[parseInt(0)].lib.address }
                         </div>
                         <div className={ `${ AppStyle.Caption2 } ${ style.distance }` }>
-                            1km
+                            { result.distance }
                         </div>
                     </div>
                 </div>
