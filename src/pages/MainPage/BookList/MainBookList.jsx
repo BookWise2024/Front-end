@@ -5,7 +5,7 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import scroll from "./WithScroll.jsx";
+import WithScroll from "./WithScroll.jsx";
 
 
 
@@ -63,10 +63,10 @@ export default function MainBookList() {
                 const res = await axios.get(best_take_out_url);
                 const jsonData = res.data;
 
-                console.log(jsonData);
-                console.log(jsonData.response.docs);
+                // console.log(jsonData);
+                // console.log(jsonData.response.docs);
                 // data 순서 -> response/docs[i]/doc/...
-                const bookList = jsonData.response.docs;
+                const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
 
                 setList(bookList);
             } catch(e) {
@@ -111,7 +111,6 @@ export default function MainBookList() {
                     <img
                         key={i}
                         style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-                        // src={list[i].doc.bookImageURL}
                         src={list[i]}
                     />
                 </>
