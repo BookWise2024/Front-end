@@ -1,3 +1,5 @@
+import {useNavigate} from "react-router-dom";
+// ==========================================
 import style from './Library.module.css';
 import AppStyle from '../../../App.module.css';
 // ==========================================
@@ -6,6 +8,11 @@ import DropDown from '../../../Common/Dropdown/DropdownMenu.jsx';
 import loc from '../../../assets/img/map/icon_location_gray.svg';
 
 export default function Library({ result, libraryList }) {
+
+    const navigate = useNavigate();
+    const gotoInfo = () => {
+        navigate("/MainlibraryInfo", { state: libraryList });
+    }
 
     return (
         <>
@@ -23,13 +30,15 @@ export default function Library({ result, libraryList }) {
                 <DropDown/>
             </div>
             <div className={ style.librarys }>
-                <div className={ style.libraryInfo }>
+                <div className={ style.libraryInfo } onClick={ gotoInfo }>
                     <div className={ `${ AppStyle.Body1 } ${ style.libraryName }` }>
-                        { libraryList[parseInt(0)].lib.libName }
+                        {/*{ libraryList[parseInt(0)].lib.libName }*/}
+                        { libraryList[parseInt(0)] }
                     </div>
                     <div className={ style.libraryLoc }>
                         <div className={ `${ AppStyle.Body4 } ${ style.address }` }>
-                            { libraryList[parseInt(0)].lib.address }
+                            {/*{ libraryList[parseInt(0)].lib.address }*/}
+                            { libraryList[parseInt(0)] }
                         </div>
                         <div className={ `${ AppStyle.Caption2 } ${ style.distance }` }>
                             { result.distance }
