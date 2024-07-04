@@ -37,7 +37,7 @@ export default function MainBookList() {
                 console.log(jsonData);
                 console.log(jsonData.response.docs);
                 // data 순서 -> response/docs[i]/doc/...
-                const bookList = jsonData.response.docs;
+                const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
 
                 setFstList(bookList);
             } catch(e) {

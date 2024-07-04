@@ -30,22 +30,23 @@ export default function LibraryLocation() {
         };
 
         GetUserLocation(handleLocationSuccess, handleLocationError);
+
         const around = async() => {
-            const res = await axios.get("/api/library?latitude=" + userLocation.lat
+            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude=" + userLocation.lat
                 + "&longitude=" + userLocation.lat);
 
             console.log(res.data);
             setResult(res.data);
         }
 
-        // around();
+        around();
     },[]);
 
     // 정보 나루 api에서 도서관 정보(319개) 리스트로 가져오기
-    useEffect(() => {
-        // 호이스팅
-        LibraryLoc();
-    },[]);
+    // useEffect(() => {
+    //     // 호이스팅
+    //     LibraryLoc();
+    // },[]);
 
     // jungbonaru library api key & URL
     const jungbonaru_api_key = "ff319884fdb9bb83c452d9c202b01c1a5c1e9e9e04030d785bbdec6aaa16e638";
@@ -55,13 +56,13 @@ export default function LibraryLocation() {
     const [libraryList, setLibraryList] = useState([]);
 
     // 정보나루 도서관 api
-    const LibraryLoc = async() => {
-        const res = await axios.get(libraryUrl + '&pageSize=319');
-        const jsonData = res.data;
-
-        console.log(jsonData.response.libs);
-        setLibraryList(jsonData.response.libs);
-    }
+    // const LibraryLoc = async() => {
+    //     const res = await axios.get(libraryUrl + '&pageSize=319');
+    //     const jsonData = res.data;
+    //
+    //     console.log(jsonData.response.libs);
+    //     setLibraryList(jsonData.response.libs);
+    // }
 
     return (
         <div className={ layout.layout }>
