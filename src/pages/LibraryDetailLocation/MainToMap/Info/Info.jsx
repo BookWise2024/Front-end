@@ -6,13 +6,16 @@ import calandar_img from '../../../../assets/img/map/icon_calendar.svg';
 import home_img from '../../../../assets/img/map/icon_home.svg';
 import App from "../../../../App.jsx";
 
-export default function Info() {
+export default function Info({state}) {
+
+    const libraryList = state;
+    console.log(state);
 
     const info = [];
     const infoList = [
-        { img: location_img, info: '서울 서초구 반포대로 201' },
-        { img: calandar_img, info: '매달 2, 4번째 월요일 / 법정공휴일'},
-        { img: home_img, info: 'https://www.nl.go.kr/'}
+        { img: location_img, info: libraryList },
+        { img: calandar_img, info: libraryList },
+        { img: home_img, info: libraryList }
     ]
 
     for (let i = 0; i < infoList.length; i++) {
