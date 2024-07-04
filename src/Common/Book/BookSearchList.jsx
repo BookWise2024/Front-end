@@ -38,17 +38,15 @@
 
 
 // 수정본
-import React from 'react';
 import style from "./BookSearchList.module.css";
 import AppStyle from "../../App.module.css";
 
 const BookSearchList = ({ book }) => {
-  console.log('Book data:', book); // 디버깅용
   return (
     <div className={style.container}>
       <div className={style.list_container}>
         <img className={style.BookImg} src={book.cover} alt={book.title} />
-        <div className={style.caption}>
+        <div className="caption">
           <div
             style={{ color: "var(--text-deep)" }}
             className={AppStyle.subtitle2}

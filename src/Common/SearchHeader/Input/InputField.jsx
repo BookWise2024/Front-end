@@ -50,15 +50,12 @@
  
 
 // 수정본
-import React, { useEffect, useState } from "react";      
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import styles from "./InputField.module.css";
 import SearchIcon from "../../../assets/img/menu/icon_search.svg";
 
 const InputField = ({ q = "", onSearch }) => {
   const [search, setSearch] = useState("");
-
-  const nav = useNavigate();
 
   useEffect(() => {
     setSearch(q || "");
@@ -76,7 +73,6 @@ const InputField = ({ q = "", onSearch }) => {
 
   const onClickSearch = () => {
     if (search !== "") {
-      nav(`/search?q=${search}`);
       onSearch(search);
     }
   };

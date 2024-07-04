@@ -17,9 +17,9 @@ import SearchNotFound from "./pages/Search/SearchNotFound/SearchNotFound.jsx";
 import BookSearchList from "./Common/Book/BookSearchList.jsx";
 import SearchDetailHeader from "./pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
 import BookList from "./Common/Book/BookList.jsx";
-
+import Library from "./pages/LibraryLocation/LibraryLocation.jsx";
 function App() {
-// 고양이
+
   return (
       <>
         {/* <>
@@ -52,9 +52,10 @@ function App() {
 
                 <Route path="/SearchCard" element={<SearchCard />}  />
                 <Route path="/AladinSearch" element={<AladinSearch />}  />
+                <Route path="/Library" element={<Library />}  />
                 <Route path="/BookLike" element={<BookLike />}  />
                 <Route path="*" element={<NotFound />} />
-
+                
 
             </Routes>
             {/* <HomeHeader /> */}

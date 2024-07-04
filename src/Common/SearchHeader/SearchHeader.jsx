@@ -13,7 +13,6 @@
 // export default SearchHeader;
 
 
-import React from 'react';
 import Header from "./Header/HomeHeader.jsx";
 import InputField from "./Input/InputField.jsx";
 
