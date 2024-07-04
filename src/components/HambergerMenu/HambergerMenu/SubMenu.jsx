@@ -13,7 +13,7 @@ export default function SubMenu() {
 
     const title = [
         {key: 1, name: '내 선호책 리스트', image: img, link: '/선호책 리스트 경로'},
-        {key: 2, name: '공공 도서관 찾기', image: img2, link: '/library'}
+        {key: 2, name: '공공 도서관 찾기', image: img2, link: '/mainLib'}
     ];
 
     function route(link) {

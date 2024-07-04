@@ -4,9 +4,10 @@ import KakaoLogin from './pages/Login/KakaoLogin.jsx';
 import MainPage from './pages/MainPage/MainPage.jsx';
 import Callback from './pages/Login/Callback.jsx';
 import SubMenu from './components/HambergerMenu/SubMenu.jsx';
-import LibrarySearch from './pages/LibraryLocation/LibraryLocation.jsx';
-import MainLibraryDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
-import BookInfoLibraryDetailLocation from "./pages/LibraryDetailLocation/BookInfoToMap/LibraryDetailLocation.jsx";
+import MainLibSearch from './pages/LibraryLocation/MainToMap/LibraryLocation.jsx';
+import BookInfoLibSearch from './pages/LibraryLocation/BookInfoToMap/LibraryLocation.jsx';
+import MainLibDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
+import BookInfoLibDetailLocation from "./pages/LibraryDetailLocation/BookInfoToMap/LibraryDetailLocation.jsx";
 import Review from './Review/Review.jsx';
 
 // =============================================================================================
@@ -21,7 +22,7 @@ import SearchNotFound from "./pages/Search/SearchNotFound/SearchNotFound.jsx";
 import BookSearchList from "./Common/Book/BookSearchList.jsx";
 import SearchDetailHeader from "./pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
 import BookList from "./Common/Book/BookList.jsx";
-import Library from "./pages/LibraryLocation/LibraryLocation.jsx";
+import Library from "./pages/LibraryLocation/MainToMap/LibraryLocation.jsx";
 function App() {
 
   return (
@@ -31,9 +32,10 @@ function App() {
                 <li><Link to="/login">Kakao Login</Link></li>
                 <li><Link to="/">Main Page</Link></li>
                 <li><Link to="/sub">Hamberger Menu</Link></li>
-                <li><Link to="/library">Library Map</Link></li>
-                <li><Link to="/MainlibraryInfo">Library Detail(Main to detail)</Link></li>
-                <li><Link to="/BookInfoLibraryInfo">Library Detail(BookInfo to detail)</Link></li>
+                <li><Link to="/mainLib">Main to Library Map</Link></li>
+                <li><Link to="/bookInfoLib">BookInfo to Library Map</Link></li>
+                <li><Link to="/MainLibInfo">Library Detail(Main to detail)</Link></li>
+                <li><Link to="/BookInfoLibInfo">Library Detail(BookInfo to detail)</Link></li>
                 <li><Link to="/review">Review Page</Link></li>
             </ul>
             <Routes>
@@ -41,9 +43,10 @@ function App() {
                 <Route path = "/auth/kakao/callback" element={<Callback />}/>
                 <Route path = "/" element={<MainPage />}/>
                 <Route path = "/sub" element={<SubMenu />}/>
-                <Route path = "/library" element={<LibrarySearch />}/>
-                <Route path = "/MainLibraryInfo" element={<MainLibraryDetailLocation />}/>
-                <Route path = "/BookInfoLibraryInfo" element={<BookInfoLibraryDetailLocation />}/>
+                <Route path = "/mainLib" element={<MainLibSearch />}/>
+                <Route path = "/bookInfoLib" element={<BookInfoLibSearch />}/>
+                <Route path = "/MainLibInfo" element={<MainLibDetailLocation />}/>
+                <Route path = "/BookInfoLibInfo" element={<BookInfoLibDetailLocation />}/>
                 <Route path = "/review" element={<Review />}/>
             </Routes>
         </>
