@@ -2,9 +2,9 @@
 
 .Wrapper {
  display: flex;
- 
+
  width: 21.4375rem;
-  
+
 padding: 1rem;
 justify-content: center;
 align-items: flex-start;
@@ -17,11 +17,11 @@ margin: 2.8rem auto 0;
 width: 100%;
 display: flex;
 align-items: center;
-height: 2.875rem; 
+height: 2.875rem;
  justify-content: center;
  margin: auto 0;
 flex-shrink: 0;
-border-radius: 1.25rem; 
+border-radius: 1.25rem;
 position: relative;
 }
 
@@ -38,10 +38,10 @@ position: relative;
  border-radius: 20px;
  font-size: 1rem;
  font-weight: 500;
- line-height: 1.6rem; 
+ line-height: 1.6rem;
  letter-spacing: 0;
  text-align:left;
-} 
+}
 
 .SearchButton {
 gap: 6.8125rem;
@@ -54,12 +54,12 @@ position: absolute;
   right: 1rem; /* 오른쪽 여백 추가 */
   background: none;  /*버튼의 배경 제거 */
 border: none;
- cursor: pointer; 
+ cursor: pointer;
 }
 
 .SearchButton img {
  width: 24px;
-height: 24px; 
+height: 24px;
 
 }
 

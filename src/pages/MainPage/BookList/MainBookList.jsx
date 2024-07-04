@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+// import xml2js from 'xml2js'
 // ------------------------------------------------------
-import mainStyle from '../MainPage.module.css'
+import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import scroll from "./WithScroll.jsx"
+import scroll from "./WithScroll.jsx";
+
+
 
 export default function MainBookList() {
     // 정보나루 api_key(정보나루 api 문서 page7~8 참고)
     const jungbonaru_api = "ff319884fdb9bb83c452d9c202b01c1a5c1e9e9e04030d785bbdec6aaa16e638";
-    const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey=" + jungbonaru_api;
+    const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey="
+        + jungbonaru_api + '&format=json';
 
     // const navigate = useNavigate();
     const baseUrl = "http://localhost:8080";
@@ -33,9 +37,9 @@ export default function MainBookList() {
 
                 // 유저 정보가 null이 아니면 정보를 이메일로 세팅
                 if(user) {
-                    setEmail(user.email);
+                    setUser(user.userEmail);
                 } else {
-                    setEmail("로그인이 필요합니다.");
+                    setUser("로그인이 필요합니다.");
                 }
 
             } catch (err) {
@@ -58,8 +62,14 @@ export default function MainBookList() {
         const recomend = async() => {
             try{
                 const res = await axios.get(best_take_out_url);
-                console.log(res.data);
-                setList(res.data);
+                const jsonData = res.data;
+
+                console.log(jsonData);
+                console.log(jsonData.response.docs);
+                // data 순서 -> response/docs[i]/doc/...
+                const bookList = jsonData.response.docs;
+
+                setList(bookList);
             } catch(e) {
                 console.log(e);
             }
@@ -96,17 +106,18 @@ export default function MainBookList() {
     //     }
     // } else {
         // 추천 책 top 10
-        // for(let i = 0; i < 10; i++){
-        //     bookElements.push(
-        //         <>
-        //             <img
-        //                 key={i}
-        //                 style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-        //                 src={list[i].bookImageURL}
-        //             />
-        //         </>
-        //     )
-        // }
+        for(let i = 0; i < 10; i++){
+            bookElements.push(
+                <>
+                    <img
+                        key={i}
+                        style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
+                        // src={list[i].doc.bookImageURL}
+                        src={list[i]}
+                    />
+                </>
+            )
+        }
 
         bookList.push(
             <>
