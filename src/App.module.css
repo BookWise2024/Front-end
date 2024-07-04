@@ -4,7 +4,7 @@
   font-weight: 400;
   font-style: normal;
 }
-
+/* 여기는 잘난체 */
 @font-face {
   font-family : "Jalnan2";
   src: url(./assets/font/Jalnan2TTF.ttf);

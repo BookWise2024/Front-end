@@ -39,8 +39,8 @@
 
 
 //  수정본
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
+import React, { useState } from 'react';
 import style from "./SearchCard.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
 import SearchHeader from "../../../Common/SearchHeader/SearchHeader.jsx";
@@ -60,16 +60,6 @@ const SearchCard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
-
-  const location = useLocation();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const query = params.get('q');
-    if (query) {
-      searchBooks(query);
-    }
-  }, [location.search]);
 
   const searchBooks = async (query) => {
     setIsLoading(true);
@@ -134,3 +124,4 @@ const SearchCard = () => {
 };
 
 export default SearchCard;
+
