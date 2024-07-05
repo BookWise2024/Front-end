@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
-// import Header from "../HomeHeader.jsx";
 import BookList from "../../../Common/Book/BookList.jsx";
 import BookActions from "../../../Common/Book/BookActions.jsx";
-import DetailHeader from "./SearchDetail.jsx";
+import SearchDetailHeader from "../SearchDetail/Header/SearchDetailHeader.jsx"; // DetailHeader -> SearchDetailHeader로 변경
 import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
 import Book2 from "../../../assets/img/book/book2.png";
 import Review from "../../../Review/Review.jsx";
-
-
 
 const SearchDetail = () => {
   const [bookmarked, setBookmarked] = useState(false);
@@ -21,7 +18,7 @@ const SearchDetail = () => {
 
   return (
     <Layout>
-      {/* <DetailHeader /> */}
+      <SearchDetailHeader />  
       <div className={style.container}>
         <div className={style.book_container}>
           <div className={style.txt_container}>

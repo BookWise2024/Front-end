@@ -21,6 +21,13 @@
 
 .icon {
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
 }
+
+/* .icon img {
+  max-width: 100%;
+  max-height: 100%;
+} */
