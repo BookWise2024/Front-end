@@ -18,6 +18,7 @@
     display: inline-flex;
     align-items: center;
     gap: 11.25rem;
+    width: 16rem;
 
     margin: 0 1rem 0 1rem;
 }
@@ -69,4 +70,37 @@
 .distance {
     color: var(--text_light, #C0C0C0);
     width: 3rem;
+}
+/* ======================================== */
+.exist {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: #3CADFF;
+}
+.exist_text {
+    color: white;
+}
+
+.nonexist {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: var(--background_deep, #D0D0D0);
+}
+
+.nonexist_text {
+    color: white;
 }

@@ -86,7 +86,6 @@ export default function KakaoMap(props) {
             }
         };
     }, [url, userLocation, aroundLib]);
-    // userLocation 도 같이 변화가 있을 경우 계속 effect를 해야되는데 에러가 생김
 
     // function setLoc(map, lat, lng) {
     //     // 이동할 위도 경도 위치를 생성합니다
