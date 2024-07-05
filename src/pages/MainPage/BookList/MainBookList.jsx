@@ -6,7 +6,7 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import WidthScroll from "./WidthScroll.jsx";
+// import WidthScroll from "./WidthScroll.jsx";
 
 export default function MainBookList({ jungbonaru_url }) {
 
@@ -117,11 +117,11 @@ export default function MainBookList({ jungbonaru_url }) {
                 <div key="title" className={AppStyle.subtitle2}>
                     지금 뜨는 도서
                 </div>
-                <WidthScroll>
-                    <div key="element" className={mainStyle.list_container}>
+                {/*<WidthScroll>*/}
+                    <div key="element" className={ `${mainStyle.list_container}` }>
                         { bookElements }
                     </div>
-                </WidthScroll>
+                {/*</WidthScroll>*/}
             </>
         );
     // }

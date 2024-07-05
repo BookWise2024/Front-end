@@ -11,8 +11,9 @@ import layout from '../../../Common/TestLayout.module.css'
 
 export default function LibraryLocation() {
 
+    // {lat: 37.566826, lng: 126.9786567}
     // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
-    const [userLocation, setUserLocation] = useState({ lat: 37.5665, lng: 126.9780 });
+    const [userLocation, setUserLocation] = useState(null);
 
     // 위치 기반 도서관 정보 조회 결과값 받기
     const [aroundLib, setAroundLib] = useState([]);
@@ -28,26 +29,36 @@ export default function LibraryLocation() {
         const handleLocationError = (defaultLocation) => {
             setUserLocation(defaultLocation);
         };
-
         GetUserLocation(handleLocationSuccess, handleLocationError);
 
+    },[]);
+
+    useEffect(() => {
         const around = async() => {
             const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
-                + userLocation.lat + "&longitude=" + userLocation.lat);
+                + userLocation.lat + "&longitude=" + userLocation.lng);
 
             console.log(res.data);
-            setAroundLib(res.data);
+            setAroundLib(res.data.libraryList);
         }
-
         around();
-    },[]);
+    },[userLocation]);
+
+    console.log(userLocation);
+    console.log(aroundLib);
 
     return (
         <div className={ layout.layout }>
             <Header/>
             <Search/>
-            <Map userLocation = { userLocation } aroundLib = { aroundLib } />
-            <Library userLocation = { userLocation } aroundLib = { aroundLib } />
+            {userLocation && aroundLib != [] ? (
+                <>
+                    <Map userLocation={userLocation} aroundLib={aroundLib} />
+                    <Library userLocation={userLocation} aroundLib={aroundLib} />
+                </>
+            ) : (
+                <p>Loading...</p>
+            )}
         </div>
     )
 }
