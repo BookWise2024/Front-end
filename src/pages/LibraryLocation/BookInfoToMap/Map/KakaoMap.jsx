@@ -5,7 +5,7 @@ import style from './Map.module.css';
 // ==========================================
 const { kakao } = window;
 
-export default function KakaoMap({ userLocation, libraryList }) {
+export default function KakaoMap({ userLocation, aroundLib }) {
     // kakao map api key & URL
     const kakao_map_api_key = 'c69f1af4f87c934b25688caca0f813d0';
     const url = 'https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=' + kakao_map_api_key + '&libraries=services,clusterer,drawing';
@@ -36,38 +36,41 @@ export default function KakaoMap({ userLocation, libraryList }) {
                 marker.setMap(map);
 
                 const infowindow = new window.kakao.maps.InfoWindow({
-                    content: '<div style="padding:5px;">현재 위치</div>',
+                    content: '<div style="padding:5px 45px;">현재 위치</div>',
                 });
-                infowindow.open(map, marker);
+
+                // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+                window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map, marker));
+                // 인포윈도우를 닫는 클로저를 만드는 함수입니다
+                window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
 
                 // 각 도서관 위치에 마커 표시
-                for(let i = 0; i < libraryList.length; i++) {
-                    console.log(libraryList[parseInt(1)].lib.latitude);
-                    console.log(libraryList[parseInt(1)].lib.longitude);
-                    const positions = [
-                        {
-                            content: '<div style="padding:5px;">libraryList[i].lib.libName</div>',
-                            latlng: new window.kakao.maps.LatLng(libraryList[i].lib.latitude, libraryList[i].lib.longitude)
-                        }
-                    ];
-
-                    let marker = new window.kakao.maps.Marker({
-                        map: map,                       // 마커를 표시할 지도
-                        position: positions.latlng      // 마커의 위치
-                    });
-
-                    let infowindow = new window.kakao.maps.InfoWindow({
-                        content: positions.content      // infowindow에 표시할 내용
-                    });
-
-                    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-                    // 이벤트 리스너로는 클로저를 만들어 등록합니다
-                    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-
-                    // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
-                    window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map, marker));
-                    // 인포윈도우를 닫는 클로저를 만드는 함수입니다
-                    window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
+                for(let i = 0; i < aroundLib.length; i++) {
+                //     const positions = [
+                //         {
+                //             content: '<div style="padding:5px;">aroundLib[i].name</div>',
+                //             latlng: new window.kakao.maps.LatLng(aroundLib[i].latitude, aroundLib[i].longitude)
+                //         }
+                //     ];
+                //
+                //     let libMarker = new window.kakao.maps.Marker({
+                //         map: map,                       // 마커를 표시할 지도
+                //         position: positions.latlng      // 마커의 위치
+                //     });
+                //     // libMarker.setMap(map);
+                //
+                //     let libInfowindow = new window.kakao.maps.InfoWindow({
+                //         content: positions.content      // infowindow에 표시할 내용
+                //     });
+                //
+                //     // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+                //     // 이벤트 리스너로는 클로저를 만들어 등록합니다
+                //     // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+                //
+                //     // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+                //     window.kakao.maps.event.addListener(libMarker, 'mouseover', () => libInfowindow.open(map, libMarker));
+                //     // 인포윈도우를 닫는 클로저를 만드는 함수입니다
+                //     window.kakao.maps.event.addListener(libMarker, 'mouseout', () => libInfowindow.close());
                 }
             });
         };

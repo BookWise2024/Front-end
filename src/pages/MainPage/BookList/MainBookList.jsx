@@ -6,15 +6,9 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import scroll from "./WithScroll.jsx";
+import WidthScroll from "./WidthScroll.jsx";
 
-
-
-export default function MainBookList() {
-    // 정보나루 api_key(정보나루 api 문서 page7~8 참고)
-    const jungbonaru_api = "ff319884fdb9bb83c452d9c202b01c1a5c1e9e9e04030d785bbdec6aaa16e638";
-    const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey="
-        + jungbonaru_api + '&format=json';
+export default function MainBookList({ jungbonaru_url }) {
 
     // const navigate = useNavigate();
     const baseUrl = "http://localhost:8080";
@@ -61,13 +55,13 @@ export default function MainBookList() {
         // 도서관 추천 책 리스트 요청
         const recomend = async() => {
             try{
-                const res = await axios.get(best_take_out_url);
+                const res = await axios.get(jungbonaru_url);
                 const jsonData = res.data;
 
-                console.log(jsonData);
-                console.log(jsonData.response.docs);
+                // console.log(jsonData);
+                // console.log(jsonData.response.docs);
                 // data 순서 -> response/docs[i]/doc/...
-                const bookList = jsonData.response.docs;
+                const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
 
                 setList(bookList);
             } catch(e) {
@@ -112,7 +106,6 @@ export default function MainBookList() {
                     <img
                         key={i}
                         style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-                        // src={list[i].doc.bookImageURL}
                         src={list[i]}
                     />
                 </>
@@ -124,9 +117,11 @@ export default function MainBookList() {
                 <div key="title" className={AppStyle.subtitle2}>
                     지금 뜨는 도서
                 </div>
-                <div key="element" className={mainStyle.list_container}>
-                    { bookElements }
-                </div>
+                <WidthScroll>
+                    <div key="element" className={mainStyle.list_container}>
+                        { bookElements }
+                    </div>
+                </WidthScroll>
             </>
         );
     // }

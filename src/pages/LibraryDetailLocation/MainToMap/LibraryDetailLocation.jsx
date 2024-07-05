@@ -17,7 +17,7 @@ export default function LibraryDetailLocation() {
         <div className={ layout.layout }>
             <Header/>
             <Photo/>
-            <Info libraryList = { state } />
+            <Info/>
         </div>
     );
 }
