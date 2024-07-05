@@ -50,7 +50,6 @@ export default function Library({ userLocation, aroundLib }) {
                     </div>
                     <div className={AppStyle.Body4}>Location</div>
                 </div>
-                <DropDown/>
             </div>
             <div className={style.librarys}>
                 { libList }
