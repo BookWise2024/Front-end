@@ -28,7 +28,7 @@ function App() {
   return (
       <>
         <>
-            {/* <ul>
+            <ul>
                 <li><Link to="/login">Kakao Login</Link></li>
                 <li><Link to="/">Main Page</Link></li>
                 <li><Link to="/sub">Hamberger Menu</Link></li>
@@ -48,7 +48,7 @@ function App() {
                 <Route path = "/MainLibInfo" element={<MainLibDetailLocation />}/>
                 <Route path = "/BookInfoLibInfo" element={<BookInfoLibDetailLocation />}/>
                 <Route path = "/review" element={<Review />}/>
-            </Routes> */}
+            </Routes>
         </>
         <>
             <Routes>
@@ -63,7 +63,6 @@ function App() {
 
                 <Route path="/SearchCard" element={<SearchCard />}  />
                 <Route path="/AladinSearch" element={<AladinSearch />}  />
-                <Route path="/Library" element={<Library />}  />
                 <Route path="/BookLike" element={<BookLike />}  />
                 <Route path="*" element={<NotFound />} />
                 
