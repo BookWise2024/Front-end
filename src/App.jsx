@@ -12,7 +12,7 @@ import Review from './Review/Review.jsx';
 // =============================================================================================
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import BookLike from "./pages/BookLike/BookLike.jsx";
-import AladinSearch from "./components/Aladin/AladinSearch.jsx";
+import AladinSearch from "./API/Aladin/AladinSearch.jsx";
 import SearchCard from "./pages/Search/SearchCard/SearchCard.jsx";
 import SearchDetail from "./pages/Search/SearchDetail/SearchDetail.jsx";
 import SearchResult from "./pages/Search/SearchResult/SearchResult.jsx";
@@ -27,7 +27,7 @@ function App() {
   return (
       <>
         <>
-            <ul>
+            {/* <ul>
                 <li><Link to="/login">Kakao Login</Link></li>
                 <li><Link to="/">Main Page</Link></li>
                 <li><Link to="/sub">Hamberger Menu</Link></li>
@@ -45,7 +45,7 @@ function App() {
                 <Route path = "/MainLibraryInfo" element={<MainLibraryDetailLocation />}/>
                 <Route path = "/BookInfoLibraryInfo" element={<BookInfoLibraryDetailLocation />}/>
                 <Route path = "/review" element={<Review />}/>
-            </Routes>
+            </Routes> */}
         </>
         <>
             <Routes>
@@ -56,7 +56,7 @@ function App() {
                 <Route path="/SearchNotFound" element={<SearchNotFound />} />
                 <Route path="/DropdownMenu" element={<DropdownMenu />} />
                 <Route path="/SearchResult" element={<SearchResult />} />
-                {/*<Route path="/SearchDetail" element={<SearchDetail />} /> */}
+                <Route path="/SearchDetail" element={<SearchDetail />} />
 
                 <Route path="/SearchCard" element={<SearchCard />}  />
                 <Route path="/AladinSearch" element={<AladinSearch />}  />
