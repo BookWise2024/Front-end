@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {useLocation} from "react-router-dom";
 // ==========================================
 import Header from './Header/Header.jsx';
 import Search from './Search/SearchBar.jsx';
@@ -11,7 +12,13 @@ import layout from '../../../Common/TestLayout.module.css'
 
 export default function LibraryLocation() {
 
-    // {lat: 37.566826, lng: 126.9786567}
+    const loc = useLocation();
+    const searchParams = new URLSearchParams(loc.search);
+    // /api/library/book/{bookId} 에 필요
+    const bookId = searchParams.get('bookId');
+    console.log(bookId);
+
+    // {lat: 37.566826, lng: 126.9786567} - 서울 시청 위도 경도
     // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
     const [userLocation, setUserLocation] = useState({lat: 37.566826, lng: 126.9786567});
 
@@ -37,7 +44,8 @@ export default function LibraryLocation() {
         const around = async() => {
             const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
                 + userLocation.lat + "&longitude=" + userLocation.lng);
-
+            // const res = await axios.get("http://43.203.74.198:8000/api/library/book/" + bookId
+            //     + "?latitude=" + userLocation.lat + "&longitude=" + userLocation.lng + "&sort=possession");
             console.log(res.data);
             setAroundLib(res.data.libraryList);
         }
@@ -54,7 +62,7 @@ export default function LibraryLocation() {
             {userLocation && aroundLib != [] ? (
                 <>
                     <Map userLocation={userLocation} aroundLib={aroundLib} />
-                    <Library userLocation={userLocation} aroundLib={aroundLib} />
+                    <Library userLocation={userLocation} aroundLib={aroundLib} bookId={bookId}/>
                 </>
             ) : (
                 <p>Loading...</p>
