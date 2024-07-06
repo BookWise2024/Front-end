@@ -4,7 +4,7 @@ import AppStyle from "../../App.module.css";
 import styles from "./DropdownMenu.module.css";
 import DownArrow from "../../assets/img/menu/arrow/arrow_down.svg";
 
-const DropdownMenu = ({ className }) => {
+const DropdownMenu = (props) => {
   const [selectedOption, setSelectedOption] = useState("거리순");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,12 +17,15 @@ const DropdownMenu = ({ className }) => {
     setIsOpen(false);
     // 필터링 또는 정렬 로직을 여기에 추가
     console.log(`Selected option: ${option}`);
+
+    // 상위 컴포넌트로 데이터 전달
+    props.onData(option);
   };
 
   const options = ["거리순", "보유순"];
 
   return (
-    <div className={`${AppStyle.Caption2} ${styles.dropdown} ${className}`}>
+    <div className={`${AppStyle.Caption2} ${styles.dropdown}`}>
       <button className={`${AppStyle.Caption1} ${styles.dropdownToggle}`} onClick={toggleDropdown}>
         {selectedOption}
         <span className={styles.icon}>

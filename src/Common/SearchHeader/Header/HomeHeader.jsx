@@ -9,25 +9,31 @@ const HomeHeader = () => {
   const navigate = useNavigate();
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
-  const toggleSubMenu = () => {
-    setIsSubMenuOpen(!isSubMenuOpen);
+
+  const hamberger = async () => {
+    // 삼단바를 click하면 비동기적으로 hambergermenu로 이동
+    navigate("/sub");
   };
 
   return (
-    <>
-      <header className={style.header}>
-        <div className={style.icon} onClick={toggleSubMenu}>
-          <img src={MenuIcon} alt="메뉴 아이콘" />
-        </div>
-        <div className={style.logo} onClick={() => navigate("/")}>
-          <img src={TextLogo} alt="로고" />
-        </div>
-        <div className={style.icon} onClick={() => navigate("/BookLike")}>
-          <img src={BookIcon} alt="선호책 아이콘" />
-        </div>
-      </header>
-      <SubMenu isOpen={isSubMenuOpen} onClose={() => setIsSubMenuOpen(false)} />
-    </>
+    <header className={style.header}>
+      <div className={style.icon} onClick={hamberger}>
+      
+        <img src={MenuIcon} alt="메뉴 아이콘" />
+      </div>
+      <div className={style.logo} onClick={() => {
+        // logo를 click하면 메인페이지로 이동
+        navigate("/");
+      }}>
+        <img src={TextLogo} alt="로고" />
+      </div>
+      <div className={style.icon} onClick={() => {
+        // 선호책 아이콘을 click하면 선호책 페이지로 이동
+        navigate("/BookLike");
+      }}>
+        <img src={BookIcon} alt="선호책 아이콘" />
+      </div>
+    </header>
   );
 };
 

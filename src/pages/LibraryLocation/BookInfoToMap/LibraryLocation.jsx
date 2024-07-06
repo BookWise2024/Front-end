@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import {useLocation} from "react-router-dom";
 // ==========================================
 import Header from './Header/Header.jsx';
 import Search from './Search/SearchBar.jsx';
@@ -11,66 +12,65 @@ import { GetUserLocation } from './GetUserLocation.jsx';
 import Layout from "../../../Common/Layout/Layout.jsx"
 export default function LibraryLocation() {
 
+    const loc = useLocation();
+    const searchParams = new URLSearchParams(loc.search);
+    // /api/library/book/{bookId} 에 필요
+    const bookId = searchParams.get('bookId');
+    console.log(bookId);
+
+    // {lat: 37.566826, lng: 126.9786567} - 서울 시청 위도 경도
     // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
-    const [userLocation, setUserLocation] = useState({ lat: 37.5665, lng: 126.9780 });
+    const [userLocation, setUserLocation] = useState({lat: 37.566826, lng: 126.9786567});
 
     // 위치 기반 도서관 정보 조회 결과값 받기
     const [aroundLib, setAroundLib] = useState([]);
 
     // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
-    useEffect(() => {
-        // 성공적으로 정보를 가져왔을 경우의 location
-        const handleLocationSuccess = (location) => {
-            setUserLocation(location);
-        };
-
-        // 정보를 가져오는데 실패했을 경우의 location
-        const handleLocationError = (defaultLocation) => {
-            setUserLocation(defaultLocation);
-        };
-
-        GetUserLocation(handleLocationSuccess, handleLocationError);
-
-        const around = async() => {
-            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
-                + userLocation.lat + "&longitude=" + userLocation.lat);
-
-            console.log(res.data);
-            setAroundLib(res.data);
-        }
-
-        around();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
-
-    // 정보 나루 api에서 도서관 정보(319개) 리스트로 가져오기
     // useEffect(() => {
-    //     // 호이스팅
-    //     LibraryLoc();
+    //     // 성공적으로 정보를 가져왔을 경우의 location
+    //     const handleLocationSuccess = (location) => {
+    //         setUserLocation(location);
+    //     };
+    //
+    //     // 정보를 가져오는데 실패했을 경우의 location
+    //     const handleLocationError = (defaultLocation) => {
+    //         setUserLocation(defaultLocation);
+    //     };
+    //     GetUserLocation(handleLocationSuccess, handleLocationError);
+    //
     // },[]);
 
-    // jungbonaru library api key & URL
-    // const jungbonaru_api_key = "ff319884fdb9bb83c452d9c202b01c1a5c1e9e9e04030d785bbdec6aaa16e638";
-    // const libraryUrl = "http://data4library.kr/api/libSrch?authKey=" + jungbonaru_api_key + "&format=json";
+    useEffect(() => {
+        const around = async() => {
+            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
+                + userLocation.lat + "&longitude=" + userLocation.lng);
+            // const res = await axios.get("http://43.203.74.198:8000/api/library/book/" + bookId
+            //     + "?latitude=" + userLocation.lat + "&longitude=" + userLocation.lng + "&sort=possession");
+            console.log(res.data);
+            setAroundLib(res.data.libraryList);
+        }
+        around();
+    },[userLocation]);
 
-    // 도서관 리스트
-    // const [libraryList, setLibraryList] = useState([]);
-
-    // 정보나루 도서관 api
-    // const LibraryLoc = async() => {
-    //     const res = await axios.get(libraryUrl + '&pageSize=319');
-    //     const jsonData = res.data;
-    //
-    //     console.log(jsonData.response.libs);
-    //     setLibraryList(jsonData.response.libs);
-    // }
+    console.log(userLocation);
+    console.log(aroundLib);
 
     return (
-        <Layout>
-              <Header/>
-              <Search/>
-              <Map userLocation = { userLocation } aroundLib = { aroundLib } />
-              <Library userLocation = { userLocation } aroundLib = { aroundLib } />
-        </Layout>
-    )
+      <Layout>
+        <Header />
+        <Search />
+        {userLocation && aroundLib != [] ? (
+          <>
+            <Map userLocation={userLocation} aroundLib={aroundLib} />
+            <Library
+              userLocation={userLocation}
+              aroundLib={aroundLib}
+              bookId={bookId}
+            />
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </Layout>
+    );
 }

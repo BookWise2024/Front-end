@@ -6,7 +6,7 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import WidthScroll from "./WidthScroll.jsx";
+// import WidthScroll from "./WidthScroll.jsx";
 
 export default function MainBookList({ jungbonaru_url }) {
 
@@ -23,21 +23,20 @@ export default function MainBookList({ jungbonaru_url }) {
     useEffect(() => {
         // 로그인 여부 확인
         const login_check = async() => {
-            try {
-                const response = await axios.get(baseUrl + "/check");
-                console.log(response.data);
-                // 유저 정보 저장
-                setUser(response.data);
+            const token = localStorage.getItem('accessToken');
+            if (token) {
+                try {
+                    const response = await axios.get('http://localhost:8080/api/user', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                    });
+                    console.log(response.data);
 
-                // 유저 정보가 null이 아니면 정보를 이메일로 세팅
-                if(user) {
-                    setUser(user.userEmail);
-                } else {
-                    setUser("로그인이 필요합니다.");
+                    setUser(response.data);
+                } catch (error) {
+                    console.error('Error fetching user info', error);
                 }
-
-            } catch (err) {
-                console.log(err);
             }
         }
 
@@ -118,11 +117,11 @@ export default function MainBookList({ jungbonaru_url }) {
                 <div key="title" className={AppStyle.subtitle2}>
                     지금 뜨는 도서
                 </div>
-                <WidthScroll>
-                    <div key="element" className={mainStyle.list_container}>
+                {/*<WidthScroll>*/}
+                    <div key="element" className={ `${mainStyle.list_container}` }>
                         { bookElements }
                     </div>
-                </WidthScroll>
+                {/*</WidthScroll>*/}
             </>
         );
     // }

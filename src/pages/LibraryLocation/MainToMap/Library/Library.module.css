@@ -52,6 +52,7 @@
 
 .libraryName {
     color: var(--text_deep, #363636);
+    width: 13.5rem;
 }
 
 .libraryLoc {
@@ -62,8 +63,10 @@
 
 .address {
     color: var(--text_normal, #848484);
+    width: 13.5rem;
 }
 
 .distance {
     color: var(--text_light, #C0C0C0);
+    width: 3rem;
 }

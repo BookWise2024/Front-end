@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import kakao from './Login.module.css'
-// import layout from '../../Common/TestLayout.module.css'
+ 
 import exit from '../../assets/img/menu/icon_close.svg'
 import logo from '../../assets/img/menu/logo/bookwise_logo.svg'
 import kakaologo from '../../assets/img/menu/logo/kakaoLogo.svg'

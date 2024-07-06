@@ -7,17 +7,24 @@ import Map from "./Map/KakaoMap.jsx";
 import Library from "./Library/Library.jsx";
 import { GetUserLocation } from "./GetUserLocation.jsx";
 // ==========================================
-// import layout from '../../../Common/TestLayout.module.css'
+
 import Layout from "../../../Common/Layout/Layout.jsx";
 export default function LibraryLocation() {
-  // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
-  const [userLocation, setUserLocation] = useState({
-    lat: 37.5665,
-    lng: 126.978,
-  });
 
-  // 위치 기반 도서관 정보 조회 결과값 받기
-  const [aroundLib, setAroundLib] = useState([]);
+    // {lat: 37.566826, lng: 126.9786567}
+    // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
+    const [userLocation, setUserLocation] = useState(null);
+
+    // 위치 기반 도서관 정보 조회 결과값 받기
+    const [aroundLib, setAroundLib] = useState([]);
+
+    // 검색하기
+    const [searchKeyword, setSearchKeyword] = useState("");
+
+    // 검색어 업데이트 함수
+    const handleSearch = (searchKeyword) => {
+        setSearchKeyword(searchKeyword);
+    };
 
   // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
   useEffect(() => {
@@ -26,35 +33,40 @@ export default function LibraryLocation() {
       setUserLocation(location);
     };
 
-    // 정보를 가져오는데 실패했을 경우의 location
-    const handleLocationError = (defaultLocation) => {
-      setUserLocation(defaultLocation);
-    };
+        // 정보를 가져오는데 실패했을 경우의 location
+        const handleLocationError = (defaultLocation) => {
+            setUserLocation(defaultLocation);
+        };
+        GetUserLocation(handleLocationSuccess, handleLocationError);
 
-    GetUserLocation(handleLocationSuccess, handleLocationError);
+    },[]);
 
-    const around = async () => {
-      const res = await axios.get(
-        "http://43.203.74.198:8000/api/library?latitude=" +
-          userLocation.lat +
-          "&longitude=" +
-          userLocation.lat
-      );
+    useEffect(() => {
+        const around = async() => {
+            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
+                + userLocation.lat + "&longitude=" + userLocation.lng);
 
-      console.log(res.data);
-      setAroundLib(res.data);
-    };
+            console.log(res.data);
+            setAroundLib(res.data.libraryList);
+        }
+        around();
+    },[userLocation]);
 
-    around();
- 
-  }, [userLocation]);
+    console.log(userLocation);
+    console.log(aroundLib);
 
-  return (
-    <Layout>
-      <Header />
-      <Search />
-      <Map userLocation={userLocation} aroundLib={aroundLib} />
-      <Library userLocation={userLocation} aroundLib={aroundLib} />
-    </Layout>
-  );
+    return (
+          <Layout>
+            <Header/>
+            <Search onSearch={ handleSearch } />
+            {userLocation && aroundLib != [] ? (
+                <>
+                    <Map userLocation={userLocation} aroundLib={aroundLib} searchKeyword={searchKeyword}/>
+                    <Library userLocation={userLocation} aroundLib={aroundLib} />
+                </>
+            ) : (
+                <p>Loading...</p>
+            )}
+        </Layout>
+    )
 }
