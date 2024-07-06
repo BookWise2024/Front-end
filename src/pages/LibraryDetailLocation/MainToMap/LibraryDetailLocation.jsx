@@ -1,6 +1,6 @@
 import {useLocation} from "react-router-dom";
 
-import layout from '../../../Common/TestLayout.module.css';
+import layout from './Layout.module.css';
 
 import Header from './Header/Header.jsx';
 import Photo from "./Photo/Photo.jsx";

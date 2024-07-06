@@ -102,7 +102,7 @@ export default function SubMenu() {
     }
     // -----------------------------------------------------------------------
     return(
-        <div className={ styles.oplayout }>
+        <div className={ styles.layout }>
             <div className={ styles.sublayout }>
                 { login }
                 <div className={ styles.divide }></div>

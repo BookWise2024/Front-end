@@ -8,7 +8,7 @@ import Map from './Map/KakaoMap.jsx';
 import Library from './Library/Library.jsx';
 import { GetUserLocation } from './GetUserLocation.jsx';
 // ==========================================
-import layout from '../../../Common/TestLayout.module.css'
+import layout from './Layout.module.css';
 
 export default function LibraryLocation() {
 

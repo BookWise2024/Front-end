@@ -7,7 +7,7 @@ import Map from './Map/KakaoMap.jsx';
 import Library from './Library/Library.jsx';
 import { GetUserLocation } from './GetUserLocation.jsx';
 // ==========================================
-import layout from '../../../Common/TestLayout.module.css'
+import layout from './Layout.module.css'
 
 export default function LibraryLocation() {
 
@@ -17,6 +17,14 @@ export default function LibraryLocation() {
 
     // 위치 기반 도서관 정보 조회 결과값 받기
     const [aroundLib, setAroundLib] = useState([]);
+
+    // 검색하기
+    const [searchKeyword, setSearchKeyword] = useState("");
+
+    // 검색어 업데이트 함수
+    const handleSearch = (searchKeyword) => {
+        setSearchKeyword(searchKeyword);
+    };
 
     // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
     useEffect(() => {
@@ -50,10 +58,10 @@ export default function LibraryLocation() {
     return (
         <div className={ layout.layout }>
             <Header/>
-            <Search/>
+            <Search onSearch={ handleSearch } />
             {userLocation && aroundLib != [] ? (
                 <>
-                    <Map userLocation={userLocation} aroundLib={aroundLib} />
+                    <Map userLocation={userLocation} aroundLib={aroundLib} searchKeyword={searchKeyword}/>
                     <Library userLocation={userLocation} aroundLib={aroundLib} />
                 </>
             ) : (
