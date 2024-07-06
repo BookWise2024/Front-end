@@ -4,10 +4,13 @@
   width: 100%;
   max-width: 23.4375rem;
   margin: 0 auto;
+  
 }
 
 .bookListContent {
   padding: 0 1rem;
+  margin-top: 0.8rem;
+  
 }
 
 .bookListHeader {

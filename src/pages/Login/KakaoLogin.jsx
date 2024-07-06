@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import kakao from './KakaoLogin.module.css'
+import kakao from './Login.module.css'
+ 
 import exit from '../../assets/img/menu/icon_close.svg'
 import logo from '../../assets/img/menu/logo/bookwise_logo.svg'
 import kakaologo from '../../assets/img/menu/logo/kakaoLogo.svg'
@@ -24,9 +25,8 @@ export default function KakaoLogin() {
 
     return (
       <Layout>
-        <div className={ kakao.layout }>
-
             {/* x 버튼 화면 조정 필요 */}
+            <div className={kakao.Login_container}></div>
             <div className={ kakao.exit }>
                 <img className={ kakao.exitButton } onClick={ goBack } src = { exit }/>
             </div>
@@ -53,7 +53,7 @@ export default function KakaoLogin() {
                 </button>
             </div>
             
-        </div>
+        
       </Layout>
     )
 }

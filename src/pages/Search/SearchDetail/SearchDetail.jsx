@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
-import BookList from "../../../Common/Book/BookList.jsx";
+import RelatedBooks from "../../../pages/Search/SearchDetail/RelatedBooks.jsx";
 import BookActions from "../../../Common/Book/BookActions.jsx";
-import SearchDetailHeader from "../SearchDetail/Header/SearchDetailHeader.jsx"; // DetailHeader -> SearchDetailHeader로 변경
+import SearchDetailHeader from "../SearchDetail/Header/SearchDetailHeader.jsx";  
 import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
 import Book2 from "../../../assets/img/book/book2.png";
 import Review from "../../../Review/Review.jsx";
@@ -92,7 +92,7 @@ const SearchDetail = () => {
         <BookActions />
         <Review />
         <div>
-          <BookList className={style.BookList} />
+          <RelatedBooks className={style.BookList} />
         </div>
       </div>
     </Layout>
