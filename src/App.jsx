@@ -58,8 +58,7 @@ function App() {
          
                 <Route path="/DropdownMenu" element={<DropdownMenu />} />
           
-{/*                 <Route path="/SearchResult" element={<RelatedBooks />} />  */}
-{/* 검색 결과 컴포넌트 */}
+
             
                 {/* 검색 페이지 */}
               
