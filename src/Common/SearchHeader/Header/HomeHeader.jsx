@@ -14,7 +14,7 @@ const HomeHeader = () => {
 
   const hamberger = async () => {
     // 삼단바를 click하면 비동기적으로 hambergermenu로 이동
-    navigate("sub");
+    navigate("/sub");
   };
 
   return (
@@ -31,7 +31,7 @@ const HomeHeader = () => {
       </div>
       <div className={style.icon} onClick={() => {
         // 선호책 아이콘을 click하면 선호책 페이지로 이동
-        navigate("선호책 경로");
+        navigate("/BookLike");
       }}>
         <img src={BookIcon} alt="선호책 아이콘" />
       </div>
