@@ -9,15 +9,16 @@ import Info from './Info/Info.jsx';
 export default function LibraryDetailLocation() {
 
     const location = useLocation();
-    const { state } = location;
-
-    console.log(state);
+    const searchParams = new URLSearchParams(location.search);
+    // api/library/{libraryId} 에 필요
+    const libraryId = searchParams.get('libraryId');
+    console.log(libraryId);
 
     return (
         <div className={ layout.layout }>
             <Header/>
             <Photo/>
-            <Info/>
+            <Info libraryId = { libraryId }/>
         </div>
     );
 }

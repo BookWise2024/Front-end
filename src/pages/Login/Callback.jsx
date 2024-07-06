@@ -21,6 +21,11 @@ const Callback = () => {
                         },
                         withCredentials: true });
                     console.log(response.data); // 성공적으로 받은 사용자 데이터
+
+                    // 토큰 저장
+                    localStorage.setItem('accessToken', response.data.access_token);
+                    localStorage.setItem('refreshToken', response.data.refresh_token);
+
                     navigate('/'); // 처리 후 원하는 경로로 이동
                 } catch (error) {
                     console.error('Error during the callback processing', error);

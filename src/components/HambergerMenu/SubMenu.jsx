@@ -8,11 +8,10 @@ import img2 from '../../assets/img/menu/library.svg'
 import logoutimg from '../../assets/img/menu/logout.svg'
 
 export default function SubMenu() {
-    const [email, setEmail] = useState("로그인이 필요합니다");
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState(null);
 
     const title = [
-        {key: 1, name: '내 선호책 리스트', image: img, link: '/선호책 리스트 경로'},
+        {key: 1, name: '내 선호책 리스트', image: img, link: '/BookLike'},
         {key: 2, name: '공공 도서관 찾기', image: img2, link: '/library'}
     ];
 
@@ -21,27 +20,27 @@ export default function SubMenu() {
     }
 
     const lis = [];
-    const log = [];
+    const login = [];
+    const logout = [];
 
     const baseUrl = "http://localhost:8080";
     // 로그인 여부 확인
     useEffect(() => {
         const login_check = async() => {
-            try {
-                const response = await axios.get(baseUrl + "/check");
-                console.log(response.data);
-                // 유저 정보 저장
-                setUser(response.data);
+            const token = localStorage.getItem('accessToken');
+            if (token) {
+                try {
+                    const response = await axios.get('http://localhost:8080/api/user', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                    });
+                    console.log(response.data);
 
-                // 유저 정보가 null이 아니면 정보를 이메일로 세팅
-                if(user) {
-                    setEmail(user.userEmail);
-                } else {
-                    setEmail("로그인이 필요합니다.");
+                    setUser(response.data);
+                } catch (error) {
+                    console.error('Error fetching user info', error);
                 }
-
-            } catch (err) {
-                console.log(err);
             }
         }
 
@@ -54,17 +53,35 @@ export default function SubMenu() {
     const handleLogout = async () => {
         try {
             await axios.post(baseUrl + "/logout", {}, { withCredentials: true });
+
+            // token 제거
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+
             navigate('/');
         } catch (error) {
             console.error('Logout failed:', error);
         }
     };
 
+    // 로그인 유무에 따른 사용자 계정 나타내기
+    if(user == null) {
+        login.push(
+            <div className={styles.identity} onClick={(e) => {
+                    navigate("/login");
+            }}>로그인이 필요합니다</div>
+        )
+    } else if (user != null) {
+        login.push(
+            <div className={styles.identity}>{user.email}</div>
+        )
+    }
+
     // 메뉴 리스트 나열
-    for(let i = 0; i < title.length; i++) {
+    for (let i = 0; i < title.length; i++) {
         lis.push(
-            <div key={ title[i].key } className={ styles.menulist } onClick={ () => route(title[i].link) }>
-                <div className={ styles.menuicon }>
+            <div key={title[i].key} className={styles.menulist} onClick={() => route(title[i].link)}>
+            <div className={ styles.menuicon }>
                     <img className={ styles.icon } src={title[i].image}/>
                 </div>
                 <div className={ styles.menutext }>{ title[i].name }</div>
@@ -73,8 +90,8 @@ export default function SubMenu() {
     }
 
     // 로그인 여부에 따른 로그아웃 버튼 유무
-    if(user) {
-        log.push(
+    if(user != null) {
+        logout.push(
             <div key="logout" className={ styles.logoutbutton } onClick={handleLogout}>
                 <div className={ styles.logouticon }>
                     <img className={ styles.secicon } src={ logoutimg }/>
@@ -87,17 +104,12 @@ export default function SubMenu() {
     return(
         <div className={ styles.oplayout }>
             <div className={ styles.sublayout }>
-                <div className={ styles.identity } onClick={ (e) => {
-                    if(!user){
-                        // window.location.href = "http://localhost:5173/login";
-                        navigate("/login");
-                    }
-                } }>{ email }</div>
+                { login }
                 <div className={ styles.divide }></div>
                 <div className={ styles.submenu }>
                     {lis}
                 </div>
-                {log}
+                { logout }
             </div>
         </div>
     )

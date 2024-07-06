@@ -43,8 +43,14 @@ export default function MainBookList({ jungbonaru_url }) {
         const recomend = async() => {
             try{
                 const res = await axios.get(jungbonaru_url);
-                console.log(res.data);
-                setList(res.data);
+                const jsonData = res.data;
+
+                // console.log(jsonData);
+                // console.log(jsonData.response.docs);
+                // data 순서 -> response/docs[i]/doc/...
+                const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
+
+                setList(bookList);
             } catch(e) {
                 console.log(e);
             }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import style from './Photo.module.css';
 const { kakao } = window;
 
@@ -8,7 +9,7 @@ export default function Photo() {
     const url = 'https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=' + kakao_map_api_key + '&libraries=services,clusterer,drawing';
 
     // 도서관의 위도 경도
-    const [center, setCenter] = useState({ lat: 37.5665, lng: 126.9780 });
+    const [center, setCenter] = useState({lat: 37.566826, lng: 126.9786567});
 
     useEffect(() => {
         // Kakao Map 스크립트를 동적으로 로드
@@ -35,10 +36,10 @@ export default function Photo() {
                 });
                 marker.setMap(map);
 
-                const infowindow = new window.kakao.maps.InfoWindow({
+                const infoWindow = new window.kakao.maps.InfoWindow({
                     content: '<div style="padding:5px 45px;">현재 위치</div>',
                 });
-                infowindow.open(map, marker);
+                infoWindow.open(map, marker);
 
             });
         };

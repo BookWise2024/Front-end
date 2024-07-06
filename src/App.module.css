@@ -127,3 +127,10 @@ body {
   letter-spacing: 0;
 }
 
+/* Button */
+.Button2 {
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 1.2rem */
+}

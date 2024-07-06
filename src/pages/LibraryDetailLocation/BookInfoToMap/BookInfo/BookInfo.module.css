@@ -1,0 +1,128 @@
+.infoBase {
+    width: 23.4375rem;
+    height: 19.3125rem;
+
+    background: #F4F4F4;
+
+    margin-top: 0.25rem;
+}
+.bookInfo {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    margin: 1.25rem 6.33rem 0 1rem;
+}
+.bookImg {
+    width: 5.48075rem;
+    height: 8.25rem;
+    border-radius: 0.25rem;
+}
+/* ====================================== */
+.info {
+    display: flex;
+    width: 9.625rem;
+    height: 7.5625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.simpleInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+.title {
+    color: var(--text_deep, #363636);
+}
+.subInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+.content {
+    color: var(--text_normal, #848484);
+}
+/* ====================================== */
+.bookStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    margin-top: 0.5rem;
+}
+.exist {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: #3CADFF;
+}
+.nonexist {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: var(--background_deep, #D0D0D0);
+}
+.loanPossible {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: #4BE403;
+}
+.loanImpossible {
+    display: flex;
+    width: 3.5rem;
+    height: 1.3125rem;
+    padding: 0.1875rem 0.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.25rem;
+    background: #CB0006;
+}
+.statusText {
+    color: white;
+}
+/* ====================================== */
+.description {
+    color: var(--text_normal, #848484);
+
+    margin: 1rem 5.38rem 0 1rem;
+}
+.plusInfo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+.contentName {
+    color: var(--text_normal, #848484);
+}
+.plusComponent {
+    color: var(--text_deep, #363636);
+}
