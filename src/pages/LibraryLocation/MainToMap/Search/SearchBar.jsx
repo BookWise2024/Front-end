@@ -31,11 +31,6 @@ export default function SearchBar(props) {
         }
     };
 
-    // 검색한 글자와 조금이나마 일치하는 도서관들 가져오기
-    const searchlibrary = () => {
-        setSearch('');
-    }
-
     return (
         <>
             <div className={ style.searchBar }>
