@@ -26,7 +26,8 @@
 
 .layout {
   width: 23.4375rem;
-  height: 41.6875rem;
+  /* height: 41.6875rem; */
+  height:auto;
   background: var(--white);
   overflow: hidden;
   display: block;

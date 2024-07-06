@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 // ==========================================
-import Header from './Header/Header.jsx';
-import Search from './Search/SearchBar.jsx';
-import Map from './Map/KakaoMap.jsx';
-import Library from './Library/Library.jsx';
-import { GetUserLocation } from './GetUserLocation.jsx';
+import Header from "./Header/Header.jsx";
+import Search from "./Search/SearchBar.jsx";
+import Map from "./Map/KakaoMap.jsx";
+import Library from "./Library/Library.jsx";
+import { GetUserLocation } from "./GetUserLocation.jsx";
 // ==========================================
-import layout from './Layout.module.css'
 
+import Layout from "../../../Common/Layout/Layout.jsx";
 export default function LibraryLocation() {
 
     // {lat: 37.566826, lng: 126.9786567}
@@ -26,12 +26,12 @@ export default function LibraryLocation() {
         setSearchKeyword(searchKeyword);
     };
 
-    // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
-    useEffect(() => {
-        // 성공적으로 정보를 가져왔을 경우의 location
-        const handleLocationSuccess = (location) => {
-            setUserLocation(location);
-        };
+  // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
+  useEffect(() => {
+    // 성공적으로 정보를 가져왔을 경우의 location
+    const handleLocationSuccess = (location) => {
+      setUserLocation(location);
+    };
 
         // 정보를 가져오는데 실패했을 경우의 location
         const handleLocationError = (defaultLocation) => {
@@ -56,7 +56,7 @@ export default function LibraryLocation() {
     console.log(aroundLib);
 
     return (
-        <div className={ layout.layout }>
+          <Layout>
             <Header/>
             <Search onSearch={ handleSearch } />
             {userLocation && aroundLib != [] ? (
@@ -67,6 +67,6 @@ export default function LibraryLocation() {
             ) : (
                 <p>Loading...</p>
             )}
-        </div>
+        </Layout>
     )
 }

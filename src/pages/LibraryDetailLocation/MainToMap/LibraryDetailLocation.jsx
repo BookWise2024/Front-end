@@ -1,7 +1,8 @@
 import {useLocation} from "react-router-dom";
 
-import layout from './Layout.module.css';
 
+import Layout from "../../../Common/Layout/Layout.jsx";
+import style from "../../LibraryDetailLocation/MainToMap/LibraryDetail.module.css"
 import Header from './Header/Header.jsx';
 import Photo from "./Photo/Photo.jsx";
 import Info from './Info/Info.jsx';
@@ -15,10 +16,12 @@ export default function LibraryDetailLocation() {
     console.log(libraryId);
 
     return (
-        <div className={ layout.layout }>
+      <Layout>
+          <div className={style.Library_detail_container}>
             <Header/>
             <Photo/>
             <Info libraryId = { libraryId }/>
-        </div>
+          </div>
+      </Layout>
     );
 }

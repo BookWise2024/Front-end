@@ -73,6 +73,7 @@ export default function MainBookList({ jungbonaru_url }) {
         //     userRecommend();
         // }
         recomend();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경

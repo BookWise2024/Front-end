@@ -1,16 +1,16 @@
 import style from "./RelatedBooks.module.css";
-import Book1 from "../../assets/img/book/book1.png";
-import Book2 from "../../assets/img/book/book2.png";
-import Book3 from "../../assets/img/book/book3.png";
-import Book4 from "../../assets/img/book/book4.png";
-import AppStyle from "../../App.module.css";
+import Book1 from "../../../assets/img/book/book1.png";
+import Book2 from "../../../assets/img/book/book2.png";
+import Book3 from "../../../assets/img/book/book3.png";
+import Book4 from "../../../assets/img/book/book4.png";
+import AppStyle from "../../../App.module.css";
 
 const RelatedBooks = () => {
   return (
     <div className={style.container}>
       <div className={AppStyle.subtitle2}
       >
-        비슷한 책 추천
+        이 책과 비슷한 작품
       </div>
       <div className={style.list_container}>
         <img

@@ -4,6 +4,7 @@ import layout from './Layout.module.css';
 
 import Header from './Header/Header.jsx';
 import Info from './Info/Info.jsx';
+import Layout from '../../../Common/Layout/Layout.jsx';
 import BookInfo from './BookInfo/BookInfo.jsx';
 
 export default function LibraryDetailLocation() {
@@ -23,11 +24,11 @@ export default function LibraryDetailLocation() {
     // console.log(loanAvailable);
 
     return (
-        <div className={ layout.layout }>
-            <Header/>
+        <Layout>
+            <Header />
             <Info libraryId = { libraryId }/>
             {/*<BookInfo bookId = { bookId } hasbook = { hasbook } loanAvailable = { loanAvailable } libraryId = { libraryId }/>*/}
             <BookInfo />
-        </div>
+        </Layout> 
     );
 }
