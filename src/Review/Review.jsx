@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 // ------------------------------------------
-import layout from '../Common/TestLayout.module.css';
 import review from './Review.module.css';
 // ------------------------------------------
 import GoodReview from './GoodReview.jsx';
 import BadReview from './BadReview.jsx';
+import Layout from './../Common/Layout/Layout.jsx'
 
 export default function Review() {
 
     return (
-        <div className={layout.layout}>
+        <Layout>
             <div className={ review.reviewLayout }>
                 <GoodReview/>
                 <BadReview/>
             </div>
-        </div>
+        </Layout>
     );
 }
