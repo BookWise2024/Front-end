@@ -5,6 +5,7 @@ import layout from '../../Common/TestLayout.module.css'
 import exit from '../../assets/img/menu/icon_close.svg'
 import logo from '../../assets/img/menu/logo/bookwise_logo.svg'
 import kakaologo from '../../assets/img/menu/logo/kakaoLogo.svg'
+import Layout from '../../Common/Layout/Layout';
 
 export default function KakaoLogin() {
 
@@ -23,6 +24,7 @@ export default function KakaoLogin() {
     }
 
     return (
+      <Layout>
         <div className={ layout.layout }>
 
             {/* x 버튼 화면 조정 필요 */}
@@ -53,5 +55,6 @@ export default function KakaoLogin() {
             </div>
             
         </div>
+      </Layout>
     )
 }

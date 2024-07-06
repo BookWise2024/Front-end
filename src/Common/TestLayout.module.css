@@ -1,20 +1,11 @@
-:root{
+/* :root{
     --white : #FFF;
     --black : #000;
-}
+} */
 
-/* 기본 화면 */
-.layout {
-    width: 23.4375rem;
-    height: 41.6875rem;
-
-    background: var(--white);
-    overflow: hidden;
-    display: block;
-}
-
+ 
 /* hamberger menu 오픈 시 배경 */
-.oplayout {
+ /* .oplayout {
     width: 23.4375rem;
     height: 41.6875rem;
     flex-shrink: 0;
@@ -23,19 +14,28 @@
     background-color: rgba(0, 0, 0, 0.5);
     background: #000;
     overflow: hidden;
+}   */
+
+ 
+
+
+
+/* 수정본 */
+/* ... (이전 스타일은 그대로 유지) */
+
+/* .sublayout {
+  width: 14.6875rem;
+  height: 41.6875rem;
+  flex-shrink: 0;
+  background: var(--white);
+  margin-right: 9.75rem;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
 }
 
-/*body {*/
-/*    margin: 0;*/
-/*    display: flex;*/
-/*    place-items: center;*/
-/*    min-width: 320px;*/
-/*    min-height: 100vh;*/
+.sublayout.open {
+  transform: translateX(0);
+} */
 
-/*    background-color: var(#242424);*/
-/*}*/
-
-/*h1 {*/
-/*    font-size: 3.2em;*/
-/*    line-height: 1.1;*/
-/*}*/
+/* ... (나머지 스타일은 그대로 유지) */

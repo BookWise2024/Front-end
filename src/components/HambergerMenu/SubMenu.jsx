@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import styles from './SubMenu.module.css'
-import layout from '../../Common/TestLayout.module.css'
+
 import img from '../../assets/img/menu/book_icon_black.svg'
 import img2 from '../../assets/img/menu/library.svg'
 import logoutimg from '../../assets/img/menu/logout.svg'
@@ -102,7 +102,7 @@ export default function SubMenu() {
     }
     // -----------------------------------------------------------------------
     return(
-        <div className={ layout.oplayout }>
+        <div className={ styles.oplayout }>
             <div className={ styles.sublayout }>
                 { login }
                 <div className={ styles.divide }></div>
@@ -114,4 +114,3 @@ export default function SubMenu() {
         </div>
     )
 }
-
