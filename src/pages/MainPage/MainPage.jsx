@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import mainStyle from './MainPage.module.css';
 import AppStyle from "../../App.module.css";
 import SearchHeader from "../../Common/SearchHeader/SearchHeader.jsx";

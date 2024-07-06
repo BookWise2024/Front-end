@@ -1,6 +1,5 @@
 import {useLocation} from "react-router-dom";
 
-
 import Layout from "../../../Common/Layout/Layout.jsx";
 import style from "../../LibraryDetailLocation/MainToMap/LibraryDetail.module.css"
 import Header from './Header/Header.jsx';
