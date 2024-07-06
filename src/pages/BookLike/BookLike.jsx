@@ -18,6 +18,8 @@ const BookLike = () => {
 
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  // 선호책 리스트
+  const [prefer, setPrefer] = useState(null);
 
   // 로그인 여부 확인
   useEffect(() => {
@@ -25,7 +27,7 @@ const BookLike = () => {
       const token = localStorage.getItem('accessToken');
       if (token) {
         try {
-          const response = await axios.get('http://localhost:8080/api/user', {
+          const response = await axios.get('http://43.203.74.198:8000/api/user', {
             headers: {
               'Authorization': `Bearer ${token}`,
             },
@@ -39,7 +41,24 @@ const BookLike = () => {
       }
     }
 
+    const preferList = async() => {
+      const token = localStorage.getItem('accessToken');
+      try {
+        const res = await axios.get('http://43.203.74.198:8000/api/wishlist', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        console.log(res.data);
+
+        setPrefer(res.data);
+      } catch (error) {
+          console.error('Error fetching user info', error);
+      }
+    }
+
     login_check();
+    preferList();
   }, []);
 
   // // user 값이 잘 set 되었는지 확인하기
