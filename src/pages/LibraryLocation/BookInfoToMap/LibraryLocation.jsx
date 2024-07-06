@@ -7,8 +7,8 @@ import Map from './Map/KakaoMap.jsx';
 import Library from './Library/Library.jsx';
 import { GetUserLocation } from './GetUserLocation.jsx';
 // ==========================================
-import layout from '../../../Common/TestLayout.module.css'
-
+// import layout from '../../../Common/TestLayout.module.css'
+import Layout from "../../../Common/Layout/Layout.jsx"
 export default function LibraryLocation() {
 
     // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
@@ -40,6 +40,7 @@ export default function LibraryLocation() {
         }
 
         around();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     // 정보 나루 api에서 도서관 정보(319개) 리스트로 가져오기
@@ -65,11 +66,11 @@ export default function LibraryLocation() {
     // }
 
     return (
-        <div className={ layout.layout }>
-            <Header/>
-            <Search/>
-            <Map userLocation = { userLocation } aroundLib = { aroundLib } />
-            <Library userLocation = { userLocation } aroundLib = { aroundLib } />
-        </div>
+        <Layout>
+              <Header/>
+              <Search/>
+              <Map userLocation = { userLocation } aroundLib = { aroundLib } />
+              <Library userLocation = { userLocation } aroundLib = { aroundLib } />
+        </Layout>
     )
 }

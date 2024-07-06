@@ -35,8 +35,8 @@ function App() {
                 {/* 메인 페이지 */}
                 <Route path = "/" element={<MainPage />}/>
                 {/* 햄버거 메뉴 페이지 */}
-                <Route path = "/sub" element={<SubMenu />}/>
-                {/* 메인에서 도서관 검색으로 넘어간 페이지 */}
+                <Route path = "/sub" element={<SubMenu />}/> 
+                {/* 햄버거 메뉴에서 도서관 검색으로 넘어간 페이지 */}
                 <Route path = "/mainLib" element={<MainLibSearch />}/>
                 {/* 도서 상세 페이지에서 도서관 검색으로 넘어간 페이지 */}
                 <Route path = "/bookInfoLib" element={<BookInfoLibSearch />}/>
@@ -46,8 +46,7 @@ function App() {
                 <Route path = "/BookInfoLibInfo" element={<BookInfoLibDetailLocation />}/>
                 {/* 선호책 페이지 */}
                 <Route path="/BookLike" element={<BookLike />}  />
-                {/* 리뷰 컴포넌트 */}
-                <Route path = "/review" element={<Review />}/>
+               
                 {/* ====================================================================== */}
 
                  {/* 혜인 */}
@@ -70,7 +69,7 @@ function App() {
                 <Route path="*" element={<NotFound />} /> {/* 에러 페이지 */}
 
                 {/* 알라딘 테스트 페이지 */}
-                <Route path="/AladinSearch" element={<AladinSearch />}  />
+                {/* <Route path="/AladinSearch" element={<AladinSearch />}  /> */}
 
             </Routes>
        

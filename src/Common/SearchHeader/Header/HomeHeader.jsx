@@ -22,7 +22,7 @@ const HomeHeader = () => {
         <div className={style.logo} onClick={() => navigate("/")}>
           <img src={TextLogo} alt="로고" />
         </div>
-        <div className={style.icon} onClick={() => navigate("선호책 경로")}>
+        <div className={style.icon} onClick={() => navigate("/BookLike")}>
           <img src={BookIcon} alt="선호책 아이콘" />
         </div>
       </header>

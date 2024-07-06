@@ -115,3 +115,7 @@
 .kakaoButton:hover {
     cursor: pointer;
 }
+
+.Login_container {
+  height: auto;
+}
