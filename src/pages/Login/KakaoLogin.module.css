@@ -111,3 +111,12 @@
     font-weight: 500;
     line-height: 150%; /* 1.5rem */
 }
+
+/* ========================================= */
+.layout {
+    width: 23.4375rem;
+    height: 41.6875rem;
+    background: var(--white);
+    overflow: hidden;
+    display: block;
+}

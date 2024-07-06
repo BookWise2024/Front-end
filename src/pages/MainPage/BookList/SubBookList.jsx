@@ -21,21 +21,20 @@ export default function MainBookList({ jungbonaru_url }) {
     useEffect(() => {
         // 로그인 여부 확인
         const login_check = async() => {
-            try {
-                const response = await axios.get(baseUrl + "/check");
-                console.log(response.data);
-                // 유저 정보 저장
-                setUser(response.data);
+            const token = localStorage.getItem('accessToken');
+            if (token) {
+                try {
+                    const response = await axios.get('http://localhost:8080/api/user', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                        },
+                    });
+                    console.log(response.data);
 
-                // 유저 정보가 null이 아니면 정보를 이메일로 세팅
-                if(user) {
-                    setUser(user.userEmail);
-                } else {
-                    setUser("로그인이 필요합니다.");
+                    setUser(response.data);
+                } catch (error) {
+                    console.error('Error fetching user info', error);
                 }
-
-            } catch (err) {
-                console.log(err);
             }
         }
 
