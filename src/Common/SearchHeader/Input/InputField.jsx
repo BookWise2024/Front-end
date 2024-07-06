@@ -26,20 +26,22 @@ const InputField = ({ q = "", onSearch }) => {
   };
 
   return (
-    <div className={styles.Wrapper}>
-      <div className={styles.SearchContainer}>
-        <input
-          className={styles.SearchBar}
-          value={search}
-          onKeyDown={onKeyDown}
-          onChange={onChangeSearch}
-          placeholder="제목/저자를 입력해주세요!"
-        />
-        <button className={styles.SearchButton} onClick={onClickSearch}>
-          <img src={SearchIcon} alt="검색 아이콘" />
-        </button>
+  
+      <div className={styles.Wrapper}>
+        <div className={styles.SearchContainer}>
+          <input
+            className={styles.SearchBar}
+            value={search}
+            onKeyDown={onKeyDown}
+            onChange={onChangeSearch}
+            placeholder="제목/저자를 입력해주세요!"
+          />
+          <button className={styles.SearchButton} onClick={onClickSearch}>
+            <img src={SearchIcon} alt="검색 아이콘" />
+          </button>
+        </div>
       </div>
-    </div>
+
   );
 };
 

@@ -8,11 +8,11 @@ import MainLibSearch from './pages/LibraryLocation/MainToMap/LibraryLocation.jsx
 import BookInfoLibSearch from './pages/LibraryLocation/BookInfoToMap/LibraryLocation.jsx';
 import MainLibDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
 import BookInfoLibDetailLocation from "./pages/LibraryDetailLocation/BookInfoToMap/LibraryDetailLocation.jsx";
+import BookLike from "./pages/BookLike/BookLike.jsx";
 import Review from './Review/Review.jsx';
 
 // =============================================================================================
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import BookLike from "./pages/BookLike/BookLike.jsx";
 import AladinSearch from "./API/Aladin/AladinSearch.jsx";
 import SearchCard from "./pages/Search/SearchCard/SearchCard.jsx";
 import SearchDetail from "./pages/Search/SearchDetail/SearchDetail.jsx";
@@ -22,55 +22,58 @@ import SearchNotFound from "./pages/Search/SearchNotFound/SearchNotFound.jsx";
 import BookSearchList from "./Common/Book/BookSearchList.jsx";
 import SearchDetailHeader from "./pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
 import BookList from "./Common/Book/BookList.jsx";
-import Library from "./pages/LibraryLocation/MainToMap/LibraryLocation.jsx";
 function App() {
 
   return (
       <>
         <>
-            {/* <ul>
-                <li><Link to="/login">Kakao Login</Link></li>
-                <li><Link to="/">Main Page</Link></li>
-                <li><Link to="/sub">Hamberger Menu</Link></li>
-                <li><Link to="/mainLib">Main to Library Map</Link></li>
-                <li><Link to="/bookInfoLib">BookInfo to Library Map</Link></li>
-                <li><Link to="/MainLibInfo">Library Detail(Main to detail)</Link></li>
-                <li><Link to="/BookInfoLibInfo">Library Detail(BookInfo to detail)</Link></li>
-                <li><Link to="/review">Review Page</Link></li>
-            </ul>
             <Routes>
-                <Route path="/login" element={<KakaoLogin/>}/>
+                {/* 로그인 페이지 */}
+                <Route path = "/login" element={<KakaoLogin/>}/>
+                {/* 로그인 리다이렉트 콜백 페이지 */}
                 <Route path = "/auth/kakao/callback" element={<Callback />}/>
+                {/* 메인 페이지 */}
                 <Route path = "/" element={<MainPage />}/>
+                {/* 햄버거 메뉴 페이지 */}
                 <Route path = "/sub" element={<SubMenu />}/>
+                {/* 메인에서 도서관 검색으로 넘어간 페이지 */}
                 <Route path = "/mainLib" element={<MainLibSearch />}/>
+                {/* 도서 상세 페이지에서 도서관 검색으로 넘어간 페이지 */}
                 <Route path = "/bookInfoLib" element={<BookInfoLibSearch />}/>
+                {/* 메인에서 도서관 검색으로 넘어가서 도서관 상세로 넘어간 페이지 */}
                 <Route path = "/MainLibInfo" element={<MainLibDetailLocation />}/>
+                {/* 도서 상세 페이지에서 도서관 검색으로 넘어가서 도서관 상세로 넘어간 페이지 */}
                 <Route path = "/BookInfoLibInfo" element={<BookInfoLibDetailLocation />}/>
-                <Route path = "/review" element={<Review />}/>
-            </Routes> */}
-        </>
-        <>
-            <Routes>
-
-                <Route path="/BookList" element={<BookList />} />
-                <Route path="/SearchDetailHeader" element={<SearchDetailHeader />} />
-                <Route path="/BookSearchList" element={<BookSearchList />} />
-                <Route path="/SearchNotFound" element={<SearchNotFound />} />
-                <Route path="/DropdownMenu" element={<DropdownMenu />} />
-                <Route path="/SearchResult" element={<SearchResult />} />
-                <Route path="/SearchDetail" element={<SearchDetail />} />
-
-                <Route path="/SearchCard" element={<SearchCard />}  />
-                <Route path="/AladinSearch" element={<AladinSearch />}  />
-                <Route path="/Library" element={<Library />}  />
+                {/* 선호책 페이지 */}
                 <Route path="/BookLike" element={<BookLike />}  />
-                <Route path="*" element={<NotFound />} />
+                {/* 리뷰 컴포넌트 */}
+                <Route path = "/review" element={<Review />}/>
+                {/* ====================================================================== */}
+
+                 {/* 혜인 */}
+                {/* 컴포넌트 */}
+                <Route path="/BookList" element={<BookList />} />
+                <Route path="/SearchDetailHeader" element={<SearchDetailHeader />} /> {/* 도서 상세 페이지 헤더 */}
+                <Route path="/BookSearchList" element={<BookSearchList />} />  {/* 책 검색결과 카드형 리스트 */}
+         
+                <Route path="/DropdownMenu" element={<DropdownMenu />} />
+          
+ 
+            
+                {/* 검색 페이지 */}
+              
+                <Route path="/SearchCard" element={<SearchCard />}  /> {/* 검색 카드형 */}
+                <Route path="/SearchDetail" element={<SearchDetail />} /> {/* 책 상세페이지 */}
                 
+               
+                <Route path="/BookLike" element={<BookLike />}  /> {/* 선호책 리스트 페이지 */}
+                <Route path="*" element={<NotFound />} /> {/* 에러 페이지 */}
+
+                {/* 알라딘 테스트 페이지 */}
+                <Route path="/AladinSearch" element={<AladinSearch />}  />
 
             </Routes>
-            {/* <HomeHeader /> */}
-            {/* <CompareHeader /> */}
+       
 
         </>
     </>
