@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import layout from '../../Common/TestLayout.module.css';
+
 import mainStyle from './MainPage.module.css';
 import AppStyle from "../../App.module.css";
 import SearchHeader from "../../Common/SearchHeader/SearchHeader.jsx";
