@@ -50,18 +50,27 @@ function App() {
                 <Route path = "/review" element={<Review />}/>
                 {/* ====================================================================== */}
 
+                 {/* 혜인 */}
+                {/* 컴포넌트 */}
                 <Route path="/BookList" element={<BookList />} />
-                <Route path="/SearchDetailHeader" element={<SearchDetailHeader />} />
-                <Route path="/BookSearchList" element={<BookSearchList />} />
-                <Route path="/SearchNotFound" element={<SearchNotFound />} />
+                <Route path="/SearchDetailHeader" element={<SearchDetailHeader />} /> {/* 도서 상세 페이지 헤더 */}
+                <Route path="/BookSearchList" element={<BookSearchList />} />  {/* 책 검색결과 카드형 리스트 */}
+         
                 <Route path="/DropdownMenu" element={<DropdownMenu />} />
-                <Route path="/SearchResult" element={<SearchResult />} />
-                <Route path="/SearchDetail" element={<SearchDetail />} />
-
-                <Route path="/SearchCard" element={<SearchCard />}  />
-                <Route path="/AladinSearch" element={<AladinSearch />}  />
-                <Route path="*" element={<NotFound />} />
+          
+ 
+            
+                {/* 검색 페이지 */}
+              
+                <Route path="/SearchCard" element={<SearchCard />}  /> {/* 검색 카드형 */}
+                <Route path="/SearchDetail" element={<SearchDetail />} /> {/* 책 상세페이지 */}
                 
+               
+                <Route path="/BookLike" element={<BookLike />}  /> {/* 선호책 리스트 페이지 */}
+                <Route path="*" element={<NotFound />} /> {/* 에러 페이지 */}
+
+                {/* 알라딘 테스트 페이지 */}
+                <Route path="/AladinSearch" element={<AladinSearch />}  />
 
             </Routes>
        
