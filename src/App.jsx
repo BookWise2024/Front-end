@@ -64,8 +64,7 @@ function App() {
                 
 
             </Routes>
-            {/* <HomeHeader /> */}
-            {/* <CompareHeader /> */}
+       
 
         </>
     </>
