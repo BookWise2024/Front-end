@@ -9,8 +9,9 @@ import Layout from '../../Common/Layout/Layout';
 
 export default function KakaoLogin() {
 
-    const Rest_api_key='451aea6cf5b0142c652610b32748b4e9' //REST API KEY
-    const redirect_uri = 'http://localhost:5173/auth/kakao/callback' //Redirect URI
+    // const Rest_api_key='451aea6cf5b0142c652610b32748b4e9' //REST API KEY
+    const Rest_api_key = '7437e7bdad3bcf39a33e2d88015bef23';
+    const redirect_uri = 'http://localhost:5173/auth/kakao/callback'; //Redirect URI
     // oauth 요청 URL
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
     const handleLogin = ()=>{
