@@ -4,7 +4,7 @@ const app = express();
 
 // 데이터4라이브러리 API 프록시
 app.get('/api/library', (req, res) => {
-    const apiUrl = 'http://data4library.kr/api/loanItemSrch?authKey=e72fa97…&format=json';
+    const apiUrl = 'http://data4library.kr/api/loanItemSrch?authKey=e72fa97321d82cb19f04f9c3ecc9721a344b2bdc5ecb8f84b79adec8046e4116&format=json';
     request(apiUrl, (error, response, body) => {
         if (error) {
             return res.status(500).send(error);
