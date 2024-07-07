@@ -26,6 +26,13 @@ export default function LibraryLocation() {
         setSearchKeyword(searchKeyword);
     };
 
+    // userLocation에 검색한 위치 배치하기
+    const handleLocationChange = (location) => {
+        console.log('First Location:', location);
+        setUserLocation(location);
+        console.log(userLocation);
+    };
+
   // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
   useEffect(() => {
     // 성공적으로 정보를 가져왔을 경우의 location
@@ -62,7 +69,7 @@ export default function LibraryLocation() {
             {userLocation && aroundLib != [] ? (
                 <>
                     <Map userLocation={userLocation} aroundLib={aroundLib} searchKeyword={searchKeyword}/>
-                    <Library userLocation={userLocation} aroundLib={aroundLib} />
+                    <Library userLocation={userLocation} aroundLib={aroundLib} onLocationChange={ handleLocationChange } />
                 </>
             ) : (
                 <p>Loading...</p>
