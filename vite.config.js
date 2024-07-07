@@ -25,11 +25,13 @@ export default defineConfig({
       //   target: 'http://localhost:8080',
       //   changeOrigin: true,
       // }
-      '/api': {
-        target: 'https://www.aladin.co.kr',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/ttb/api', '')
-      }
+      // '/api': {
+      //   target: 'https://www.aladin.co.kr',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, '/ttb/api', '')
+      // }
+      '/api/library': 'http://localhost:5173',
+      '/api/aladin': 'http://localhost:5173'
     },
     
   }
