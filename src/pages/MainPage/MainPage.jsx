@@ -10,7 +10,7 @@ import Layout from '../../Common/Layout/Layout.jsx';
 
 export default function MainPage() {
   const jungbonaru_api = "e72fa97321d82cb19f04f9c3ecc9721a344b2bdc5ecb8f84b79adec8046e4116";
-  const best_take_out_url = "http://data4library.kr/api/loanItemSrch?authKey=" + jungbonaru_api + '&format=json';
+  const best_take_out_url = "https://data4library.kr/api/loanItemSrch?authKey=" + jungbonaru_api + '&format=json';
   const navigate = useNavigate();
 
   const handleSearch = (searchTerm) => {
