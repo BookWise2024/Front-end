@@ -36,21 +36,20 @@ const useAladinBookDetail = (bookId) => {
 
       let fetched = false;
 
-      for (let i = 0; i < ttbKeys.length; i++) {
-        const ttbKey = ttbKeys[i];
-        try {
-          const response = await axios.get(`http://43.203.74.198:8000/api/book/${bookId}?ttbkey=${ttbKey}`);
+      try {
+        const response = await axios.get(`http://43.203.74.198:8000/api/book/${bookId}/1`);
+        console.log(response.data)
 
-          if (response.data && response.data.items) {
-            setBookDetail(response.data.items[0]);
-            fetched = true;
-            break; // 성공적으로 데이터를 가져왔으므로 루프 종료
-          }
-        } catch (err) {
-          console.error(`Error fetching book details with key ${ttbKey}:`, err);
-          setError(err);
+        if (response.data) {
+          setBookDetail(response.data);
+          fetched = true;
+           // 성공적으로 데이터를 가져왔으므로 루프 종료
         }
+      } catch (err) {
+        console.error(`Error fetching book details with key:`, err);
+        setError(err);
       }
+      
 
       if (!fetched) {
         setBookDetail(fixedBookDetail); // 임시 데이터를 사용
