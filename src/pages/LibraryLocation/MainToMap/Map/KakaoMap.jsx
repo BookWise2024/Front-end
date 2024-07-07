@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // ==========================================
 import style from './Map.module.css';
+import {useLocation} from "react-router-dom";
 // ==========================================
 const { kakao } = window;
 
@@ -13,6 +14,7 @@ export default function KakaoMap(props) {
     const userLocation = props.userLocation;
     const aroundLib = props.aroundLib;
     const searchKeyword = props.searchKeyword;
+    const onLocationChange = props.onLocationChange;
     // console.log(aroundLib);
     // console.log(userLocation);
 
@@ -52,7 +54,7 @@ export default function KakaoMap(props) {
                 // 인포윈도우를 닫는 클로저를 만드는 함수입니다
                 window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
 
-                // console.log(userLocation);
+                console.log(userLocation);
                 // console.log(aroundLib);
                 // console.log(aroundLib.length);
 
@@ -90,15 +92,27 @@ export default function KakaoMap(props) {
 
                         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
                         // LatLngBounds 객체에 좌표를 추가합니다
-                        var bounds = new window.kakao.maps.LatLngBounds();
+                        const bounds = new window.kakao.maps.LatLngBounds();
 
-                        for (var i=0; i<data.length; i++) {
-                            displayMarker(data[i]);
-                            bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
-                        }
+                        // console.log(data);
+
+                        // for (let i=0; i < data.length; i++) {
+                        //     displayMarker(data[i]);
+                        //     bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
+                        // }
+
+                        displayMarker(data[parseInt(0)]);
+                        bounds.extend(new window.kakao.maps.LatLng(data[parseInt(0)].y, data[parseInt(0)].x));
 
                         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
                         map.setBounds(bounds);
+
+                        const firstLocation = {lat: data[parseInt(0)].y, lng: data[parseInt(0)].x}
+                        console.log(firstLocation);
+
+                        if (onLocationChange) {
+                            onLocationChange(firstLocation);
+                        }
                     }
                 }
 
@@ -131,7 +145,6 @@ export default function KakaoMap(props) {
             }
         };
     }, [url, userLocation, aroundLib, searchKeyword]);
-    // userLocation 도 같이 변화가 있을 경우 계속 effect를 해야되는데 에러가 생김
 
     // function setLoc(map, lat, lng) {
     //     // 이동할 위도 경도 위치를 생성합니다
