@@ -134,45 +134,4 @@
   height: 24px;
   cursor: pointer;
 }
-/* ============================================================== */
-/* dongbeom's style */
-/* .header {
-    position: absolute;
-
-    display: flex;
-    width: 100%; */
-
-
-/* padding을 준 만큼 width, height 길이 제거 */
-/* max-width: 21.4375rem;
-    height: 1.5rem;
-    padding: 1rem;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 6.6875rem;
-    flex-shrink: 0;
-
-    background: var(--main-color, #38ACFF);
-} */
-
-/* .logo {
-    display: flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.icon {
-    display: flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.icon, .logo:hover {
-    cursor: pointer;
-} */
+ 
