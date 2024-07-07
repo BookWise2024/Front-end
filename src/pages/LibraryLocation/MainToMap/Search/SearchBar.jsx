@@ -26,7 +26,6 @@ export default function SearchBar(props) {
     // 검색 버튼을 클릭하거나 엔터 키를 눌렀을 때 호출
     const onClickSearch = () => {
         if (search !== "") {
-            // searchlibrary(search);
             props.onSearch(search);
         }
     };
