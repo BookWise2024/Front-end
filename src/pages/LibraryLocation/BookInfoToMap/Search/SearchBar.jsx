@@ -6,7 +6,7 @@ import style from './Search.module.css';
 // ==========================================
 import searchimg from '../../../../assets/img/menu/icon_search.svg';
 
-export default function SearchBar() {
+export default function SearchBar(props) {
 
     const [search, setSearch] = useState("");
     const nav = useNavigate();
@@ -26,15 +26,9 @@ export default function SearchBar() {
     // 검색 버튼을 클릭하거나 엔터 키를 눌렀을 때 호출
     const onClickSearch = () => {
         if (search !== "") {
-            searchlibrary(search);
+            props.onSearch(search);
         }
     };
-
-    // 검색한 글자와 조금이나마 일치하는 도서관들 가져오기
-    const searchlibrary = () => {
-        
-        setSearch('');
-    }
 
     return (
         <>

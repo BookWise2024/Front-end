@@ -10,7 +10,7 @@ import AppStyle from "../../../App.module.css";
 
 export default function MainBookList({ jungbonaru_url }) {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const baseUrl = "http://localhost:8080";
 
     // 추천 책 리스트
@@ -35,6 +35,7 @@ export default function MainBookList({ jungbonaru_url }) {
                     setUser(response.data);
                 } catch (error) {
                     console.error('Error fetching user info', error);
+                    navigate("/login");
                 }
             }
         };

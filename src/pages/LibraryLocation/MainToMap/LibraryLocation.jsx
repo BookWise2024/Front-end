@@ -10,7 +10,6 @@ import { GetUserLocation } from "./GetUserLocation.jsx";
 
 import Layout from "../../../Common/Layout/Layout.jsx";
 export default function LibraryLocation() {
-
     // {lat: 37.566826, lng: 126.9786567}
     // 지도 중심 좌표를 상태로 관리(default = 서울 시청)
     const [userLocation, setUserLocation] = useState(null);
@@ -28,9 +27,12 @@ export default function LibraryLocation() {
 
     // userLocation에 검색한 위치 배치하기
     const handleLocationChange = (location) => {
-        console.log('First Location:', location);
-        setUserLocation(location);
-        console.log(userLocation);
+        // 상태가 실제로 변경될 때만 업데이트
+        if (userLocation?.lat !== location.lat || userLocation?.lng !== location.lng) {
+            console.log('First Location:', location);
+            setUserLocation(location);
+            console.log(userLocation);
+        }
     };
 
   // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
@@ -48,6 +50,7 @@ export default function LibraryLocation() {
 
     },[]);
 
+    // 해당 위치 중심으로 도서관 검색하기
     useEffect(() => {
         const around = async() => {
             const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
@@ -68,12 +71,17 @@ export default function LibraryLocation() {
             <Search onSearch={ handleSearch } />
             {userLocation && aroundLib != [] ? (
                 <>
-                    <Map userLocation={userLocation} aroundLib={aroundLib} searchKeyword={searchKeyword}/>
-                    <Library userLocation={userLocation} aroundLib={aroundLib} onLocationChange={ handleLocationChange } />
+                    <Map userLocation={userLocation}
+                         aroundLib={aroundLib}
+                         searchKeyword={searchKeyword}
+                         onLocationChange={ handleLocationChange }/>
+                    <Library userLocation={userLocation}
+                             aroundLib={aroundLib} />
                 </>
             ) : (
                 <p>Loading...</p>
             )}
+              {/*<div id="map" style={{ width: "0px", height: "0px" }}></div>*/}
         </Layout>
     )
 }
