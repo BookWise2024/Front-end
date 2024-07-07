@@ -50,14 +50,14 @@ export default function Library(props) {
     const libList = [];
 
     // 도서관 상세 페이지로 이동
-    function Info(libraryId) {
-        navigate("/MainLibInfo?libraryId=" + libraryId);
+    function Info(libraryId, latitude, longitude) {
+        navigate("/MainLibInfo?libraryId=" + libraryId + "&latitude=" + latitude + "&longitude=" + longitude);
     }
 
     for(let i = 0; i < aroundLib.length; i++){
         libList.push(
             <>
-                <div className={style.libraryInfo} onClick={ () => Info(aroundLib[i].libraryId) }>
+                <div className={style.libraryInfo} onClick={ () => Info(aroundLib[i].libraryId, aroundLib[i].latitude, aroundLib[i].longitude) }>
                     <div className={`${AppStyle.Body1} ${style.libraryName}`}>
                         { aroundLib[i].name }
                     </div>

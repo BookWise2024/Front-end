@@ -12,13 +12,18 @@ export default function LibraryDetailLocation() {
     const searchParams = new URLSearchParams(location.search);
     // api/library/{libraryId} 에 필요
     const libraryId = searchParams.get('libraryId');
+    const latitude = searchParams.get('latitude');
+    const longitude = searchParams.get('longitude');
+
+    const libCenter = { lat : latitude , lng : longitude }
     console.log(libraryId);
+    console.log(libCenter);
 
     return (
       <Layout>
           <div className={style.Library_detail_container}>
             <Header/>
-            <Photo/>
+            <Photo libCenter = { libCenter } />
             <Info libraryId = { libraryId }/>
           </div>
       </Layout>
