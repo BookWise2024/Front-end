@@ -16,14 +16,18 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import AladinSearch from "./API/Aladin/AladinSearch.jsx";
 import SearchCard from "./pages/Search/SearchCard/SearchCard.jsx";
 import SearchDetail from "./pages/Search/SearchDetail/SearchDetail.jsx";
-import SearchResult from "./pages/Search/SearchResult/SearchResult.jsx";
+ 
 import DropdownMenu from "./Common/Dropdown/DropdownMenu.jsx";
 import SearchNotFound from "./pages/Search/SearchNotFound/SearchNotFound.jsx";
 import BookSearchList from "./Common/Book/BookSearchList.jsx";
 import SearchDetailHeader from "./pages/Search/SearchDetail/Header/SearchDetailHeader.jsx";
 import BookList from "./Common/Book/BookList.jsx";
-function App() {
+// import useAladinBookDetail from './API/Aladin/useAladinBookDetail.jsx';
+import BookDetailTestPage from './API/Aladin/BookDetailTestPage.jsx';
+ 
 
+function App() {
+  
   return (
       <>
         <>
@@ -71,7 +75,7 @@ function App() {
                 {/* 검색 페이지 */}
 
                 <Route path="/SearchCard" element={<SearchCard />}  /> {/* 검색 카드형 */}
-                <Route path="/SearchDetail" element={<SearchDetail />} /> {/* 책 상세페이지 */}
+                {/* <Route path="/SearchDetail" element={<SearchDetail />} /> 책 상세페이지 */}
 
 
                 <Route path="/BookLike" element={<BookLike />}  /> {/* 선호책 리스트 페이지 */}
@@ -79,6 +83,12 @@ function App() {
 
                 {/* 알라딘 테스트 페이지 */}
                 {/* <Route path="/AladinSearch" element={<AladinSearch />}  /> */}
+
+                {/* 알라딘 북 상세 테스트 페이지 */}
+                <Route path="/SearchDetail" element={<SearchDetail />}  />
+
+                {/* 알라딘 상세페이지 테스트 */}
+                <Route path="/BookDetailTestPage" element={<BookDetailTestPage />} />
 
             </Routes>
        
