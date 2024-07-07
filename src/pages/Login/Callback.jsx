@@ -11,11 +11,12 @@ const Callback = () => {
             const params = new URLSearchParams(location.search);
             // 인가 코드
             const code = params.get('code');
+            console.log(code);
 
             if (code) {
                 try {
-                    const response = await axios.post('http://localhost:8080/api/auth/kakao/callback',
-                        { code }, 
+                    const response = await axios.post('http://43.203.74.198:8000/api/auth/login',
+                        { authorizationCode: code },
                         { headers: {
                             'Content-Type': 'application/json'
                         },
@@ -23,8 +24,8 @@ const Callback = () => {
                     console.log(response.data); // 성공적으로 받은 사용자 데이터
 
                     // 토큰 저장
-                    localStorage.setItem('accessToken', response.data.access_token);
-                    localStorage.setItem('refreshToken', response.data.refresh_token);
+                    localStorage.setItem('accessToken', response.data.accessToken);
+                    localStorage.setItem('refreshToken', response.data.refreshToken);
 
                     navigate('/'); // 처리 후 원하는 경로로 이동
                 } catch (error) {
