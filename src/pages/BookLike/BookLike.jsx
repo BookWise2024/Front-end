@@ -27,13 +27,11 @@ const BookLike = () => {
     const login_check = async() => {
       if (token) {
         try {
-          const response = await axios.get('http://43.203.74.198:8000/api/user', {
-            headers: {
-              'Authorization': `Bearer ${token}`,
-            },
+          const response = await axios.get('http://43.203.74.198:8000/api/user/profile', {
+            // headers: { 'Authorization': `Bearer ${token}` },
+            headers: { 'Authorization': `${token}` },
           });
           console.log(response.data);
-
           setUser(response.data);
         } catch (error) {
           console.error('Error fetching user info', error);
