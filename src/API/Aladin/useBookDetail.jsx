@@ -33,7 +33,7 @@ const useBookDetail = (bookId) => {
     if (bookId) {
       fetchBookDetail();
     }
-  }, [bookId]);
+  }, [bookId, token]);
 
   return { bookDetail, isLoading, error };
 };
