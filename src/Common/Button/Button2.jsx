@@ -13,7 +13,7 @@ export default function Button2(props) {
 
   const handleClick = () => {
     // setClicked(!clicked);
-    navigate("/BookInfoLibInfo?isbn13=" + isbn);
+    navigate("/BookInfoLib?isbn13=" + isbn);
   };
 
   return (

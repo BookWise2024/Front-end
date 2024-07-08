@@ -108,7 +108,7 @@ const SearchDetail = () => {
             {/* 공공 도서관 검색 */}
             <BookActions isbn = { isbn } />
             {/* 리뷰 */}
-            <Review item = { item } />
+            <Review isbn = { isbn } />
             <div>
               <RelatedBooks className={style.BookList} isbn = { isbn } />
             </div>
