@@ -12,7 +12,7 @@ const BookSearchList = ({ book }) => {
   const description = book?.description || "설명이 없습니다.";
 
   const handleClick = () => {
-    navigate(`/SearchDetail/${book.isbn13}`);
+    navigate(`/SearchDetail?isbn13=${book.isbn13}`);
   };
 
   return (
