@@ -3,7 +3,7 @@ import style from "./RelatedBooks.module.css";
 // import Book2 from "../../../assets/img/book/book2.png";
 // import Book3 from "../../../assets/img/book/book3.png";
 // import Book4 from "../../../assets/img/book/book4.png";
-import AppStyle from "../../../App.module.css";
+import AppStyle from "../../../../App.module.css";
 import react, { useState, useEffect } from 'react';
 import {useLocation, useNavigate} from "react-router-dom";
 import axios from 'axios';

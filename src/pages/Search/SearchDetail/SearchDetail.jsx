@@ -117,7 +117,7 @@ const SearchDetail = () => {
             {/* 리뷰 */}
             <Review item = { item } />
             <div>
-              <RelatedBooks className={style.BookList} />
+              <RelatedBooks className={style.BookList} isbn = { isbn } />
             </div>
 </>
     //   </div>
