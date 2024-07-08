@@ -35,7 +35,6 @@ export default function MainBookList({ jungbonaru_url }) {
                     setUser(response.data);
                 } catch (error) {
                     console.error('Error fetching user info', error);
-                    navigate("/login");
                 }
             }
         };
