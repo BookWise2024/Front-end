@@ -8,10 +8,14 @@ import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
 // import WidthScroll from "./WidthScroll.jsx";
 
-export default function MainBookList({ jungbonaru_url }) {
+export default function FourthBookList({ jungbonaru_url }) {
 
     const navigate = useNavigate();
-    const baseUrl = "http://localhost:8080";
+    // const baseUrl = "http://localhost:8080";
+
+    const [thdList, setThdList] = useState([]);
+    const seniorElements = [];
+    const age = {name : '장년 추천 도서', from_age : '40', to_age : '100'};
 
     // 추천 책 리스트
     const [list, setList] = useState([]);
@@ -52,7 +56,7 @@ export default function MainBookList({ jungbonaru_url }) {
                     {headers: { 'Authorization': `${token}` },
                 });
 
-                const recomend = res.data.userRecomend;
+                const recomend = res.data.categoryTwo;
                 console.log(recomend);
                 setList(recomend);
             } catch(e) {
@@ -61,27 +65,28 @@ export default function MainBookList({ jungbonaru_url }) {
         };
 
         // 도서관 추천 책 리스트 요청
-        const recomend = async() => {
+        const SeniorRecomend = async() => {
             try{
-                const res = await axios.get(jungbonaru_url);
-                const jsonData = res.data;
+                const res = await axios.get(jungbonaru_url +
+                    '&from_age=' + age.from_age + '&to_age=' + age.to_age);
 
-                // console.log(jsonData);
-                // console.log(jsonData.response.docs);
+                const jsonData = res.data;
+                console.log(jsonData);
+                console.log(jsonData.response.docs);
                 // data 순서 -> response/docs[i]/doc/...
                 const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
 
-                setList(bookList);
+                setThdList(bookList);
             } catch(e) {
                 console.log(e);
             }
-        };
+        }
         
         login_check();
         if(user) {
             userRecommend();
         } else if(!user) {
-            recomend();
+            SeniorRecomend();
         }
     },[]);
     // ---------------------------------------------------------------------------
@@ -101,7 +106,7 @@ export default function MainBookList({ jungbonaru_url }) {
         // bookList.push(
         //     <>
         //         <div className={AppStyle.subtitle2}>
-        //             { user.nickname }님을 위한 맞춤 추천
+        //             categoryTwo 맞춤 추천
         //         </div>
         //         <div className={mainStyle.list_container}>
         //             { bookElements }
@@ -111,12 +116,12 @@ export default function MainBookList({ jungbonaru_url }) {
     } else if(!user) {
         // 추천 책 top 10
         for(let i = 0; i < 10; i++){
-            bookElements.push(
+            seniorElements.push(
                 <>
                     <img
                         key={i}
-                        style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-                        src={list[i]}
+                        style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
+                        src={thdList[i]}
                     />
                 </>
             )
@@ -124,22 +129,20 @@ export default function MainBookList({ jungbonaru_url }) {
 
         bookList.push(
             <>
-                <div key="title" className={AppStyle.subtitle2}>
-                    지금 뜨는 도서
+                <div key="seniorTitle" className={AppStyle.subtitle2}>
+                    {age.name}
                 </div>
-                {/*<WidthScroll>*/}
-                    <div key="element" className={ `${mainStyle.list_container}` }>
-                        { bookElements }
-                    </div>
-                {/*</WidthScroll>*/}
+                <div key="seniotElement" className={mainStyle.list_container}>
+                    {seniorElements}
+                </div>
             </>
         );
     }
     // ---------------------------------------------------------------------------
-    
-    return(
+
+    return (
         <>
-            { bookList }
+            {bookList}
         </>
     );
 }

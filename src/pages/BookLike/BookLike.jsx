@@ -44,7 +44,7 @@ const BookLike = () => {
       try {
         const res = await axios.get('http://43.203.74.198:8000/api/wishlist', {
           headers: {
-            'Authorization': `Bearer ${token}`,
+            'Authorization': `${token}`,
           },
         });
         console.log(res.data);
@@ -55,58 +55,42 @@ const BookLike = () => {
       }
     }
 
-    // login_check();
-    // preferList();
+    login_check();
+    if (!prefer) {
+      preferList();
+    }
   }, []);
 
-  // // user 값이 잘 set 되었는지 확인하기
-  // if (!user) {
-  //     return <div>User information not found.</div>;
-  // }
-  // console.log(user);
-  // if(user == null) {
-  //   alert("로그인이 필요합니다.");
-  //   window.location.href = "http://localhost:5173/login";
-  // }
+  // user 값이 잘 set 되었는지 확인하기
+  if (!user) {
+      return <div>User information not found.</div>;
+  }
+  console.log(user);
+  if(user == null) {
+    alert("로그인이 필요합니다.");
+    window.location.href = "http://localhost:5173/login";
+  }
 
 
   return (
-    // <Layout>
-    //   <div className={styles.bookListContainer}>
-    //     <HomeHeader />
-    //     <div className={styles.bookListContent}>
-    //       <div className={styles.bookListHeader}>
-    //         <div className={styles.title}>선호책 리스트</div>
-    //         <div className={styles.totalCount}>총 {prefer.count} 건</div>
-    //       </div>
-    //       <div className={styles.bookList}>
-    //         {prefer.bookList.map((book, index) => (
-    //           <div className={styles.bookItem} key={index}>
-    //             <img className={styles.bookImage} src={ book.coverUrl } />
-    //           </div>
-    //         ))}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </Layout>
-      <Layout>
-          <HomeHeader />
-          <div className={styles.bookListContainer}>
-          <div className={styles.bookListContent}>
-            <div className={styles.bookListHeader}>
-              <div className={styles.title}>선호책 리스트</div>
-              <div className={styles.totalCount}>총 {books.length} 건</div>
-            </div>
-            <div className={styles.bookList}>
-              {books.map((book, index) => (
-                  <div className={styles.bookItem} key={index}>
-                    <img className={styles.bookImage} src={ book.img } />
-                  </div>
-              ))}
-            </div>
+    <Layout>
+      <div className={styles.bookListContainer}>
+        <HomeHeader />
+        <div className={styles.bookListContent}>
+          <div className={styles.bookListHeader}>
+            <div className={styles.title}>선호책 리스트</div>
+            <div className={styles.totalCount}>총 { prefer.count } 건</div>
+          </div>
+          <div className={styles.bookList}>
+            {prefer.bookList.map((book, index) => (
+              <div className={styles.bookItem} key={index}>
+                <img className={styles.bookImage} src={ book.coverUrl } />
+              </div>
+            ))}
           </div>
         </div>
-      </Layout>
+      </div>
+    </Layout>
   );
 }
 
