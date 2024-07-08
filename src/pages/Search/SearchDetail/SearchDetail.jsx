@@ -1,5 +1,6 @@
+// 수정본
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import useBookDetail from '../../../API/Aladin/useBookDetail.jsx';
 import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
@@ -11,8 +12,13 @@ import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
 import Review from "../../../Review/Review.jsx";
 
 const SearchDetail = () => {
-  const { isbn13 } = useParams();
-  const { bookDetail, isLoading, error } = useBookDetail(isbn13);
+    // isbn 받아오기
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const isbn = searchParams.get('isbn13');
+
+  const { bookId } = useParams();
+  const { bookDetail, isLoading, error } = useBookDetail(isbn);
   const [bookmarked, setBookmarked] = useState(false);
 
   const handleBookmarkClick = () => {
@@ -20,27 +26,29 @@ const SearchDetail = () => {
   };
 
   if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-  const bookData = bookDetail || {
-    bookId: "9788960778818",
-    coverUrl: "https://image.aladin.co.kr/product/205/12/coversum/0132350882_1.jpg",
-    title: "Clean Code: A Handbook of Agile Software Craftsmanship (Paperback) - A Handbook of Agile Software Craftsmanship",
-    author: "로버트 C. 마틴 (지은이)",
-    styleDesc: "",
-    publishDate: "2008-08-01",
-    publisher: "Prentice Hall",
-    category: "컴퓨터",
-    subcategory: "자바",
-    description: "",
-    itemId: "2726985",
-    like: true,
+  const defaultBookDetail = {
+    "bookId": "9788960778818", //isbn13
+    "coverUrl": "https://image.aladin.co.kr/product/205/12/coversum/0132350882_1.jpg",
+    "title": "Clean Code: A Handbook of Agile Software Craftsmanship (Paperback) - A Handbook of Agile Software Craftsmanship",
+    "author": "로버트 C. 마틴 (지은이)",
+    "styleDesc": "",
+    "publishDate": "2008-08-01",
+    "publisher": "Prentice Hall",
+    "category": "컴퓨터",
+    "subcategory": "자바",
+    "description": "",
+    "itemId": "2726985",
+    "like": true
   };
+
+  const bookData = bookDetail;
 
   return (
     <Layout>
-      <SearchDetailHeader />
+      <SearchDetailHeader />  
       <div className={style.container}>
-        {error && <div className={style.error}>Error: {error.message}</div>}
         <div className={style.book_container}>
           <div className={style.txt_container}>
             <div className={style.title_container}>
@@ -66,20 +74,22 @@ const SearchDetail = () => {
         </div>
 
         <div className={style.detail_wrapper}>
-          <div className={`${AppStyle.subtitle1} ${style.info_title}`}>
-            상세 정보
+         
+            <div className={`${AppStyle.subtitle1} ${style.info_title}`}>
+              상세 정보
+           
             <div className={style.detail_component}>
               <div className={AppStyle.Body1}>줄거리</div>
               <div className={`${AppStyle.Body2} ${style.text_normal} `}>
                 {bookData.description || "설명이 없습니다."}
               </div>
             </div>
+         
             <div className={style.detail_component}>
-              <div className={AppStyle.Body1}>표제/저자사항</div>
-              <div className={`${AppStyle.Body2} ${style.text_normal} `}>
-                {bookData.title} / {bookData.author}
-              </div>
-            </div>
+            <div className={AppStyle.Body1}>표제/저자사항</div>
+            <div className={`${AppStyle.Body2} ${style.text_normal} `}>
+              {bookData.title} / {bookData.author}
+            </div></div>
             <div className={style.detail_component}>
               <div className={AppStyle.Body1}>자료 유형</div>
               <div className={`${AppStyle.Body2} ${style.text_normal} `}>
@@ -92,18 +102,25 @@ const SearchDetail = () => {
                 {bookData.publisher}, {bookData.publishDate}
               </div>
             </div>
-            
+            <div className={style.detail_component}>
+              <div className={AppStyle.Body1}>형태사항</div>
+              <div className={`${AppStyle.Body2} ${style.text_normal} `}>
+                278 p ; 23 cm
+              </div>
+            </div>
             <div className={style.detail_component}>
               <div className={AppStyle.Body1}>분류사항</div>
               <div className={`${AppStyle.Body2} ${style.text_normal} `}>
-                {bookData.category} &nbsp; &gt; &nbsp; {bookData.subcategory}
+                {bookData.category} &nbsp; &nbsp; {bookData.subcategory}
               </div>
             </div>
           </div>
         </div>
 
-        <BookActions />
-        <Review />
+        {/* 공공 도서관 검색 */}
+        <BookActions isbn = { isbn } />
+        {/* 리뷰 */}
+        <Review isbn = { isbn } />
         <div>
           <RelatedBooks className={style.BookList} />
         </div>
@@ -113,3 +130,4 @@ const SearchDetail = () => {
 };
 
 export default SearchDetail;
+
