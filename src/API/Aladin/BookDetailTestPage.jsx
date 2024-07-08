@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import useAladinBookDetail from './useAladinBookDetail';
+import useBookDetail from './useBookDetail';
 
 const BookDetailTestPage = () => {
   const [bookId, setBookId] = useState('0132350882');
-  const { bookDetail, isLoading, error } = useAladinBookDetail(bookId);
+  const { bookDetail, isLoading, error } = useBookDetail(bookId);
 
   const handleBookIdChange = (e) => {
     setBookId(e.target.value);
