@@ -15,8 +15,8 @@ const SearchCard = () => {
         {isLoading && <p>검색 중...</p>}
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {!isLoading && books.length > 0 && (
-          books.map((book) => (
-            <BookSearchList key={book.isbn} book={book} />
+          books.map((book, index) => (
+            <BookSearchList key={book.isbn13} book={book} index={index} />
           ))
         )}
         {!isLoading && books.length === 0 && !error && (
