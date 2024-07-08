@@ -14,11 +14,11 @@ export default function Review(props) {
     // const item = searchParams.get('itemId');
     // console.log(item);
 
-    const item = props.item;
+    const isbn = props.isbn;
   return (
     <div className={review.reviewLayout}>
-      <GoodReview item = { item } />
-      <BadReview item = { item } />
+      <GoodReview isbn = { isbn } />
+      <BadReview isbn = { isbn } />
     </div>
   );
 }

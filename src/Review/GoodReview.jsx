@@ -10,12 +10,12 @@ import fothimg from '../assets/img/review/laugh_icon.png';
 
 export default function GoodReview(props) {
 
-    const item = props.item;
+    const isbn = props.isbn;
     const [reviewList, setReviewList] = useState([]);
 
     useEffect(() => {
         const review = async() => {
-            const res = await axios.get("http://43.203.74.198:8000/api/book/review/" + item);
+            const res = await axios.get("http://43.203.74.198:8000/api/book/review/" + isbn);
             console.log(res.data);
             setReviewList(res.data.positive);
         }
