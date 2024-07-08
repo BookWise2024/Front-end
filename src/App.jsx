@@ -9,7 +9,6 @@ import BookInfoLibSearch from './pages/LibraryLocation/BookInfoToMap/LibraryLoca
 import MainLibDetailLocation from "./pages/LibraryDetailLocation/MainToMap/LibraryDetailLocation.jsx";
 import BookInfoLibDetailLocation from "./pages/LibraryDetailLocation/BookInfoToMap/LibraryDetailLocation.jsx";
 import BookLike from "./pages/BookLike/BookLike.jsx";
-import Review from './Review/Review.jsx';
 
 // =============================================================================================
 import NotFound from "./pages/NotFound/NotFound.jsx";
@@ -40,13 +39,13 @@ function App() {
                 <Route path = "/" element={<MainPage />}/>
                 {/* 햄버거 메뉴 페이지 */}
                 <Route path = "/sub" element={<SubMenu />}/> 
-                {/* 햄버거 메뉴에서 도서관 검색으로 넘어간 페이지 */}
+                {/* 햄버거 메뉴 => 도서관 검색 페이지 */}
                 <Route path = "/mainLib" element={<MainLibSearch />}/>
-                {/* 도서 상세 페이지에서 도서관 검색으로 넘어간 페이지 */}
+                {/* 도서 상세 페이지 => 도서관 검색 페이지 */}
                 <Route path = "/bookInfoLib" element={<BookInfoLibSearch />}/>
-                {/* 메인에서 도서관 검색으로 넘어가서 도서관 상세로 넘어간 페이지 */}
+                {/* 메인 => 도서관 검색 => 도서관 상세 페이지 */}
                 <Route path = "/MainLibInfo" element={<MainLibDetailLocation />}/>
-                {/* 도서 상세 페이지에서 도서관 검색으로 넘어가서 도서관 상세로 넘어간 페이지 */}
+                {/* 도서 상세 페이지 => 도서관 검색 => 도서관 상세 페이지 */}
                 <Route path = "/BookInfoLibInfo" element={<BookInfoLibDetailLocation />}/>
                 {/* 선호책 페이지 */}
                 <Route path="/BookLike" element={<BookLike />}  />

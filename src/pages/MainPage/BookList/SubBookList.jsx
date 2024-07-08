@@ -7,9 +7,13 @@ import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
 import scroll from "./WidthScroll.jsx"
 
-export default function MainBookList({ jungbonaru_url }) {
-    // const navigate = useNavigate();
-    const baseUrl = "http://localhost:8080";
+export default function SubBookList({ jungbonaru_url }) {
+    const navigate = useNavigate();
+    // const baseUrl = "http://localhost:8080";
+
+    const [fstList, setFstList] = useState([]);
+    const teenElements = [];
+    const age = {name : '청소년 추천 도서' ,from_age : '13', to_age : '19'};
 
     // 추천 책 리스트
     const [list, setList] = useState([]);
@@ -17,6 +21,11 @@ export default function MainBookList({ jungbonaru_url }) {
     // 추천 리스트
     const bookList = [];
     const bookElements = [];
+
+    // 책 상세페이지로 이동
+    function BookDetail(isbn) {
+        navigate("/SearchDetail?bookId=" + isbn);
+    }
                 
     useEffect(() => {
         // 로그인 여부 확인
@@ -55,9 +64,29 @@ export default function MainBookList({ jungbonaru_url }) {
             }
         };
 
+        // 연령대별 추천 책 리스트 요청(반복문 필요)
+        const TeenRecomend = async() => {
+            try{
+                const res = await axios.get(jungbonaru_url +
+                    '&from_age=' + age.from_age + '&to_age=' + age.to_age);
+
+                const jsonData = res.data;
+                console.log(jsonData);
+                console.log(jsonData.response.docs);
+                // data 순서 -> response/docs[i]/doc/...
+                const bookList = jsonData.response.docs.slice(0, 10).map(book => book.doc.bookImageURL);
+
+                setFstList(bookList);
+            } catch(e) {
+                console.log(e);
+            }
+        }
+
         login_check();
         if(user) {
             recomend();
+        } else if(!user) {
+            TeenRecomend();
         }
     },[]);
     // ---------------------------------------------------------------------------
@@ -83,6 +112,29 @@ export default function MainBookList({ jungbonaru_url }) {
                 </div>
                 <div key="element" className={mainStyle.list_container}>
                     { bookElements }
+                </div>
+            </>
+        );
+    } else if(!user) {
+        // 연령대별 추천 책 top 10
+        for(let i = 0; i < 10; i++){
+            teenElements.push(
+                <>
+                    <img
+                        key={i}
+                        style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
+                        src={fstList[i]}
+                    />
+                </>
+            );
+        }
+        bookList.push(
+            <>
+                <div key="teenTitle" className={AppStyle.subtitle2}>
+                    {age.name}
+                </div>
+                <div key="teenElement" className={mainStyle.list_container}>
+                    {teenElements}
                 </div>
             </>
         );
