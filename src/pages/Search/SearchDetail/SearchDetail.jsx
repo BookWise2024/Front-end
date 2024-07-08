@@ -92,16 +92,11 @@ const SearchDetail = () => {
                 {bookData.publisher}, {bookData.publishDate}
               </div>
             </div>
-            <div className={style.detail_component}>
-              <div className={AppStyle.Body1}>형태사항</div>
-              <div className={`${AppStyle.Body2} ${style.text_normal} `}>
-                278 p ; 23 cm
-              </div>
-            </div>
+            
             <div className={style.detail_component}>
               <div className={AppStyle.Body1}>분류사항</div>
               <div className={`${AppStyle.Body2} ${style.text_normal} `}>
-                {bookData.category} &nbsp; &nbsp; {bookData.subcategory}
+                {bookData.category} &nbsp; &gt; &nbsp; {bookData.subcategory}
               </div>
             </div>
           </div>
