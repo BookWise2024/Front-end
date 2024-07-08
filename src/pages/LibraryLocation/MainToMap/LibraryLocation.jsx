@@ -53,14 +53,21 @@ export default function LibraryLocation() {
 
     // 해당 위치 중심으로 도서관 검색하기
     useEffect(() => {
+        console.log(userLocation);
         const around = async() => {
-            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
-                + userLocation.lat + "&longitude=" + userLocation.lng);
+            try {
+                const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
+                    + userLocation.lat + "&longitude=" + userLocation.lng);
 
-            console.log(res.data);
-            setAroundLib(res.data.libraryList);
+                console.log(res.data);
+                setAroundLib(res.data.libraryList);
+            } catch(err) {
+                console.error(err);
+            }
         }
-        around();
+        if(userLocation) {
+            around();
+        }
     },[userLocation]);
 
     console.log(userLocation);
