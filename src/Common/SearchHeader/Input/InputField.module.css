@@ -4,13 +4,13 @@
  display: flex;
 
  width: 21.4375rem;
-
+ height: auto;
 padding: 1rem;
 justify-content: center;
-align-items: flex-start;
+align-items: center;
  flex-shrink: 0;
 background: var(--primary, #38ACFF);
-
+margin-top: 3rem;
 }
 
 .SearchContainer {
