@@ -5,7 +5,10 @@ import styles from "./BookActions.module.css";
 import AppStyle from "../../../../App.module.css";
 import LibrarySearch from "../../../../assets/img/bookdetail/LibrarySearch.png";
 import Button from "../../../../Common/Button/Button2.jsx"
-const BookActions = () => {
+const BookActions = (props) => {
+
+  const isbn = props.isbn;
+
   return (
     <div className={styles.container}>
       <div className={styles.bookActionBox}>

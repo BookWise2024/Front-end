@@ -8,8 +8,9 @@ import secimg from '../assets/img/review/bad_text.png';
 import thdimg from '../assets/img/review/red_heart.png';
 import fothimg from '../assets/img/review/anger_icon.png';
 
-export default function BadReview() {
+export default function BadReview(props) {
 
+    const isbn = props.isbn;
     const [reviewList, setReviewList] = useState([]);
 
     useEffect(() => {

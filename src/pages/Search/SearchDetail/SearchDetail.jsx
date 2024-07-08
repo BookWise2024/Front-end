@@ -1,6 +1,6 @@
 // 수정본
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import useBookDetail from '../../../API/Aladin/useBookDetail.jsx';
 import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
@@ -12,8 +12,13 @@ import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
 import Review from "../../../Review/Review.jsx";
 
 const SearchDetail = () => {
+    // isbn 받아오기
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const isbn = searchParams.get('isbn13');
+
   const { bookId } = useParams();
-  const { bookDetail, isLoading, error } = useBookDetail(bookId);
+  const { bookDetail, isLoading, error } = useBookDetail(isbn);
   const [bookmarked, setBookmarked] = useState(false);
 
   const handleBookmarkClick = () => {
@@ -38,7 +43,7 @@ const SearchDetail = () => {
     "like": true
   };
 
-  const bookData = bookDetail || defaultBookDetail;
+  const bookData = bookDetail;
 
   return (
     <Layout>
@@ -112,8 +117,10 @@ const SearchDetail = () => {
           </div>
         </div>
 
-        <BookActions />
-        <Review />
+        {/* 공공 도서관 검색 */}
+        <BookActions isbn = { isbn } />
+        {/* 리뷰 */}
+        <Review isbn = { isbn } />
         <div>
           <RelatedBooks className={style.BookList} />
         </div>
