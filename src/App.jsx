@@ -48,7 +48,6 @@ function App() {
       <Route path="/DropdownMenu" element={<DropdownMenu />} />
       {/* 검색 페이지 */}
       <Route path="/SearchCard" element={<SearchCard />} />
-      <Route path="/SearchDetail/:isbn13" element={<SearchDetail />} />
       <Route path="/SearchDetail" element={<SearchDetail />} />
       {/* 기타 페이지 */}
       <Route path="*" element={<NotFound />} />
