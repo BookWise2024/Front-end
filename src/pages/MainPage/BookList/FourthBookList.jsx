@@ -64,7 +64,7 @@ export default function FourthBookList({ jungbonaru_url }) {
             }
         };
 
-        // 도서관 추천 책 리스트 요청
+        // 연령대별 추천 책 리스트 요청(반복문 필요)
         const SeniorRecomend = async() => {
             try{
                 const res = await axios.get(jungbonaru_url +
@@ -92,27 +92,27 @@ export default function FourthBookList({ jungbonaru_url }) {
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경
     if(user) {
-        // // 사용자 추천 책 top 10
-        // for(let i = 0; i < 10; i++) {
-        //     bookElements.push(
-        //         <>
-        //             <img
-        //                 style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-        //                 src={ list[i].coverURL }
-        //                 onClick={ () => BookDetail(list[i].isbn13) } />
-        //         </>
-        //     )
-        // }
-        // bookList.push(
-        //     <>
-        //         <div className={AppStyle.subtitle2}>
-        //             categoryTwo 맞춤 추천
-        //         </div>
-        //         <div className={mainStyle.list_container}>
-        //             { bookElements }
-        //         </div>
-        //     </>
-        // );
+        // 사용자 추천 책 top 10
+        for(let i = 0; i < 10; i++) {
+            bookElements.push(
+                <>
+                    <img
+                        style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
+                        src={ list[i].coverURL }
+                        onClick={ () => BookDetail(list[i].isbn13) } />
+                </>
+            )
+        }
+        bookList.push(
+            <>
+                <div className={AppStyle.subtitle2}>
+                    categoryTwo 맞춤 추천
+                </div>
+                <div className={mainStyle.list_container}>
+                    { bookElements }
+                </div>
+            </>
+        );
     } else if(!user) {
         // 추천 책 top 10
         for(let i = 0; i < 10; i++){
