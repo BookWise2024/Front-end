@@ -110,9 +110,14 @@
 } */
 
 .header {
-  display: flex;
+  /* display: flex;
   align-items: center;
   width: 21.4375rem;
+  top: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
   justify-content: center;
   color: white;
   gap: 6.6875rem;
@@ -120,6 +125,25 @@
   background: var(--main-color, #38ACFF);
   flex-shrink: 0;
   padding: 1rem;
+  position: absolute; */
+
+
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 21.4375rem;
+
+  justify-content: center;
+  color: white;
+  gap: 6.6875rem;
+  font-weight: bold;
+  background: var(--main-color, #38ACFF);
+  flex-shrink: 0;
+  padding: 1rem;
+
+  
+
 }
 
 .logo {

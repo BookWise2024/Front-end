@@ -8,8 +8,8 @@ import Map from './Map/KakaoMap.jsx';
 import Library from './Library/Library.jsx';
 import { GetUserLocation } from './GetUserLocation.jsx';
 // ==========================================
-// import layout from '../../../Common/TestLayout.module.css'
 import Layout from "../../../Common/Layout/Layout.jsx"
+import style from "./LibraryLocation.module.css"
 export default function LibraryLocation() {
 
     const loc = useLocation();
@@ -76,22 +76,24 @@ export default function LibraryLocation() {
 
     return (
       <Layout>
-        <Header />
-        <Search />
-        {userLocation && aroundLib != [] ? (
-          <>
-            <Map userLocation={userLocation}
-                 aroundLib={aroundLib}
-                 searchKeyword={searchKeyword}
-                 onLocationChange={ handleLocationChange } />
-            <Library
-              userLocation={userLocation}
-              aroundLib={aroundLib}
-              bookId={bookId} />
-          </>
-        ) : (
-          <p>Loading...</p>
-        )}
+        <div className={style.wrapper}>
+          <Header />
+          <Search />
+          {userLocation && aroundLib != [] ? (
+            <>
+              <Map userLocation={userLocation}
+                  aroundLib={aroundLib}
+                  searchKeyword={searchKeyword}
+                  onLocationChange={ handleLocationChange } />
+              <Library
+                userLocation={userLocation}
+                aroundLib={aroundLib}
+                bookId={bookId} />
+            </>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
       </Layout>
     );
 }
