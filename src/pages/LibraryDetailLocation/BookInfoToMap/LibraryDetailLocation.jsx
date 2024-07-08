@@ -4,6 +4,7 @@ import Header from './Header/Header.jsx';
 import Info from './Info/Info.jsx';
 import Layout from '../../../Common/Layout/Layout.jsx';
 import BookInfo from './BookInfo/BookInfo.jsx';
+import RelatedBook from './RelatedBooks/RelatedBooks.jsx';
 
 export default function LibraryDetailLocation() {
 
@@ -26,7 +27,7 @@ export default function LibraryDetailLocation() {
             <Header />
             <Info libraryId = { libraryId }/>
             <BookInfo bookId = { bookId } hasbook = { hasbook } loanAvailable = { loanAvailable } libraryId = { libraryId }/>
-            {/*<BookInfo />*/}
+            <RelatedBook bookId = { bookId } />
         </Layout> 
     );
 }
