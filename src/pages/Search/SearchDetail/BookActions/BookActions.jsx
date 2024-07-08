@@ -21,7 +21,7 @@ const BookActions = (props) => {
             내 주변 도서관에서 원하는
             <br /> 책을 확인하고 대여하세요
           </div>
-          <Button />
+          <Button isbn = { isbn } />
           
          
         </div>

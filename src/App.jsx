@@ -19,6 +19,8 @@ import DropdownMenu from './Common/Dropdown/DropdownMenu.jsx';
 import SearchNotFound from './pages/Search/SearchNotFound/SearchNotFound.jsx';
 import BookDetailTestPage from './API/Aladin/BookDetailTestPage.jsx';
 
+import Review from "./Review/Review.jsx";
+
 function App() {
   return (
     <Routes>
@@ -53,6 +55,9 @@ function App() {
       <Route path="*" element={<NotFound />} />
       {/* 알라딘 북 상세 테스트 페이지 */}
       <Route path="/BookDetailTestPage" element={<BookDetailTestPage />} />
+
+        {/* 리뷰 테스트 */}
+        <Route path="/review" element={<Review/>}/>
     </Routes>
   );
 }

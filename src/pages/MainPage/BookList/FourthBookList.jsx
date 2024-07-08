@@ -8,7 +8,10 @@ import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
 // import WidthScroll from "./WidthScroll.jsx";
 
-export default function FourthBookList({ jungbonaru_url }) {
+export default function FourthBookList(props) {
+
+    const jungbonaru_url = props.jungbonaru_url;
+    const user = props.user;
 
     const navigate = useNavigate();
     // const baseUrl = "http://localhost:8080";
@@ -19,44 +22,26 @@ export default function FourthBookList({ jungbonaru_url }) {
 
     // 추천 책 리스트
     const [list, setList] = useState([]);
-    const [user, setUser] = useState(null);
     // 최상단 추천 리스트
     const bookList = [];
     const bookElements = [];
 
     // 책 상세페이지로 이동
     function BookDetail(isbn) {
-        navigate("/SearchDetail?bookId=" + isbn);
+        navigate("/SearchDetail?isbn13=" + isbn);
     }
-                
-    useEffect(() => {
-        // 로그인 여부 확인
-        const login_check = async() => {
-            const token = localStorage.getItem('accessToken');
-            console.log(token);
-            if (token) {
-                try {
-                    const response = await axios.get('http://43.203.74.198:8000/api/user/profile', {
-                        // headers: { 'Authorization': `Bearer ${token}` },
-                        headers: { 'Authorization': `${token}` },
-                    });
-                    console.log(response.data);
-                    setUser(response.data);
-                } catch (error) {
-                    console.error('Error fetching user info', error);
-                }
-            }
-        };
 
+    useEffect(() => {
         // 사용자 추천 책 리스트 요청
         const userRecommend = async() => {
-            try{
+            try {
                 const token = localStorage.getItem('accessToken');
-                const res = await axios.get("http://43.203.74.198:8000/recommendations",
+                console.log(token);
+                const res = await axios.get("http://43.203.74.198:8000/api/book/recommendations",
                     {headers: { 'Authorization': `${token}` },
-                });
+                    });
 
-                const recomend = res.data.categoryTwo;
+                const recomend = res.data.preferOne;
                 console.log(recomend);
                 setList(recomend);
             } catch(e) {
@@ -64,6 +49,16 @@ export default function FourthBookList({ jungbonaru_url }) {
             }
         };
 
+        if(user) {
+            console.log("Login");
+            userRecommend();
+        } else {
+            console.log("logout");
+        }
+    }, [user]);
+
+    useEffect(() => {
+        if (!user) {
         // 연령대별 추천 책 리스트 요청(반복문 필요)
         const SeniorRecomend = async() => {
             try{
@@ -81,27 +76,24 @@ export default function FourthBookList({ jungbonaru_url }) {
                 console.log(e);
             }
         }
-        
-        login_check();
-        if(user) {
-            userRecommend();
-        } else if(!user) {
-            SeniorRecomend();
+        SeniorRecomend();
         }
-    },[]);
+    }, [jungbonaru_url, user]);
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경
     if(user) {
         // 사용자 추천 책 top 10
         for(let i = 0; i < 10; i++) {
-            bookElements.push(
-                <>
-                    <img
-                        style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-                        src={ list[i].coverURL }
-                        onClick={ () => BookDetail(list[i].isbn13) } />
-                </>
-            )
+            if(thdList[i]) {
+                bookElements.push(
+                    <>
+                        <img
+                            style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
+                            src={ list[i].coverURL }
+                            onClick={ () => BookDetail(list[i].isbn13) } />
+                    </>
+                )
+            }
         }
         bookList.push(
             <>
@@ -116,15 +108,17 @@ export default function FourthBookList({ jungbonaru_url }) {
     } else if(!user) {
         // 추천 책 top 10
         for(let i = 0; i < 10; i++){
-            seniorElements.push(
-                <>
-                    <img
-                        key={i}
-                        style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
-                        src={thdList[i]}
-                    />
-                </>
-            )
+            if(thdList[i]){
+                seniorElements.push(
+                    <>
+                        <img
+                            key={i}
+                            style={{ width: "6.1875rem", height: "8.875rem", borderRadius: "0.25rem" }}
+                            src={thdList[i]}
+                        />
+                    </>
+                )
+            }
         }
 
         bookList.push(
