@@ -5,6 +5,8 @@ import AppStyle from "../../App.module.css";
 import SearchHeader from "../../Common/SearchHeader/SearchHeader.jsx";
 import MainBookList from './BookList/MainBookList.jsx';
 import SubBookList from './BookList/SubBookList.jsx';
+import ThirdBookList from './BookList/ThirdBookList.jsx';
+import FourthBookList from './BookList/FourthBookList.jsx';
 import AgeBookList from './BookList/AgeBookList.jsx';
 import Layout from '../../Common/Layout/Layout.jsx';
 
@@ -26,7 +28,9 @@ export default function MainPage() {
         <div className={mainStyle.container}>
           <MainBookList jungbonaru_url={best_take_out_url} />
           <SubBookList jungbonaru_url={best_take_out_url} />
-          <AgeBookList jungbonaru_url={best_take_out_url} />
+          <ThirdBookList jungbonaru_url={best_take_out_url} />
+          <FourthBookList jungbonaru_url={best_take_out_url} />
+          {/*<AgeBookList jungbonaru_url={best_take_out_url} />*/}
         </div>
       </div>
     </Layout>
