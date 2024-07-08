@@ -24,7 +24,7 @@ export default function SubBookList({ jungbonaru_url }) {
 
     // 책 상세페이지로 이동
     function BookDetail(isbn) {
-        navigate("/SearchDetail?bookId=" + isbn);
+        navigate("/SearchDetail?isbn13=" + isbn);
     }
                 
     useEffect(() => {

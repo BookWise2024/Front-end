@@ -15,7 +15,7 @@ export default function LibraryLocation() {
     const loc = useLocation();
     const searchParams = new URLSearchParams(loc.search);
     // /api/library/book/{bookId} 에 필요
-    const bookId = searchParams.get('bookId');
+    const bookId = searchParams.get('isbn13');
     console.log(bookId);
 
     // {lat: 37.566826, lng: 126.9786567}
@@ -61,10 +61,8 @@ export default function LibraryLocation() {
     // 해당 위치 중심으로 도서관 검색하기
     useEffect(() => {
         const around = async() => {
-            const res = await axios.get("http://43.203.74.198:8000/api/library?latitude="
-                + userLocation.lat + "&longitude=" + userLocation.lng);
-            // const res = await axios.get("http://43.203.74.198:8000/api/library/book/" + bookId
-            //     + "?latitude=" + userLocation.lat + "&longitude=" + userLocation.lng + "&sort=possession");
+            const res = await axios.get("http://43.203.74.198:8000/api/library/book/" + bookId
+                + "?latitude=" + userLocation.lat + "&longitude=" + userLocation.lng + "&sort=possession");
             console.log(res.data);
             setAroundLib(res.data.libraryList);
         }
@@ -78,7 +76,7 @@ export default function LibraryLocation() {
       <Layout>
         <div className={style.wrapper}>
           <Header />
-          <Search />
+          <Search onSearch={ handleSearch }/>
           {userLocation && aroundLib != [] ? (
             <>
               <Map userLocation={userLocation}

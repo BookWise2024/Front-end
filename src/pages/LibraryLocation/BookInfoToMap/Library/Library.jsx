@@ -20,9 +20,9 @@ export default function Library(props) {
 
     // 위치별 지역 주소 표시
     const [address, setAddress] = useState("");
-    // console.log(aroundLib);
-    // console.log(userLocation);
-    // console.log(bookId);
+    console.log(aroundLib);
+    console.log(userLocation);
+    console.log(bookId);
 
     useEffect(() => {
         // Kakao Map 스크립트를 동적으로 로드
@@ -59,86 +59,78 @@ export default function Library(props) {
     console.log(dropData);
 
     // 도서관 상세 페이지로 이동
-    function Info(libraryId) {
-        navigate("/BookInfoLibInfo?libraryId=" + libraryId);
-    }
+    // function Info(libraryId) {
+    //     navigate("/BookInfoLibInfo?libraryId=" + libraryId);
+    // }
 
     // 도서관 상세 페이지로 이동
-    // function Info(libraryId, hasbook, loanAvailable) {
-    //     navigate("/BookInfoLibInfo?bookId=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasbook + "&loanAvailable=" + loanAvailable);
-    // }
+    function Info(libraryId, hasBook, loanAvailable) {
+        console.log("/BookInfoLibInfo?bookId=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasBook + "&loanAvailable=" + loanAvailable)
+        navigate("/BookInfoLibInfo?bookId=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasBook + "&loanAvailable=" + loanAvailable);
+    }
+
+    // 책 보유 여부에 따른 활성화 버튼
+    function exist(hasBook) {
+        if(hasBook === "Y") {
+            return(
+                <div className={`${AppStyle.Body4} ${style.exist}`}>
+                    <div className={`${AppStyle.Button2} ${style.exist_text}`}>
+                        보유중
+                    </div>
+                </div>
+            );
+        } else if (hasBook === "N") {
+            return(
+                <div className={`${AppStyle.Body4} ${style.nonexist}`}>
+                    <div className={`${AppStyle.Button2} ${style.nonexist_text}`}>
+                        미보유
+                    </div>
+                </div>
+            )
+        }
+    }
 
     for(let i = 0; i < aroundLib.length; i++){
         // dropdown 정렬
         // 보유순
-        // if(dropData === '보유순') {
-        //     // 책 보유 여부에 따른 활성화 버튼
-        //     // else if (aroundLib[i].hasbook === "N") {
-        //     //     bookExist.push(
-        //     //         <div className={`${AppStyle.Body4} ${style.nonexist}`}>
-        //     //             <div className={`${AppStyle.Button2} ${style.nonexist_text}`}>
-        //     //                 미보유
-        //     //             </div>
-        //     //         </div>
-        //     //     )
-        //     // }
-        //
-        //     if(aroundLib[i].hasbook === "Y") {
-        //         libList.push(
-        //             <>
-        //                 <div className={style.libraryInfo}
-        //                      onClick={() => Info(aroundLib[i].libraryId, aroundLib[i].hasbook, aroundLib[i].loanAvailable)}>
-        //                     <div className={`${AppStyle.Body1} ${style.libraryName}`}>
-        //                         {aroundLib[i].name}
-        //                     </div>
-        //                     <div className={style.libraryLoc}>
-        //                         <div className={`${AppStyle.Body4} ${style.address}`}>
-        //                             {aroundLib[i].address}
-        //                         </div>
-        //                         <div className={`${AppStyle.Caption2} ${style.distance}`}>
-        //                             {aroundLib[i].distance} km
-        //                         </div>
-        //                         <div className={`${AppStyle.Body4} ${style.exist}`}>
-        //                             <div className={`${AppStyle.Button2} ${style.exist_text}`}>
-        //                                 <div className={`${AppStyle.Body4} ${style.exist}`}>
-        //                                    <div className={`${AppStyle.Button2} ${style.exist_text}`}>
-        //                                        보유중
-        //                                    </div>
-        //                                </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </>
-        //         );
-        //     }
-        // }
+        if(dropData === '보유순') {
+            if(aroundLib[i].hasBook === "Y") {
+                libList.push(
+                    <>
+                        <div className={style.libraryInfo}
+                             onClick={() => Info(aroundLib[i].libraryId, aroundLib[i].hasBook, aroundLib[i].loanAvailable)}>
+                            <div className={`${AppStyle.Body1} ${style.libraryName}`}>
+                                {aroundLib[i].name}
+                            </div>
+                            <div className={style.libraryLoc}>
+                                <div className={`${AppStyle.Body4} ${style.address}`}>
+                                    {aroundLib[i].address}
+                                </div>
+                                <div className={`${AppStyle.Caption2} ${style.distance}`}>
+                                    {aroundLib[i].distance} km
+                                </div>
+                                <div className={`${AppStyle.Body4} ${style.exist}`}>
+                                    <div className={`${AppStyle.Button2} ${style.exist_text}`}>
+                                        <div className={`${AppStyle.Body4} ${style.exist}`}>
+                                           <div className={`${AppStyle.Button2} ${style.exist_text}`}>
+                                               { exist(aroundLib[i].hasBook) }
+                                           </div>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                );
+            }
+        }
         // ========================================================================================
         // 기본(거리순)
-        // else {
-            // 책 보유 여부에 따른 활성화 버튼
-            // if(aroundLib[i].hasbook === "Y") {
-            //     bookExist.push(
-            //         <div className={`${AppStyle.Body4} ${style.exist}`}>
-            //             <div className={`${AppStyle.Button2} ${style.exist_text}`}>
-            //                 보유중
-            //             </div>
-            //         </div>
-            //     );
-            // } else if (aroundLib[i].hasbook === "N") {
-            //     bookExist.push(
-            //         <div className={`${AppStyle.Body4} ${style.nonexist}`}>
-            //             <div className={`${AppStyle.Button2} ${style.nonexist_text}`}>
-            //                 미보유
-            //             </div>
-            //         </div>
-            //     )
-            // }
-
+        else {
             libList.push(
                 <>
-                    {/*<div className={style.libraryInfo} onClick={() => Info(aroundLib[i].libraryId, aroundLib[i].hasbook, aroundLib[i].loanAvailable)}>*/}
-                    <div className={style.libraryInfo} onClick={() => Info(aroundLib[i].libraryId)}>
+                    <div className={style.libraryInfo} onClick={() => Info(aroundLib[i].libraryId, aroundLib[i].hasBook, aroundLib[i].loanAvailable)}>
+                    {/*<div className={style.libraryInfo} onClick={() => Info(aroundLib[i].libraryId)}>*/}
                         <div className={`${AppStyle.Body1} ${style.libraryName}`}>
                         { aroundLib[i].name }
                         </div>
@@ -151,15 +143,14 @@ export default function Library(props) {
                             </div>
                             <div className={`${AppStyle.Body4} ${style.exist}`}>
                                 <div className={`${AppStyle.Button2} ${style.exist_text}`}>
-                                    {/*{ bookExist }*/}
-                                    보유중
+                                    { exist(aroundLib[i].hasBook) }
                                 </div>
                             </div>
                         </div>
                     </div>
                 </>
             );
-        // }
+        }
     }
 
     return (

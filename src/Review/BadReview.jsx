@@ -10,17 +10,17 @@ import fothimg from '../assets/img/review/anger_icon.png';
 
 export default function BadReview(props) {
 
-    const isbn = props.isbn;
+    const item = props.item;
     const [reviewList, setReviewList] = useState([]);
 
     useEffect(() => {
         const review = async() => {
-            const res = await axios.get("서버에 부정 리뷰를 요청");
+            const res = await axios.get("http://43.203.74.198:8000/api/book/review/" + item);
             console.log(res.data);
-            setReviewList(res.data);
+            setReviewList(res.data.negative);
         }
 
-        // review();
+        review();
     },[]);
 
     return (

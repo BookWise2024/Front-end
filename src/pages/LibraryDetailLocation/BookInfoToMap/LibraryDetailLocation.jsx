@@ -12,21 +12,21 @@ export default function LibraryDetailLocation() {
 
     // /api/library/book/{bookId}/{libraryId} 에 필요
     const libraryId = searchParams.get('libraryId');
-    // const bookId = searchParams.get('bookId');
-    // const hasbook = searchParams.get('hasbook');
-    // const loanAvailable = searchParams.get('loanAvailable');
+    const bookId = searchParams.get('bookId');
+    const hasbook = searchParams.get('hasbook');
+    const loanAvailable = searchParams.get('loanAvailable');
 
     console.log(libraryId);
-    // console.log(bookId);
-    // console.log(hasbook);
-    // console.log(loanAvailable);
+    console.log(bookId);
+    console.log(hasbook);
+    console.log(loanAvailable);
 
     return (
         <Layout>
             <Header />
             <Info libraryId = { libraryId }/>
-            {/*<BookInfo bookId = { bookId } hasbook = { hasbook } loanAvailable = { loanAvailable } libraryId = { libraryId }/>*/}
-            <BookInfo />
+            <BookInfo bookId = { bookId } hasbook = { hasbook } loanAvailable = { loanAvailable } libraryId = { libraryId }/>
+            {/*<BookInfo />*/}
         </Layout> 
     );
 }
