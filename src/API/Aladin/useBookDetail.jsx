@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useBookDetail = (bookId) => {
-  const token = localStorage.getItem('accessToken');
+  let token = null;
+  token =localStorage.getItem('accessToken');
+  if(!token) {
+    token = "";
+  }
+  console.log(token);
 
   const [bookDetail, setBookDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

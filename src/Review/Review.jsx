@@ -14,7 +14,7 @@ export default function Review(props) {
     // const item = searchParams.get('itemId');
     // console.log(item);
 
-    const item = props.itemId;
+    const item = props.item;
   return (
     <div className={review.reviewLayout}>
       <GoodReview item = { item } />
