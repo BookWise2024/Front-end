@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./InputField.module.css";
 import SearchIcon from "../../../assets/img/menu/icon_search.svg";
+import {useNavigate} from "react-router-dom";
 
-const InputField = ({ q = "", onSearch }) => {
+const InputField = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    setSearch(q || "");
-  }, [q]);
 
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -24,6 +22,11 @@ const InputField = ({ q = "", onSearch }) => {
       onSearch(search);
     }
   };
+
+  const onSearch = () => {
+    navigate("/SearchCard?search=" + search);
+    location.reload();
+  }
 
   return (
   
