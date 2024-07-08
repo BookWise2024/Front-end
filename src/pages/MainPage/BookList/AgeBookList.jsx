@@ -7,7 +7,7 @@ import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
 import scroll from "./WidthScroll.jsx"
 
-export default function MainBookList({ jungbonaru_url }) {
+export default function AgeBookList({ jungbonaru_url }) {
     const age = [
         // {name : '미래를 꿈꾸는 청소년을 위한 추천 도서' ,from_age : '13', to_age : '19'},
         // {name : '고단하게 현실을 살아가는 청년을 위한 추천 도서', from_age : '20', to_age : '39'},

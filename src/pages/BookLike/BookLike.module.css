@@ -3,7 +3,9 @@
   flex-direction: column;
   width: 100%;
   max-width: 23.4375rem;
-  margin: 0 auto;
+  margin:  auto;
+
+  margin-top: 3rem;
   
 }
 

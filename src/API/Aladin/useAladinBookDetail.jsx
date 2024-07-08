@@ -27,37 +27,29 @@ const useAladinBookDetail = (bookId) => {
         "styleDesc": "",
         "publishDate": "2008-08-01",
         "publisher": "Prentice Hall",
-        "category": "외국도서>컴퓨터>소프트웨어 개발/엔지니어링>품질 보증/시험",
-        "subcategory": "",
+        "category": "컴퓨터",
+        "subcategory": "자바",
         "description": "",
-        "like": "true"
+        "itemId": "2726985",
+        "like": true
       };
 
       let fetched = false;
 
-      for (let i = 0; i < ttbKeys.length; i++) {
-        const ttbKey = ttbKeys[i];
-        try {
-          const response = await axios.get('https://www.aladin.co.kr/ttb/api/ItemLookUp.aspx', {
-            params: {
-              TTBKey: ttbKey,
-              ItemId: bookId,
-              ItemIdType: 'ISBN',
-              Cover: 'Big',
-              output: 'js',
-              Version: '20131101',
-            }
-          });
+      try {
+        const response = await axios.get(`http://43.203.74.198:8000/api/book/${bookId}/1`);
+        console.log(response.data)
 
-          if (response.data && response.data.item) {
-            setBookDetail(response.data.item[0]);
-            fetched = true;
-            break; // 성공적으로 데이터를 가져왔으므로 루프 종료
-          }
-        } catch (error) {
-          console.error(`Error fetching book details with key ${ttbKey}:`, error);
+        if (response.data) {
+          setBookDetail(response.data);
+          fetched = true;
+           // 성공적으로 데이터를 가져왔으므로 루프 종료
         }
+      } catch (err) {
+        console.error(`Error fetching book details with key:`, err);
+        setError(err);
       }
+      
 
       if (!fetched) {
         setBookDetail(fixedBookDetail); // 임시 데이터를 사용

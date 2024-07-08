@@ -2,10 +2,11 @@
     display: inline-flex;
     height: 1.5rem;
     padding: 1rem 1rem 1rem 8.125rem;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-start;
     gap: 5.6875rem;
     flex-shrink: 0;
+    
 
     background: #FFF;
 }
