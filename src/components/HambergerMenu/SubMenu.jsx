@@ -43,13 +43,16 @@ export default function SubMenu({ onClose }) {
     // 로그아웃
     const handleLogout = async () => {
         try {
-            await axios.post("http://43.203.74.198:8000/api/auth/logout", {}, { withCredentials: true });
+            // await axios.post("http://43.203.74.198:8000/api/auth/logout", {}, { withCredentials: true });
             
             // token 제거
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
-            navigate('/');
-            onClose();
+            setUser(null);
+            // mainpage로 이동 후 새로고침
+            navigate("/")
+            location.reload();
+            // onClose();
         } catch (error) {
             console.error('Logout failed:', error);
         }

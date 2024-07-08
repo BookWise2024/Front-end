@@ -80,26 +80,26 @@ export default function MainBookList({ jungbonaru_url }) {
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경
     if(user) {
-        // // 사용자 추천 책 top 10
-        // bookList.push(
-        //     <>
-        //         <div className={AppStyle.subtitle2}>
-        //             { user.nickname }님을 위한 맞춤 추천
-        //         </div>
-        //         <div className={mainStyle.list_container}>
-        //             { bookElements }
-        //         </div>
-        //     </>
-        // );
-        // for(let i = 0; i < 10; i++) {
-        //     bookList.push(
-        //             <>
-        //             <img
-        //             style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
-        //             src={ list[i].image }/>
-        //             </>
-        //     )
-        // }
+        // 사용자 추천 책 top 10
+        for(let i = 0; i < 10; i++) {
+            bookElements.push(
+                <>
+                    <img
+                        style={{ width: "10.1875rem", height: "14.0625rem", borderRadius: "0.25rem" }}
+                        src={ list[i] }/>
+                </>
+            )
+        }
+        bookList.push(
+            <>
+                <div className={AppStyle.subtitle2}>
+                    { user.nickname }님을 위한 맞춤 추천
+                </div>
+                <div className={mainStyle.list_container}>
+                    { bookElements }
+                </div>
+            </>
+        );
     } else if(!user) {
         // 추천 책 top 10
         for(let i = 0; i < 10; i++){
