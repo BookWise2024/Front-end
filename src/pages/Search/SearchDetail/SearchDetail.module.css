@@ -1,4 +1,4 @@
-.container {
+/* .container {
   display: flex;
   width: 21.4375rem;
   height: auto;
@@ -106,4 +106,131 @@
   display: inline-block;
 }
 
+  */
+/* 수정본 */
+.container {
+  display: flex;
+  width: 21.4375rem;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  background: #FFF;
+  margin: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+
+
  
+}
+
+.Bookimg {
+  width: 10.9375rem;
+  height: 16.375rem;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+}
+
+.author_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.63rem;
+  text-align: center;
+}
+
+.detail_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info_title {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top:2rem;
+}
+
+.txt_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.detail_component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.main_title {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.63rem;
+  text-align: center;
+  /* display: inline-block; */
+
+  /* title1에서 폰트크기만 변경 */
+  font-size: 1.25rem; /* 20px */;
+  font-weight: 600;
+  /* Semibold에 해당하는 숫자 값 */
+  line-height: 1.75rem; /* 28px */
+  letter-spacing: 0;
+}
+
+.book_container {
+  margin-bottom: 1.75rem;
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.63rem;
+  text-align: center;
+}
+
+.BookList {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_normal {
+  color: var(--text-color, #848484);
+}
+
+.bookmark {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bookmarked img {
+  filter: invert(31%) sepia(83%) saturate(4865%) hue-rotate(202deg) brightness(93%) contrast(96%);
+}
+
+.title_container {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.25rem;
+}
+
+ 
+
+

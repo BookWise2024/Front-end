@@ -4,7 +4,7 @@ import style from './Header.module.css';
 import AppStyle from "../../../../App.module.css";
 // ==========================================
 import exitimg from '../../../../assets/img/menu/icon_close.svg';
-import backimg from '../../../../assets/img/menu/arrow/arrow_left.svg';
+import backimg from '../../../../assets/img/menu/arrow/arrow_left_black.svg';
 
 export default function Header() {
 

@@ -23,7 +23,7 @@ const SearchDetailHeader = () => {
         <img src={LeftArrow} onClick={goBack} alt="뒤로가기 아이콘" />
       </div>
       <div className={style.title}>도서 상세</div>
-      <div className={style.icon}>
+      <div className={`${style.icon} ${style.icon_arrow}`}>
         <img src={BookIcon} onClick={goToBookLike} alt="도서 아이콘" />
       </div>
     </header>
