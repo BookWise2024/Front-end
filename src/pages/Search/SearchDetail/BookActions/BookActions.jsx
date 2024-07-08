@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import styles from "./BookActions.module.css";
-
-import AppStyle from "../../App.module.css";
-import LibrarySearch from "../../assets/img/bookdetail/LibrarySearch.png";
-import Button from "../../Common/Button/Button2.jsx"
+//고양이
+import AppStyle from "../../../../App.module.css";
+import LibrarySearch from "../../../../assets/img/bookdetail/LibrarySearch.png";
+import Button from "../../../../Common/Button/Button2.jsx"
 const BookActions = () => {
   return (
     <div className={styles.container}>
