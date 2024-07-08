@@ -7,7 +7,7 @@ const useBookDetail = (bookId) => {
   const [error, setError] = useState(null);
 
   const fixedBookDetail = {
-    "bookId": "0132350882",
+    "bookId": "9788960778818",
     "coverUrl": "https://image.aladin.co.kr/product/205/12/coversum/0132350882_1.jpg",
     "title": "Clean Code: A Handbook of Agile Software Craftsmanship (Paperback) - A Handbook of Agile Software Craftsmanship",
     "author": "로버트 C. 마틴 (지은이)",

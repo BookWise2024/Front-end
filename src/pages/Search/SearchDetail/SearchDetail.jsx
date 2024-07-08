@@ -221,7 +221,7 @@ import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
 import RelatedBooks from "../../../pages/Search/SearchDetail/RelatedBooks.jsx";
-import BookActions from "../../../Common/Book/BookActions.jsx";
+import BookActions from "../../../pages/Search/SearchDetail/BookActions/BookActions.jsx";
 import SearchDetailHeader from "../SearchDetail/Header/SearchDetailHeader.jsx";  
 import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
 import Review from "../../../Review/Review.jsx";
@@ -239,7 +239,7 @@ const SearchDetail = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   const defaultBookDetail = {
-    "bookId": "0132350882",
+    "bookId": "9788960778818", //isbn13
     "coverUrl": "https://image.aladin.co.kr/product/205/12/coversum/0132350882_1.jpg",
     "title": "Clean Code: A Handbook of Agile Software Craftsmanship (Paperback) - A Handbook of Agile Software Craftsmanship",
     "author": "로버트 C. 마틴 (지은이)",
