@@ -66,7 +66,7 @@ export default function Library(props) {
     // 도서관 상세 페이지로 이동
     function Info(libraryId, hasBook, loanAvailable) {
         console.log("/BookInfoLibInfo?bookId=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasBook + "&loanAvailable=" + loanAvailable)
-        navigate("/BookInfoLibInfo?bookId=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasBook + "&loanAvailable=" + loanAvailable);
+        navigate("/BookInfoLibInfo?isbn13=" + bookId + "&libraryId=" + libraryId + "&hasbook=" + hasBook + "&loanAvailable=" + loanAvailable);
     }
 
     // 책 보유 여부에 따른 활성화 버튼
