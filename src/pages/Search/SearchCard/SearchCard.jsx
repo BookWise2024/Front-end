@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "./SearchCard.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
 import SearchHeader from "../../../Common/SearchHeader/SearchHeader.jsx";
@@ -7,7 +7,18 @@ import useAladinSearch from '../../../API/Aladin/useAladinSearch.jsx';
 
 const SearchCard = () => {
   const { books, isLoading, error, query, searchBooks } = useAladinSearch();
+const handleSearch = (searchQuery) => {
+    searchBooks(searchQuery);
+};
 
+useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const searchQuery = params.get('search');
+    console.log(searchQuery);
+    if (searchQuery && searchQuery !== query) {
+        searchBooks(searchQuery);
+    }
+}, [query, searchBooks]);
   return (
     <Layout>
       <SearchHeader onSearch={searchBooks} />
