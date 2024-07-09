@@ -71,6 +71,10 @@ const BookLike = () => {
     window.location.href = "http://localhost:5173/login";
   }
 
+  if(!prefer) {
+    return <div>Prefer list doesn't exist</div>
+  }
+
 
   return (
     <Layout>
