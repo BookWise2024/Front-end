@@ -5,6 +5,7 @@ import axios from 'axios'
 // ------------------------------------------------------
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
+import DragXComponent from '../../../Common/Scroll/DragXComponent.jsx';
 //-------------------------------------------------------
 
 export default function MainBookList(props) {
@@ -91,9 +92,11 @@ export default function MainBookList(props) {
                 <div className={AppStyle.subtitle2}>
                     { user.nickname }님을 위한 맞춤 추천
                 </div>
-                <div className={mainStyle.list_container}>
-                    { bookElements }
-                </div>
+                <DragXComponent>
+                    <div className={mainStyle.list_container}>
+                        { bookElements }
+                    </div>
+                </DragXComponent>
             </>
         );
     } else if(!user) {
@@ -117,11 +120,11 @@ export default function MainBookList(props) {
                 <div key="title" className={AppStyle.subtitle2}>
                     지금 뜨는 도서
                 </div>
-                {/*<WidthScroll>*/}
+                <DragXComponent>
                     <div key="element" className={ `${mainStyle.list_container}` }>
                         { bookElements }
                     </div>
-                {/*</WidthScroll>*/}
+                </DragXComponent>
             </>
         );
     }
