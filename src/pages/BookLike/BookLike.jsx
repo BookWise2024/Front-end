@@ -22,6 +22,11 @@ const BookLike = () => {
   // 선호책 리스트
   const [prefer, setPrefer] = useState(null);
 
+  // 책 상세페이지로 이동
+  function BookDetail(isbn) {
+    navigate("/SearchDetail?isbn13=" + isbn);
+  }
+
   // 로그인 여부 확인
   useEffect(() => {
     const login_check = async () => {
@@ -44,7 +49,7 @@ const BookLike = () => {
       }
     }
     login_check();
-  },[]);
+  },[token]);
 
   useEffect(() => {
     // 사용자 선호책 리스트
@@ -84,7 +89,7 @@ const BookLike = () => {
           </div>
           <div className={styles.bookList}>
             {prefer.bookList.map((book, index) => (
-              <div className={styles.bookItem} key={index}>
+              <div className={styles.bookItem} key={index} onClick={ () => BookDetail(book.bookId)}>
                 <img className={styles.bookImage} src={ book.coverUrl } />
               </div>
             ))}

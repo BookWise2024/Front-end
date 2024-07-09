@@ -19,7 +19,7 @@ import DropdownMenu from './Common/Dropdown/DropdownMenu.jsx';
 import SearchNotFound from './pages/Search/SearchNotFound/SearchNotFound.jsx';
 import BookDetailTestPage from './API/Aladin/BookDetailTestPage.jsx';
 
-import Relation from "./pages/Search/SearchDetail/RelatedBooks.jsx";
+import Relation from "./pages/Search/SearchDetail/RelatedBook/RelatedBooks.jsx";
 
 function App() {
   return (

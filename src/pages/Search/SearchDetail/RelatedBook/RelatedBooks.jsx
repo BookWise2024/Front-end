@@ -81,8 +81,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import style from "./RelatedBooks.module.css";
-import AppStyle from "../../../App.module.css";
-import DragXComponent from '../../../Common/Scroll/DragXComponent';
+import AppStyle from "../../../../App.module.css";
+import DragXComponent from '../../../../Common/Scroll/DragXComponent.jsx';
 
 const RelatedBooks = (props) => {
     const navigate = useNavigate();
