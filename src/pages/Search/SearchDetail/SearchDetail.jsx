@@ -5,7 +5,7 @@ import useBookDetail from "../../../API/Aladin/useBookDetail.jsx";
 import style from "./SearchDetail.module.css";
 import AppStyle from "../../../App.module.css";
 import Layout from "../../../Common/Layout/Layout.jsx";
-import RelatedBooks from "../../../pages/Search/SearchDetail/RelatedBooks.jsx";
+import RelatedBooks from "./RelatedBook/RelatedBooks.jsx";
 import BookActions from "../../../pages/Search/SearchDetail/BookActions/BookActions.jsx";
 import SearchDetailHeader from "../SearchDetail/Header/SearchDetailHeader.jsx";
 import BookmarkIcon from "../../../assets/img/bookdetail/bookmark_icon.svg";
@@ -30,6 +30,7 @@ const SearchDetail = () => {
           { headers: {'Authorization': `${token}`} });
       console.log(res.data);
       setBookmarked(true);
+      window.location.reload();
     } catch(err) {
       console.error('Error:', err.response ? err.response.data : err.message);
     }
@@ -40,6 +41,7 @@ const SearchDetail = () => {
         { headers: {'Authorization': `${token}`} });
       console.log(res.data);
       setBookmarked(false);
+      window.location.reload();
     } catch(err) {
       console.error('Error:', err.response ? err.response.data : err.message);
     }
