@@ -80,8 +80,9 @@ const BookLike = () => {
 
   return (
     <Layout>
+      <HomeHeader />
       <div className={styles.bookListContainer}>
-        <HomeHeader />
+        
         <div className={styles.bookListContent}>
           <div className={styles.bookListHeader}>
             <div className={styles.title}>선호책 리스트</div>

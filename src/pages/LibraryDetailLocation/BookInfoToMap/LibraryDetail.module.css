@@ -1,5 +1,11 @@
 .Library_detail_container{
+  margin-top: 3.0rem;
   width: 23.4375rem;
   height: auto;
-  
+  background: var(--bg-color);
+}
+.related_books_wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
 }

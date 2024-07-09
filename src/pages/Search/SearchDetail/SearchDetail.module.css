@@ -130,6 +130,7 @@
   height: 16.375rem;
   flex-shrink: 0;
   border-radius: 0.625rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .author_title {

@@ -6,7 +6,7 @@
     align-items: flex-start;
     gap: 0.875rem;
 
-    background: #F4F4F4;
+    background: var(--bg-color);
 
     margin-top: 0.25rem;
 }

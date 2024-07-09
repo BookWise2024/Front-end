@@ -1,5 +1,9 @@
 .wrapper {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   justify-content: center;
   width: 23.4375rem;
-  height: 57.625rem;
+  height: auto;
+  background-color: var(--bg-color);
+ 
 }

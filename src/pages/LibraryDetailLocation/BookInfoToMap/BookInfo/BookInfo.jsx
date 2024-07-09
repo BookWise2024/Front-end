@@ -105,9 +105,9 @@ export default function BookInfo(props) {
         <>
             <div className={style.infoBase}>
                 <div className={style.bookInfo}>
-                    <div className={style.bookImg}>
-                        <img src={bookInfo.coverUrl}/>
-                    </div>
+                    
+                    <img className={style.bookImg} src={bookInfo.coverUrl}/>
+                   
                     <div className={style.info}>
                         <div className={style.simpleInfo}>
                             <div className={`${AppStyle.subtitle2} ${style.title}`}>{bookInfo.title}</div>
