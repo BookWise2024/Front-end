@@ -173,7 +173,7 @@
 }
 
 .main_title {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,12 +210,24 @@
   color: var(--text-color, #848484);
 }
 
+/* .bookmark {
+
+ 
+  background: none;
+  border: none;
+  cursor: pointer;
+ 
+}
+
+.bookmarked img {
+  filter: invert(31%) sepia(83%) saturate(4865%) hue-rotate(202deg) brightness(93%) contrast(96%);
+} */
+    
+
+
 .bookmark {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
+  
+
   background: none;
   border: none;
   cursor: pointer;
@@ -223,14 +235,27 @@
 
 .bookmarked img {
   filter: invert(31%) sepia(83%) saturate(4865%) hue-rotate(202deg) brightness(93%) contrast(96%);
+
+  width: auto; /* 이미지 원본 비율 유지 */
+  height: auto; /* 이미지 원본 비율 유지 */
 }
+
+
 
 .title_container {
   position: relative;
   display: inline-block;
   margin-top: 1.25rem;
+
+
+
 }
 
- 
 
+ 
+.related_books_wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
+}
 
