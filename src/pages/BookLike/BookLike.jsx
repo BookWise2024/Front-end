@@ -72,7 +72,7 @@ const BookLike = () => {
   }
 
   if(!prefer) {
-    return <div>Prefer list doesn't exist</div>
+    return <div>Prefer list does not exist</div>
   }
 
 
