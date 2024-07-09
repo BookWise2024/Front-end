@@ -11,9 +11,9 @@ export default function MainBookList(props) {
 
     const jungbonaru_url = props.jungbonaru_url;
     const user = props.user;
+    const token = localStorage.getItem('accessToken');
 
     const navigate = useNavigate();
-    const baseUrl = "http://localhost:8080";
 
     // 추천 책 리스트
     const [list, setList] = useState([]);
@@ -30,7 +30,6 @@ export default function MainBookList(props) {
         // 사용자 추천 책 리스트 요청
         const userRecommend = async() => {
             try {
-                const token = localStorage.getItem('accessToken');
                 console.log(token);
                 const res = await axios.get("http://43.203.74.198:8000/api/book/recommendations",
                     {headers: { 'Authorization': `${token}` },
@@ -43,17 +42,16 @@ export default function MainBookList(props) {
                 console.log(e);
             }
         };
-
-        if(user) {
+        if(token) {
             console.log("Login");
             userRecommend();
         } else {
             console.log("logout");
         }
-    }, [user]);
+    }, [token]);
 
     useEffect(() => {
-        if (!user) {
+        if (!token) {
             const recomend = async() => {
                 try{
                     const res = await axios.get(jungbonaru_url);
@@ -71,7 +69,7 @@ export default function MainBookList(props) {
             };
             recomend();
         }
-    }, [jungbonaru_url, user]);
+    }, [jungbonaru_url, token]);
     // ---------------------------------------------------------------------------
     // 로그인 여부에 따른 상단의 추천 도서 종류 변경
     if(user) {
