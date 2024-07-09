@@ -38,10 +38,10 @@ export default function LibraryLocation() {
 
   // 사용자 현재 위치 파악 -> from GetUserLocation.jsx
   useEffect(() => {
-    // 성공적으로 정보를 가져왔을 경우의 location
-    const handleLocationSuccess = (location) => {
-      setUserLocation(location);
-    };
+        // 성공적으로 정보를 가져왔을 경우의 location
+        const handleLocationSuccess = (location) => {
+            setUserLocation(location);
+        };
 
         // 정보를 가져오는데 실패했을 경우의 location
         const handleLocationError = (defaultLocation) => {
