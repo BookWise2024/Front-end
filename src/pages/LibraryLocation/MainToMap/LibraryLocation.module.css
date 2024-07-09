@@ -1,4 +1,7 @@
 .wrapper {
+  margin-top: 3rem;
   width: 23.4375rem;
-height: 57.625rem;
+  height: 57.625rem;
+  background-color: var(--bg-color);
+  height: auto;
 }

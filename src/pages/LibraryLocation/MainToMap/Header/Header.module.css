@@ -6,7 +6,8 @@
     align-items: flex-start;
     gap: 5.6875rem;
     flex-shrink: 0;
-    
+    position:absolute;
+    top:0;
 
     background: #FFF;
 }

@@ -5,14 +5,14 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  width: 21.4375rem;
-  /* height: 3.5rem; */
+  width: 23.4375rem;
+ 
   justify-content: space-between;
   color: white;
   font-weight: bold;
   background: var(--main-color, #38ACFF);
   flex-shrink: 0;
-  padding: 1rem;
+  padding: 1.25rem 1.9375rem 1.25rem 1rem;
 }
 
 .title {

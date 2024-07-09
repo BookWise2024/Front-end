@@ -22,19 +22,21 @@ useEffect(() => {
   return (
     <Layout>
       <SearchHeader onSearch={searchBooks} />
-      <div className={style.CardContainer}>
-        {isLoading && <p>검색 중...</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {!isLoading && books.length > 0 && (
-          books.map((book, index) => (
-            <BookSearchList key={book.isbn13} book={book} index={index} />
-          ))
-        )}
-        {!isLoading && books.length === 0 && !error && (
-          <p className={style.noResults}>
-            &apos;<span className={style.queryText}>{query}</span>&apos; 검색 결과를 찾을 수 없어요
-          </p>
-        )}
+      <div className={style.CardWrapper}>
+        <div className={style.CardContainer}>
+          {isLoading && <p>검색 중...</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {!isLoading && books.length > 0 && (
+            books.map((book, index) => (
+              <BookSearchList key={book.isbn13} book={book} index={index} />
+            ))
+          )}
+          {!isLoading && books.length === 0 && !error && (
+            <p className={style.noResults}>
+              &apos;<span className={style.queryText}>{query}</span>&apos; 검색 결과를 찾을 수 없어요
+            </p>
+          )}
+        </div>
       </div>
     </Layout>
   );

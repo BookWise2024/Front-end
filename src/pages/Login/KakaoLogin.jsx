@@ -26,32 +26,33 @@ export default function KakaoLogin() {
 
     return (
       <Layout>
-            {/* x 버튼 화면 조정 필요 */}
+
             <div className={kakao.Login_container}>
               <div className={ kakao.exit }>
                   <img className={ kakao.exitButton } onClick={ goBack } src = { exit }/>
               </div>
+              <div className={kakao.contents}> 
+                <div className={ kakao.titleBase }>
+                    <div className={ kakao.subTitle }>AI 기반 도서 추천 서비스</div>
+                    <div className={ kakao.mainTitle }>
+                        <img className={ kakao.mainLogo } src = { logo }/>
+                    </div>
+                </div>
 
-              <div className={ kakao.titleBase }>
-                  <div className={ kakao.subTitle }>AI 기반 도서 추천 서비스</div>
-                  <div className={ kakao.mainTitle }>
-                      <img className={ kakao.mainLogo } src = { logo }/>
-                  </div>
-              </div>
-
-              <div className={ kakao.buttonBase }>
-                  <div className={ kakao.desc }>
-                      간편하게 로그인하고 <br/> 다양한 서비스를 이용해보세요
-                  </div>
-                  <button onClick={handleLogin} className={kakao.kakaoButton}>
-                      {/* image는 kakao.module.css에서 백그라운드로 설정 */}
-                      <div className={kakao.buttonContent}>
-                          <img className={kakao.kakaoImage} src={ kakaologo }/>
-                          <div className={kakao.buttonText}>
-                              카카오로 1초 만에 시작하기
-                          </div>
-                      </div>
-                  </button>
+                <div className={ kakao.buttonBase }>
+                    <div className={ kakao.desc }>
+                        간편하게 로그인하고 <br/> 다양한 서비스를 이용해보세요
+                    </div>
+                    <button onClick={handleLogin} className={kakao.kakaoButton}>
+                        {/* image는 kakao.module.css에서 백그라운드로 설정 */}
+                        <div className={kakao.buttonContent}>
+                            <img className={kakao.kakaoImage} src={ kakaologo }/>
+                            <div className={kakao.buttonText}>
+                                카카오로 1초 만에 시작하기
+                            </div>
+                        </div>
+                    </button>
+                </div>
               </div>
             </div>
             
