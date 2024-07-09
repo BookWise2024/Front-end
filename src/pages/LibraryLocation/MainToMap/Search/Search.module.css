@@ -1,18 +1,25 @@
+.Search_Container {
+  height: 3.8rem;
+  margin-top: 0.3rem;
+}
+
 .searchBar {
+    position: absolute;
     display: flex;
     width: 19.4375rem;
+   
     height: 1.5rem;
     padding: 0.6875rem 1rem;
     justify-content: center;
     align-items: flex-start;
     gap: 6.6875rem;
     flex-shrink: 0;
-
+    
     border-radius: 0.5rem;
     border: 1px solid var(--text_light, #C0C0C0);
     background: #FFF;
-
-    margin: 0.5rem 1rem 0rem 1rem;
+   
+    margin: 0rem 1rem 0rem 1rem;
 }
 
 .input {

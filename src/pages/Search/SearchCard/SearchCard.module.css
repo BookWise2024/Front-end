@@ -1,11 +1,19 @@
+.CardWrapper {
+  background-color: var(--bg-color);
+
+
+width: 23.4375rem;
+height: 41.6875rem;
+}
+
 .CardContainer {
   display: flex;
   flex-direction: column;
   padding: 0.75rem 1rem;
   align-items: flex-start;
   gap: 0.625rem;
-  margin: 1rem;
-  background: #F4F4F4;
+  
+  background-color: var(--bg-color);
 }
 
 .noResults {

@@ -7,8 +7,11 @@
     align-items: flex-start;
     gap: 5.6875rem;
     flex-shrink: 0;
-
-    background: #F4F4F4;
+    top:0;
+    background: var(--bg-color);
+    z-index: 1000;
+    top: 0;
+    position: absolute;
 }
 .title {
     color: #000;
