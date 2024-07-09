@@ -75,3 +75,57 @@ const RelatedBooks = (props) => {
 };
 
 export default RelatedBooks;
+
+// 수정본(혜인)
+// import React, { useState, useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+// import style from "./RelatedBooks.module.css";
+// import AppStyle from "../../../App.module.css";
+// import HorizontalScrollContainer from '../../../Common/Scroll/HorizontalScrollContainer.jsx';
+
+// const RelatedBooks = (props) => {
+//     const navigate = useNavigate();
+//     const bookId = props.isbn;
+
+//     const [list, setList] = useState(null);
+
+//     useEffect(() => {
+//         const SimilarRecomend = async () => {
+//             try {
+//                 const res = await axios.get("http://43.203.74.198:8000/api/book/similar/" + bookId);
+//                 const jsonData = res.data;
+//                 console.log(jsonData);
+//                 setList(jsonData);
+//             } catch (e) {
+//                 console.log(e);
+//             }
+//         };
+//         SimilarRecomend();
+//     }, [bookId]);
+
+//     const bookDetail = (bookId) => {
+//         navigate("/SearchDetail?isbn13=" + bookId);
+//     };
+
+//     return (
+//         <div className={style.container}>
+//             <div className={AppStyle.subtitle2}>
+//                 이 책과 비슷한 작품
+//             </div>
+//             <HorizontalScrollContainer>
+//                 {list && list.slice(0, 10).map((book, index) => (
+//                     <img
+//                         key={index}
+//                         className={style.book_image}
+//                         src={book.coverURL}
+//                         onClick={() => bookDetail(book.isbn13)}
+//                         alt={`Cover of ${book.title}`}
+//                     />
+//                 ))}
+//             </HorizontalScrollContainer>
+//         </div>
+//     );
+// };
+
+// export default RelatedBooks;

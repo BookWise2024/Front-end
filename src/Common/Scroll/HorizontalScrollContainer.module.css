@@ -1,0 +1,6 @@
+.scrollContainer {
+  display: flex;
+  overflow-x: auto; /* 수평 스크롤 가능하게 설정 */
+  white-space: nowrap; /* 자식 요소의 줄바꿈 방지 */
+  width: 100%; /* 컨테이너가 전체 너비를 차지하도록 설정 */
+}
