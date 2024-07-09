@@ -31,7 +31,8 @@ export default function SearchBar(props) {
     };
 
     return (
-        <>
+      
+          <div className={style.Search_Container}>
             <div className={ style.searchBar }>
                 <div className={ style.input }>
                     <input className={ style.inputText }
@@ -45,6 +46,7 @@ export default function SearchBar(props) {
                     <img src={ searchimg }/>
                 </div>
             </div>
-        </>
+          </div>
+        
     );
 }

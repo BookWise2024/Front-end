@@ -4,8 +4,8 @@ import Header from './Header/Header.jsx';
 import Info from './Info/Info.jsx';
 import Layout from '../../../Common/Layout/Layout.jsx';
 import BookInfo from './BookInfo/BookInfo.jsx';
-import RelatedBook from './RelatedBooks/RelatedBooks.jsx';
-
+import RelatedBooks from '../../Search/SearchDetail/RelatedBook/RelatedBooks.jsx';
+import style from './LibraryDetail.module.css'
 export default function LibraryDetailLocation() {
 
     const location = useLocation();
@@ -24,10 +24,14 @@ export default function LibraryDetailLocation() {
 
     return (
         <Layout>
+          <div className={style.Library_detail_container}>
             <Header />
             <Info libraryId = { libraryId }/>
             <BookInfo bookId = { isbn } hasbook = { hasbook } loanAvailable = { loanAvailable } libraryId = { libraryId }/>
-            <RelatedBook isbn = { isbn } />
+            <div className={style.related_books_wrapper}>
+              <RelatedBooks isbn={isbn} />
+            </div>
+          </div>
         </Layout> 
     );
 }

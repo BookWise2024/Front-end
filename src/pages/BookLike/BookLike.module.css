@@ -1,11 +1,12 @@
 .bookListContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 23.4375rem;
+  width: 23.4375rem;
   margin:  auto;
-
+  background: var(--bg-color);
   margin-top: 3rem;
+  height: 49.6875rem;
+  max-height: auto;
   
 }
 
@@ -60,5 +61,6 @@
   width: 8.0625rem;
   height: 12.1875rem;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
