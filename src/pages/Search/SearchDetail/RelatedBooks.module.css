@@ -1,14 +1,33 @@
-.container {
+/* .container {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 26.25rem; /* 420px */
-  height: 11.4375rem; /* 183px */
-  gap: 1rem; /* 16px */
+  width: 26.25rem;  
+  height: 11.4375rem;  
+  gap: 1rem;  
 }
 
 .list_container {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem; /* 8px */
-}
+  gap: 0.5rem;  
+} */
+
+/* 혜인 수정 */
+/* .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* 부모 컨테이너의 전체 너비 */
+  /* height: auto;
+  gap: 1rem;
+} */ 
+
+/* .book_image {
+  width: 6.1875rem;
+  height: 8.875rem; 
+  border-radius: 0.25rem; 
+  margin-right: 0.5rem;  */
+  /* cursor: pointer; */
+/* } */
+/*  */
