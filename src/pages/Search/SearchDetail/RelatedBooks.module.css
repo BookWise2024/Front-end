@@ -14,20 +14,32 @@
 } */
 
 /* 혜인 수정 */
-/* .container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%; /* 부모 컨테이너의 전체 너비 */
-  /* height: auto;
-  gap: 1rem;
-} */ 
+.container {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
 
-/* .book_image {
+.title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.book_list {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.book_image {
   width: 6.1875rem;
-  height: 8.875rem; 
-  border-radius: 0.25rem; 
-  margin-right: 0.5rem;  */
-  /* cursor: pointer; */
-/* } */
-/*  */
+  height: 8.875rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.no_books {
+  text-align: center;
+  width: 100%;
+}

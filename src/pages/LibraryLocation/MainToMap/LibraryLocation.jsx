@@ -75,22 +75,22 @@ export default function LibraryLocation() {
 
     return (
           <Layout>
-            <div className={style.wrapper}>
-              <Header/>
-              <Search onSearch={ handleSearch } />
-              {userLocation && aroundLib != [] ? (
-                  <>
-                      <Map userLocation={userLocation}
-                          aroundLib={aroundLib}
-                          searchKeyword={searchKeyword}
-                          onLocationChange={ handleLocationChange }/>
-                      <Library userLocation={userLocation}
-                              aroundLib={aroundLib} />
-                  </>
-              ) : (
-                  <p>Loading...</p>
-              )}
-                {/*<div id="map" style={{ width: "0px", height: "0px" }}></div>*/}
+              <div className={style.wrapper}>
+                <Header/>
+                <Search onSearch={ handleSearch } />
+                {userLocation && aroundLib != [] ? (
+                    <>
+                        <Map userLocation={userLocation}
+                            aroundLib={aroundLib}
+                            searchKeyword={searchKeyword}
+                            onLocationChange={ handleLocationChange }/>
+                        <Library userLocation={userLocation}
+                                aroundLib={aroundLib} />
+                    </>
+                ) : (
+                    <p>Loading...</p>
+                )}
+                  {/*<div id="map" style={{ width: "0px", height: "0px" }}></div>*/}
             </div>
         </Layout>
     )

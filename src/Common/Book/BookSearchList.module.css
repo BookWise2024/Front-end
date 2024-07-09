@@ -127,8 +127,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem; /* 8px */
-  background: #FFF;
-  border: 1px solid #cccccc;
+
+  /*밝은 회색 (#e0e0e0)
+부드러운 파란색 (#d0ebff)
+아주 연한 노란색 (#fff9c4)*/
+  background: linear-gradient(180deg, #EBF7FF 0%, #E3EAFF 100%);   
+  /* border: 3.5px solid #d0ebff; */
   margin: 0 auto;
   margin-bottom: 0.75rem;
 }

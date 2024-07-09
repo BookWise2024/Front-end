@@ -2,7 +2,8 @@
   display: flex;
   width: 23.4375rem;
   height: 10.9375rem;
-  padding: 1.25rem 1rem;
+  /* padding: 1.25rem 1rem; */
+  margin-top:1.5rem;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;

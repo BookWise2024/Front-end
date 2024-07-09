@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 
-    background: #F4F4F4;
+    background: var(--bg-color);
 
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;

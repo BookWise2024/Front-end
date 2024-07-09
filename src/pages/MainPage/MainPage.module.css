@@ -26,8 +26,9 @@
 
 .layout {
   width: 23.4375rem;
-  /* height: 41.6875rem; */
-  height:auto;
+  height: 61.6875rem;
+  /* 콘텐츠 길어지면 auto로 다시 수정 필요 */
+  /* height:auto; */ 
   background: var(--white);
   overflow: hidden;
   display: block;
