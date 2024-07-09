@@ -7,32 +7,19 @@ export default defineConfig({
   base: '/',
   plugins: [react()],
   server: {
+    host: '0.0.0.0',  // 외부에서 접근 가능하도록 설정
+    port: 5173,       // 사용할 포트
     proxy: {
       // '/api': {
       //   target: 'http://localhost:8080',
       //   changeOrigin: true,
       //   rewrite: (path) => path.replace(/^\/api/, '')
-      // },
-      // '/oauth2' : {
-      //   target: 'http://localhost:8080',
-      //   changeOrigin: true,
-      // },
-      // '/login' : {
-      //   target: 'http://localhost:8080',
-      //   changeOrigin: true,
-      // },
-      // '/logout' : {
-      //   target: 'http://localhost:8080',
-      //   changeOrigin: true,
-      // }
+
       '/api': {
         target: 'https://www.aladin.co.kr',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/ttb/api', '')
       }
-      // '/api/library': 'http://localhost:5173',
-      // '/api/aladin': 'http://localhost:5173'
     },
-    
   }
 })
