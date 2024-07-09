@@ -5,7 +5,6 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css'
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-import scroll from "./WidthScroll.jsx"
 
 export default function SubBookList({ jungbonaru_url }) {
     const navigate = useNavigate();

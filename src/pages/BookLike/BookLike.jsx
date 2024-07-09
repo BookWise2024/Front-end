@@ -24,21 +24,29 @@ const BookLike = () => {
 
   // 로그인 여부 확인
   useEffect(() => {
-    const login_check = async() => {
+    const login_check = async () => {
+      console.log(token);
+      console.log(user);
       if (token) {
         try {
           const response = await axios.get('http://43.203.74.198:8000/api/user/profile', {
             // headers: { 'Authorization': `Bearer ${token}` },
-            headers: { 'Authorization': `${token}` },
+            headers: {'Authorization': `${token}`},
           });
           console.log(response.data);
           setUser(response.data);
         } catch (error) {
           console.error('Error fetching user info', error);
         }
+      } else {
+        alert("로그인이 필요합니다.");
+        navigate("/login");
       }
     }
+    login_check();
+  },[]);
 
+  useEffect(() => {
     // 사용자 선호책 리스트
     const preferList = async() => {
       try {
@@ -55,21 +63,10 @@ const BookLike = () => {
       }
     }
 
-    login_check();
     if (!prefer) {
       preferList();
     }
-  }, []);
-
-  // user 값이 잘 set 되었는지 확인하기
-  if (!user) {
-      return <div>User information not found.</div>;
-  }
-  console.log(user);
-  if(user == null) {
-    alert("로그인이 필요합니다.");
-    window.location.href = "http://localhost:5173/login";
-  }
+  }, [user]);
 
   if(!prefer) {
     return <div>Prefer list does not exist</div>

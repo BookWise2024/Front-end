@@ -6,7 +6,6 @@ import axios from 'axios'
 import mainStyle from '../MainPage.module.css';
 import AppStyle from "../../../App.module.css";
 //-------------------------------------------------------
-// import WidthScroll from "./WidthScroll.jsx";
 
 export default function FourthBookList(props) {
 
