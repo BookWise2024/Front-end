@@ -17,11 +17,19 @@ const SearchDetail = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const isbn = searchParams.get("isbn13");
-  const token = localStorage.getItem("accessToken");
+  // 토큰 여부 확인
+  let token = null;
+  token =localStorage.getItem('accessToken');
+  if(!token) {
+    token = "";
+  }
+  console.log(token);
 
   const { bookDetail, isLoading, error } = useBookDetail(isbn);
   const [bookmarked, setBookmarked] = useState(false); // 북마크 상태 관리
   const [bookData, setBookData] = useState(null);
+  // 버튼 유무
+  const button = [];
 
   const addLike = async() => {
     try{
@@ -71,30 +79,35 @@ const SearchDetail = () => {
     }
   }, [bookDetail]);
 
+  // 토큰의 유무에 따라 북마크 표시
+  if(token !== "") {
+    button.push(
+        <button
+            className={`${style.bookmark} ${bookmarked ? style.bookmarked : ""}`}
+            onClick={handleBookmarkClick}
+        >
+          <img
+              src={bookmarked ? BookmarkIconMarked : BookmarkIcon} // 상태에 따라 다른 이미지 표시
+              alt="북마크 아이콘"
+          />
+        </button>
+    );
+  }
+
   // 다음과 같은 코드를 통해 재로딩하면서 useBookDetail함수가 호출되도록 유도한다.
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
   if (!bookData) return <div>No data available</div>;
 
   return (
-    <Layout>
-      <SearchDetailHeader />
-      <div className={style.container}>
-        <div className={style.book_container}>
+      <Layout>
+        <SearchDetailHeader/>
+        <div className={style.container}>
+          <div className={style.book_container}>
           <div className={style.txt_container}>
             <div className={style.title_container}>
               <div className={`${style.main_title}`}>{bookData.title}</div>
-              <button
-                className={`${style.bookmark} ${
-                  bookmarked ? style.bookmarked : ""
-                }`}
-                onClick={handleBookmarkClick}
-              >
-                <img
-                  src={bookmarked ? BookmarkIconMarked : BookmarkIcon} // 상태에 따라 다른 이미지 표시
-                  alt="북마크 아이콘"
-                />
-              </button>
+              {button}
             </div>
             <div
               className={`${AppStyle.Body4} ${style.text_normal} ${style.author_title}`}

@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0',  // 외부에서 접근 가능하도록 설정
-    port: 5173,       // 사용할 포트
+    port: 4173,       // 사용할 포트(preview는 4173)
     proxy: {
       // '/api': {
       //   target: 'http://localhost:8080',
@@ -21,5 +21,9 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '/ttb/api', '')
       }
     },
+  },
+  preview: {
+    host: '0.0.0.0', // `npm run preview`에서 외부 접근을 허용하도록 설정
+    port: 4173,      // 사용할 포트
   }
 })
