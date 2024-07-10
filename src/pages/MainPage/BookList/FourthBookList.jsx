@@ -21,6 +21,8 @@ export default function FourthBookList(props) {
 
     // 추천 책 리스트
     const [list, setList] = useState([]);
+    // 카테고리
+    const [category, setCategory] = useState(null);
     // 최상단 추천 리스트
     const bookList = [];
     const bookElements = [];
@@ -40,8 +42,11 @@ export default function FourthBookList(props) {
                     });
 
                 const recomend = res.data.preferOne;
-                console.log(recomend);
+                const category = res.data.wishcategories[parseInt(1)];
+                // console.log(recomend);
+                // console.log(category);
                 setList(recomend);
+                setCategory(category);
             } catch(e) {
                 console.log(e);
             }
@@ -96,7 +101,7 @@ export default function FourthBookList(props) {
         bookList.push(
             <>
                 <div className={AppStyle.subtitle2}>
-                    categoryTwo 맞춤 추천
+                    { category } 추천
                 </div>
                 <div className={mainStyle.list_container}>
                     { bookElements }
